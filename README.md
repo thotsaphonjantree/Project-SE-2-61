@@ -7,4 +7,5 @@ Members
 
   3. B5909711 Mr. Narawich Saphimarn
   4. B5901890 Mr. Pattaraphong Aonta
+  6. B5911189 Mr. Yongsin Chorjampa
 
