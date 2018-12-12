@@ -2,10 +2,9 @@ Members
 =======
 
   1. B590000 Mr. Firstname Lastname
-<<<<<<< HEAD
+
   2. B5926329 Mr.Thotsaphon Jantree
 
+  3. B5909711 Mr. Narawich Saphimarn
+  4. B5901890 Mr. Pattaraphong Aonta
 
-=======
-  2. B5909711 Mr. Narawich Saphimarn
->>>>>>> 90f8d5ec4f6d8115bd3b73b94c42d9d381d73818
