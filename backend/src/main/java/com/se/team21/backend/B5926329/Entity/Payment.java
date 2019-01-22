@@ -27,7 +27,7 @@ public class Payment {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sportId")
-    private SportEvent sportEvent;
+    private Event sportEvent;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
