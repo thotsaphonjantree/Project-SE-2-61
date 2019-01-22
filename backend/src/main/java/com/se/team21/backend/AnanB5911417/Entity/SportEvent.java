@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Data
 @Entity
 
-public class SportsEvent {
+public class SportEvent {
     @Id
     @SequenceGenerator(name = "sportsevent_seq", sequenceName = "sportsevent_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sportsevent_seq")
@@ -18,7 +18,7 @@ public class SportsEvent {
     private @NonNull String sportName;
     private @NonNull String location;
 
-    public SportsEvent() {
+    public SportEvent() {
     }
 
 }
