@@ -7,6 +7,7 @@ import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolb
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { SporteventComponent } from './B5910311/sportevent/sportevent.component';
 
 const appRoutes: Routes = [
   
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SporteventComponent
   ],
   imports: [
     BrowserModule,
