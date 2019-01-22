@@ -1,4 +1,4 @@
-package com.se.team21.backend.Entity;
+package com.se.team21.backend.AnanB5911417.Entity;
 
 
 import javax.persistence.*;
