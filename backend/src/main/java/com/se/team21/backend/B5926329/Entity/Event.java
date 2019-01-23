@@ -17,6 +17,6 @@ public class Event {
     @SequenceGenerator(name = "event_seq", sequenceName = "event_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "event_seq")
     private @NonNull Long eventId;
-    private @NonNull String evenName;
-    private @NonNull Long evenPrice;
+    private @NonNull String eventName;
+    private @NonNull Long eventPrice;
 }

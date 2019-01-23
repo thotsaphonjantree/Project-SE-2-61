@@ -1,1 +1,42 @@
-<a button mat-raised-button color="primary" routerLink="/checkstatus/1">ตรวจสอบสถานะการจ่ายเงิน</a>
+<mat-card class ="paymentcard">
+
+
+
+        
+
+        <mat-form-field class="example-full-width">
+                <mat-select placeholder="Members" [(ngModel)]="pay.username" name="username">
+                        <mat-option [value]="memberLogin.memberId">
+                            {{memberLogin.username}} : {{memberLogin.name}}
+                        </mat-option>
+                      </mat-select>
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+                <mat-select placeholder="กิจกรรม" [(ngModel)]="pay.eventname">
+                  <mat-option *ngFor="let event of events" [value]="event.seid">
+                    {{event.eventName}} : ราคา {{event.price}}
+                  </mat-option>
+                </mat-select>
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+                <mat-select placeholder="ประเภทการจ่ายเงิน" [(ngModel)]="pay.paycatename">
+                  <mat-option *ngFor="let paycate of paycates" [value]="paycate.paycateId"   >
+                    {{paycate.paycateName}}
+                  </mat-option>
+                </mat-select>
+        </mat-form-field >
+        <br/>
+        <mat-form-field class="example-full-width">
+                <input matInput placeholder="กรอกจำนวนเงิน" [(ngModel)]="pay.paid">
+              </mat-form-field>
+
+
+
+
+
+<br/>
+
+<a button mat-raised-button color="primary" (click)="save()">จ่ายเงิน</a>
+</mat-card>

@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,6 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SporteventComponent } from './B5910311/sportevent/sportevent.component';
 import { PaymentComponent } from './B5926329/payment/payment.component';
 import { CheckstatusComponent } from './B5926329/checkstatus/checkstatus.component';
+import { MemberloginComponent } from './B5926329/memberlogin/memberlogin.component';
 
 
 
@@ -24,7 +25,12 @@ const appRoutes: Routes = [
     }
     ,
     {
-      path: 'checkstatus/:mid',
+      path: 'memberlogin',
+      component: MemberloginComponent
+      }
+    ,
+    {
+      path: 'checkstatus',
       component: CheckstatusComponent
     }
     ,
@@ -39,7 +45,8 @@ const appRoutes: Routes = [
     AppComponent,
     SporteventComponent,
     PaymentComponent,
-    CheckstatusComponent
+    CheckstatusComponent,
+    MemberloginComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +58,8 @@ const appRoutes: Routes = [
     MatListModule,
     MatToolbarModule,
     FormsModule,
+    MatSelectModule,
+    MatFormFieldModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

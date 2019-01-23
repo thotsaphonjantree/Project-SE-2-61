@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PaymentService } from '../payment.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-checkstatus',
@@ -11,15 +10,17 @@ export class CheckstatusComponent implements OnInit {
 
   mid:any;
 
-  payment:Object;
-  constructor(private data:PaymentService,private route:ActivatedRoute) {
-    this.route.params.subscribe( params => this.payment = params.mid)
+  payments:Array<any>;
+
+  constructor(private data:PaymentService) {
+
+
   }
 
   ngOnInit() {
-        this.data.getPaymentByMember(this.payment).subscribe(
-          data => this.payment = data
-          )
-  }
+    this.data.getPaymentByMember(this.data.getMemberLoginId()).subscribe(
+      data => {this.payments = data})
 
+  }
+  
 }
