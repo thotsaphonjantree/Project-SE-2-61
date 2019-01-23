@@ -16,10 +16,24 @@ public class PlaceEventController {
 
     @Autowired
     PlaceEventRepository placeEventRepository;
+    @Autowired
+    SportEventRepository sportEventRepository;
+    @Autowired
+    StaffRepository staffRepository;
 
     @GetMapping("/placeevent")
     public List<PlaceEvent> showAllPlaceEvent(){
         return placeEventRepository.findAll().stream().collect(Collectors.toList());
+    }
+
+    @GetMapping("/sportevent")
+    public List<SportEvent> showAllSportEvent(){
+        return sportEventRepository.findAll().stream().collect(Collectors.toList());
+    }
+
+    @GetMapping("/showstaff")
+    public List<Staff> showAllStaff(){
+        return staffRepository.findAll().stream().collect(Collectors.toList());
     }
 
 }

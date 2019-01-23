@@ -14,5 +14,17 @@ public class ReservePlace {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ReservePlace_seq")
     private @NonNull Long reserveId;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "sportEventForId")
+    private SportEvent sportEventF;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "placeEventForId")
+    private PlaceEvent placeEventF;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "StaffForId")
+    private Staff staffF;
+
 
 }
