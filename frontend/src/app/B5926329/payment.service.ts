@@ -26,7 +26,7 @@ export class PaymentService {
   }
 
   getAllEvent(): Observable<any>{
-    return this.http.get('//localhost:8080/events');
+    return this.http.get('//localhost:8080/event');
   }
 
   getAllPayCate(): Observable<any>{

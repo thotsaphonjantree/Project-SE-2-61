@@ -3,11 +3,9 @@ package com.se.team21.backend.B5926329.Controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.se.team21.backend.B5926329.Entity.Event;
 import com.se.team21.backend.B5926329.Entity.Member;
 import com.se.team21.backend.B5926329.Entity.PayCategory;
 import com.se.team21.backend.B5926329.Entity.Payment;
-import com.se.team21.backend.B5926329.Repository.EventRepository;
 import com.se.team21.backend.B5926329.Repository.MemberRepository;
 import com.se.team21.backend.B5926329.Repository.PayCategoryRepository;
 import com.se.team21.backend.B5926329.Repository.PaymentRepository;
@@ -28,9 +26,11 @@ public class PaymentController {
     @Autowired
     PaymentRepository paymentRepository;
 
-    @Autowired
-    EventRepository eventRepository;
+    /*@Autowired
+    EventRepository eventRepository;*/
 
+    @Autowired
+    com.se.team21.backend.b5910311.repository.SportsEventRepository sportsEventRepository;
     @Autowired
     MemberRepository memberRepository;
 
@@ -57,7 +57,7 @@ public class PaymentController {
 
         Payment payment = new Payment();
 
-        payment.setSportEvent(eventRepository.getOne(jsonEventName.asLong()));
+        payment.setSportEvent(sportsEventRepository.getOne(jsonEventName.asLong()));
         payment.setPayCategory(payCategoryRepository.getOne(jsonPaycate.asLong()));
         payment.setMembers(memberRepository.getOne(jsonUsername.asLong()));
         payment.setPaymentPaid(jsonPaid.asLong());
@@ -77,10 +77,10 @@ public class PaymentController {
         return paymentRepository.findByMembers_MemberId(mid);
     }
 
-    @GetMapping("/events")
+    /*@GetMapping("/events")
     public List<Event> showAllEvent(){
         return eventRepository.findAll().stream().collect(Collectors.toList());
-    }
+    }*/
 
     @GetMapping("/member/{mid}")
     public Member getMemberById(@PathVariable Long mid) {
@@ -93,9 +93,9 @@ public class PaymentController {
         return payCategoryRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @GetMapping("event/{eid}")
+    /*@GetMapping("event/{eid}")
     public Event showEventByEid(@PathVariable Long eid) {
         Optional<Event> event = eventRepository.findById(eid);
         return event.get();
-    }
+    }*/
 }

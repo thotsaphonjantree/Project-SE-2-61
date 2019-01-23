@@ -56,11 +56,11 @@ public class BackendApplication {
 
 				if(username == "david01"){
 					member.setPassword("1111");
-					member.setName("daviddegea");
+					member.setName("David De Gea");
 				}
 				else if(username == "paul06"){
 					member.setPassword("6666");
-					member.setName("paulpogba");
+					member.setName("Paul Pogba");
 				}
 				memberRepository.save(member);
 			});
@@ -84,21 +84,7 @@ public class BackendApplication {
 			});
 
 
-            /*Payments*/Stream.of(300L,500L).forEach(paid -> {
-                Payment payment = new Payment();
-                payment.setPaymentPaid(paid);
-                if(paid == 300L){
-                    payment.setMembers(memberRepository.getOne(2L));
-                    payment.setPayCategory(payCategoryRepository.getOne(1L));
-                    payment.setSportEvent(eventRepository.getOne(2L));
-                }
-                else if(paid == 500L){
-                    payment.setMembers(memberRepository.getOne(1L));
-                    payment.setPayCategory(payCategoryRepository.getOne(2L));
-                    payment.setSportEvent(eventRepository.getOne(1L));
-                }
-                paymentRepository.save(payment);
-            });
+
 		
 		
 		/*PlaceEvent*/
@@ -214,6 +200,24 @@ public class BackendApplication {
 				sestRepository.save(sest);
 				});
 			//sestRepository.findAll().forEach(System.out::println);
+
+			/*Payments Stream.of(300L,750L).forEach(paid -> {
+				Payment payment = new Payment();
+				payment.setPaymentPaid(paid);
+				if(paid == 750L){
+					payment.setMembers(memberRepository.getOne(2L));
+					payment.setPayCategory(payCategoryRepository.getOne(1L));
+					payment.setSportEvent(sportseventRepository.getOne(2L));
+				}
+				else if(paid == 550L){
+					payment.setMembers(memberRepository.getOne(1L));
+					payment.setPayCategory(payCategoryRepository.getOne(2L));
+					payment.setSportEvent(sportseventRepository.getOne(1L));
+				}
+				paymentRepository.save(payment);
+			});*/
+
+
 		};
 	};
 

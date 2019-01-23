@@ -48,7 +48,7 @@ export class PaymentComponent implements OnInit {
 
     if(this.pay.eventname === '' || this.pay.paycatename === '' || this.pay.paid === '' || this.memberLogin.username === '')
     alert('กรอกข้อมูลให้ครบถ้วน');
-    else if(this.pay.paid == this.checkevent.eventPrice){
+    else if(this.pay.paid == this.checkevent.price){
       alert('จ่ายเงินสำเร็จ !!');
       this.httpClient.post('http://localhost:8080/payment/save/',this.pay).subscribe(
         data => {

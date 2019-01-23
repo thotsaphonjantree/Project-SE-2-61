@@ -21,6 +21,12 @@ max-height: 1500;
     color: rgb(0, 0, 0);
     text-align: center;
 }
+
+.cardtitle2{
+    color: rgb(255, 4, 4);
+    text-align: center;
+}
+
 .paymentborder{
     background-color: 	rgb(255, 255, 255);
     border-style: groove;
