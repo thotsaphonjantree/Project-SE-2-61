@@ -1,6 +1,5 @@
 package com.se.team21.backend;
 
-<<<<<<< HEAD
 import com.se.team21.backend.AnanB5911417.Entity.PlaceEvent;
 import com.se.team21.backend.AnanB5911417.Entity.SportEvent;
 import com.se.team21.backend.AnanB5911417.Entity.Staff;
@@ -15,7 +14,6 @@ import com.se.team21.backend.B5926329.Repository.EventRepository;
 import com.se.team21.backend.B5926329.Repository.MemberRepository;
 import com.se.team21.backend.B5926329.Repository.PayCategoryRepository;
 import com.se.team21.backend.B5926329.Repository.PaymentRepository;
-=======
 import java.util.stream.Stream;
 
 import com.se.team21.backend.b5910311.entity.Location;
@@ -30,7 +28,6 @@ import com.se.team21.backend.b5910311.entity.SeSt;
 import com.se.team21.backend.b5910311.repository.SeStRepository;
 
 
->>>>>>> issue-51
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -45,11 +42,12 @@ public class BackendApplication {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 	@Bean
-<<<<<<< HEAD
     ApplicationRunner init(MemberRepository memberRepository, PayCategoryRepository payCategoryRepository,
 						   EventRepository eventRepository, PaymentRepository paymentRepository,
 						   PlaceEventRepository placeEventRepository,SportEventRepository sportEventRepository,
-						   StaffRepository staffRepository){
+						   StaffRepository staffRepository,LocationRepository locationRepository , SportsTypeRepository sportstypeRepository,
+							SportsEventStaffRepository sportseventstaffRepository,SportsEventRepository sportseventRepository,
+							SeStRepository sestRepository){
 		return args -> {
 
 			/*Member*/ Stream.of( "david01","paul06").forEach(username -> {
@@ -119,25 +117,25 @@ public class BackendApplication {
 			placeEventRepository.save(placeEvent);
 		});
 
-		/*SportEvent*/
-		Stream.of("run for mom","bike for dad","fight for kid").forEach(eventName -> {
-			SportEvent sportEvent = new SportEvent();
-			sportEvent.setEventName(eventName);
+		// /*SportEvent*/
+		// Stream.of("run for mom","bike for dad","fight for kid").forEach(eventName -> {
+		// 	SportEvent sportEvent = new SportEvent();
+		// 	sportEvent.setEventName(eventName);
 
-			if(eventName == "run for mom"){
-				sportEvent.setLocation("nakornratchasrima");
-				sportEvent.setSportName("running");
-			}
-			else if(eventName == "bike for dad"){
-				sportEvent.setLocation("petchaboon");
-				sportEvent.setSportName("bicycle");
-			}
-			else if(eventName == "fight for kid"){
-				sportEvent.setLocation("Phitsanoloke");
-				sportEvent.setSportName("bicycle");
-			}
-			sportEventRepository.save(sportEvent);
-		});
+		// 	if(eventName == "run for mom"){
+		// 		sportEvent.setLocation("nakornratchasrima");
+		// 		sportEvent.setSportName("running");
+		// 	}
+		// 	else if(eventName == "bike for dad"){
+		// 		sportEvent.setLocation("petchaboon");
+		// 		sportEvent.setSportName("bicycle");
+		// 	}
+		// 	else if(eventName == "fight for kid"){
+		// 		sportEvent.setLocation("Phitsanoloke");
+		// 		sportEvent.setSportName("bicycle");
+		// 	}
+		// 	sportEventRepository.save(sportEvent);
+		// });
 
 		/*Staff*/
 		Stream.of("jump","pae","phee").forEach(staffName -> {
@@ -146,11 +144,6 @@ public class BackendApplication {
 
 			staffRepository.save(staff);
 		});
-=======
-    ApplicationRunner init( LocationRepository locationRepository , SportsTypeRepository sportstypeRepository,
-							SportsEventStaffRepository sportseventstaffRepository,SportsEventRepository sportseventRepository,
-							SeStRepository sestRepository){
-		return args -> {
 
 			//set location
 			Stream.of( "Nakhonratchasima","Bangkok","Khonkean" ).forEach( locations ->{
@@ -176,9 +169,6 @@ public class BackendApplication {
 				});
 			//sportseventstaffRepository.findAll().forEach(System.out::println);
 
-			
->>>>>>> issue-51
-
 			//set sportsevent
 			Stream.of("Bike For Mom","Bike For Dad","Kao Khon La Kao").forEach( eventname ->{
 				SportsEvent sportsevent = new SportsEvent();
@@ -187,21 +177,18 @@ public class BackendApplication {
 					sportsevent.setSesname(sportseventstaffRepository.getOne(1L));
 					sportsevent.setPrice(550l);
 					sportsevent.setLocations(locationRepository.getOne(3L));
-					sportseventRepository.save(sportsevent); 
 				}
 				if(eventname=="Bike For Dad"){
 					sportsevent.setEventName(eventname);
 					sportsevent.setSesname(sportseventstaffRepository.getOne(1L));
 					sportsevent.setPrice(750l);
 					sportsevent.setLocations(locationRepository.getOne(1L));
-					sportseventRepository.save(sportsevent); 
 				}
 				if(eventname=="Kao Khon La Kao"){
 					sportsevent.setEventName(eventname);
 					sportsevent.setSesname(sportseventstaffRepository.getOne(2L));
 					sportsevent.setPrice(100l);
 					sportsevent.setLocations(locationRepository.getOne(2L));
-					sportseventRepository.save(sportsevent); 
 				}
 				sportseventRepository.save(sportsevent); 
 				});
@@ -228,13 +215,10 @@ public class BackendApplication {
 				});
 			//sestRepository.findAll().forEach(System.out::println);
 		};
-<<<<<<< HEAD
-		};
+	};
 
-=======
->>>>>>> issue-51
 
-	} 	
+} 	
 
 
 

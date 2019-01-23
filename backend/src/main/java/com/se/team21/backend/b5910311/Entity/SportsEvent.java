@@ -55,7 +55,5 @@ public class SportsEvent {
     @JoinColumn(name = "SE_SES")
     private SportsEventStaff sesname;
 
-    
 
-    
 }
