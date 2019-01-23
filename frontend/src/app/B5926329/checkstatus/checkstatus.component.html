@@ -1,24 +1,23 @@
-<mat-card class="example-card">
 
-    <mat-card-title><h2>ลงทะเบียนเสร็จสิ้น</h2></mat-card-title>
-    <mat-list>
-      
-        <mat-card-content>
-          <mat-divider></mat-divider>
-          <div align="left">
-            <p>Username : {{payment.members.username}}</p>
+<mat-card class="card2">
+    <mat-card-title class="cardtitle">ลงทะเบียนเสร็จสิ้น</mat-card-title>
+  <br/>
+  <mat-card class="paymentcard">
+
+    <mat-card-content>
+      <div *ngFor="let payment of payments">
+        <div class="paymentborder">
+            <p>USERNAME : {{payment.members.username}}</p>
             <p>ชื่อ :  {{payment.members.name}}</p>
-            <p>กิจกรรม : {{payment.sportEvent.evenName}}</p>
-            <p>ค่าเข้าร่วม : {{payment.sportEvent.evenPrice}}</p>
+            <p>กิจกรรม : {{payment.sportEvent.eventName}}</p>
+            <p>ค่าเข้าร่วม : {{payment.sportEvent.eventPrice}}</p>
             <p>จำนวนเงินที่จ่าย : {{payment.paymentPaid}}</p>
             <p>ประเภทการจ่ายเงิน : {{payment.payCategory.paycateName}}</p>
-          </div>
-          <mat-divider></mat-divider>
-          
-        </mat-card-content>
-
-    </mat-list>
-
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div align = "center">
+  <a button mat-raised-button color="warn" routerLink="/memberlogin">Logout</a>
+  </div>
 </mat-card>
-
-

@@ -4,3 +4,27 @@
     position: absolute;
     max-height: 1500px;
 }
+
+.card2{
+    margin-left: 35%;
+      width: 400px;
+      background-color: rgb(255, 255, 255);;
+      position: absolute;
+      max-height: 1500px;
+  }
+
+  .paymentcard{
+    background-color: 	rgb(255, 249, 249);
+max-height: 1500;
+}
+.cardtitle{
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+.paymentborder{
+    background-color: 	rgb(255, 255, 255);
+    border-style: groove;
+    color:rgb(0, 0, 0);
+    border-radius: 5px;
+    height:200;
+    }

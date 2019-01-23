@@ -73,12 +73,12 @@ public class BackendApplication {
 
 			/*Event*/Stream.of("Running","Swimming").forEach(evt -> {
 				Event event = new Event();
-				event.setEvenName(evt);
+				event.setEventName(evt);
 					if(evt == "Running"){
-						event.setEvenPrice(500L);
+						event.setEventPrice(500L);
 					}
 					else if(evt == "Swimming"){
-						event.setEvenPrice(300L);
+						event.setEventPrice(300L);
 					}
 				eventRepository.save(event);
 			});
