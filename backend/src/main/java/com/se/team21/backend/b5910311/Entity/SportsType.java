@@ -2,9 +2,11 @@ package com.se.team21.backend.b5910311.entity;
 
 import lombok.Data;
 import lombok.NonNull;
-
+import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 @Data
 @Entity
 @Table(name = "SportsType")
@@ -35,6 +37,5 @@ public class SportsType {
     public Long getSTid() {
         return stid;
     }
-       
 
 }
