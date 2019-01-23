@@ -27,6 +27,11 @@ const appRoutes: Routes = [
       path: 'checkstatus/:mid',
       component: CheckstatusComponent
     }
+    ,
+    {
+      path: 'sportevent',
+      component: SporteventComponent
+    }
 ];
 
 @NgModule({
