@@ -17,5 +17,5 @@ public class PlaceEvent {
     private Long placeId;
     private String placeName;
     private String placeAddress;
-
+    
 }

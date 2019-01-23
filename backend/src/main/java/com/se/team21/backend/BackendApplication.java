@@ -1,5 +1,11 @@
 package com.se.team21.backend;
 
+import com.se.team21.backend.AnanB5911417.Entity.PlaceEvent;
+import com.se.team21.backend.AnanB5911417.Entity.SportEvent;
+import com.se.team21.backend.AnanB5911417.Entity.Staff;
+import com.se.team21.backend.AnanB5911417.Repository.PlaceEventRepository;
+import com.se.team21.backend.AnanB5911417.Repository.SportEventRepository;
+import com.se.team21.backend.AnanB5911417.Repository.StaffRepository;
 import com.se.team21.backend.B5926329.Entity.Event;
 import com.se.team21.backend.B5926329.Entity.Member;
 import com.se.team21.backend.B5926329.Entity.PayCategory;
@@ -23,7 +29,9 @@ public class BackendApplication {
 	}
 	@Bean
     ApplicationRunner init(MemberRepository memberRepository, PayCategoryRepository payCategoryRepository,
-						   EventRepository eventRepository, PaymentRepository paymentRepository){
+						   EventRepository eventRepository, PaymentRepository paymentRepository,
+						   PlaceEventRepository placeEventRepository,SportEventRepository sportEventRepository,
+						   StaffRepository staffRepository){
 		return args -> {
 
 			/*Member*/ Stream.of( "david01","paul06").forEach(username -> {
@@ -75,8 +83,53 @@ public class BackendApplication {
                 }
                 paymentRepository.save(payment);
             });
-		};
+		
+		
+		/*PlaceEvent*/
+		Stream.of("eightyyear","route66").forEach(placeName -> {
+			PlaceEvent placeEvent = new PlaceEvent();
+			placeEvent.setPlaceName(placeName);
 
+			if(placeName == "eightyyear"){
+				placeEvent.setPlaceAddress("nakornratchasrima");
+				
+			}
+			else if(placeName == "route66"){
+				placeEvent.setPlaceAddress("petchaboon");
+				
+			}
+			placeEventRepository.save(placeEvent);
+		});
+
+		/*SportEvent*/
+		Stream.of("run for mom","bike for dad","fight for kid").forEach(eventName -> {
+			SportEvent sportEvent = new SportEvent();
+			sportEvent.setEventName(eventName);
+
+			if(eventName == "run for mom"){
+				sportEvent.setLocation("nakornratchasrima");
+				sportEvent.setSportName("running");
+			}
+			else if(eventName == "bike for dad"){
+				sportEvent.setLocation("petchaboon");
+				sportEvent.setSportName("bicycle");
+			}
+			else if(eventName == "fight for kid"){
+				sportEvent.setLocation("Phitsanoloke");
+				sportEvent.setSportName("bicycle");
+			}
+			sportEventRepository.save(sportEvent);
+		});
+
+		/*Staff*/
+		Stream.of("jump","pae","phee").forEach(staffName -> {
+			Staff staff = new Staff();
+			staff.setStaffName(staffName);
+
+			staffRepository.save(staff);
+		});
+
+		};
 		};
 
 
