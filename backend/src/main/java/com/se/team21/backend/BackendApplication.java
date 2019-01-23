@@ -101,6 +101,7 @@ public class BackendApplication {
 					sest.setSportName(sportstypeRepository.getOne(2L));
 					sest.setEventName(sportseventRepository.getOne(2L));
 				}
+				
 				sestRepository.save(sest);
 				});
 			//sestRepository.findAll().forEach(System.out::println);
