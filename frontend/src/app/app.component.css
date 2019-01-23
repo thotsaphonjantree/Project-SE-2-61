@@ -1,0 +1,15 @@
+
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+  }
+  .image{
+    height:60em;
+  
+    width:auto;
+    background-image:url('https://imgnooz.com/sites/default/files/wallpaper/sports/64448/summer-bike-race-wallpapers-64448-7818693.jpg');
+  
+    background-repeat: repeat;
+  }
+
+  
+  

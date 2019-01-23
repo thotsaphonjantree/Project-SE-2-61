@@ -1,0 +1,6 @@
+.example-card {
+    width: 400px;
+    background-color: Primary;
+    position: absolute;
+    max-height: 1500px;
+}
