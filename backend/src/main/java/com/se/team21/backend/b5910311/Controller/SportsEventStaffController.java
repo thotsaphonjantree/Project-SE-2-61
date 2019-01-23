@@ -1,4 +1,4 @@
-/*package com.se.team21.backend.b5910311.controller;
+package com.se.team21.backend.b5910311.controller;
 import com.se.team21.backend.b5910311.entity.SportsEventStaff;
 import com.se.team21.backend.b5910311.repository.SportsEventStaffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +17,22 @@ import java.util.stream.Collectors;
 public class SportsEventStaffController {
     @Autowired
     private SportsEventStaffRepository sportseventstaffRepository;
+    
+    @GetMapping("/staffname")
+    public List<SportsEventStaff> showAllLocation() {
+        return sportseventstaffRepository.findAll().stream().collect(Collectors.toList());
+    }
 
-}*/
+    @GetMapping("/staffname/{sesid}")
+    public Optional<SportsEventStaff> showLocationById(@PathVariable Long sesid) {
+        return sportseventstaffRepository.findById(sesid);
+    }
+
+    @PostMapping("/staffname/create/{staffname}")
+    public SportsEventStaff createSportsEventStaff(@PathVariable String sesname){
+        SportsEventStaff sportseventstaff = new SportsEventStaff();
+        sportseventstaff.setSesName(sesname);
+        return sportseventstaffRepository.save(sportseventstaff);
+    }
+
+}

@@ -18,6 +18,7 @@ public class LocationController {
 
     @Autowired
     private LocationRepository locationRepository;
+   
 
     @GetMapping("/location")
     public List<Location> showAllLocation() {

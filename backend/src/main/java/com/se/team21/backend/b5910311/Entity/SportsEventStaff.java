@@ -25,16 +25,16 @@ public class SportsEventStaff {
     }
     public String getSesName() {
         return sesname;
-       }
-       public void setSesName(String sesname) {
+    }
+    public void setSesName(String sesname) {
         this.sesname = sesname;
-       }
-       public void setSESid(Long sesid) {
+    }
+    public void setSESid(Long sesid) {
         this.sesid = sesid;
-       }
-       public Long getSESid() {
+    }
+    public Long getSESid() {
         return sesid;
-       }
+    }
        
 
 }
