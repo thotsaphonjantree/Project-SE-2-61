@@ -1,0 +1,70 @@
+<img src='/sport.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+<div align=center>
+  <mat-card class="example-card">
+    <div align=center>
+      <mat-card-title>
+        <label class = Hr2>ระบบบันทึกรายรับ-รายจ่าย</label>
+        <P></P>
+        <table mat-table  [dataSource]="dataSource" >
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+          <!-- No Column -->
+          <ng-container matColumnDef="idaccount">
+            <th mat-header-cell *matHeaderCellDef> ลำดับที่ </th>
+            <td mat-cell *matCellDef="let element"> {{element.idaccount}} </td>
+          </ng-container>
+
+          <!-- Date Column -->
+          <ng-container matColumnDef="savedate">
+            <th mat-header-cell *matHeaderCellDef> วันเดือนปี </th>
+            <td mat-cell *matCellDef="let element"> {{element.savedate}} </td>
+          </ng-container>
+
+          <!-- Title Column -->
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> รายการ </th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+          </ng-container>
+
+          <!-- incomeexpenses Column -->
+          <ng-container matColumnDef="incomeexpenses">
+            <th mat-header-cell *matHeaderCellDef> ประเภท </th>
+            <td mat-cell *matCellDef="let element"> {{element.incomeExpenses.incomeExpenses}} </td>
+          </ng-container>
+
+          <!-- Department Column -->
+          <ng-container matColumnDef="nameBank">
+            <th mat-header-cell *matHeaderCellDef> ธนาคาร </th>
+            <td mat-cell *matCellDef="let element"> {{element.banks.nameBank}} </td>
+          </ng-container>
+
+          <!-- giveto Column -->
+          <ng-container matColumnDef="fromto">
+            <th mat-header-cell *matHeaderCellDef> งบจาก </th>
+            <td mat-cell *matCellDef="let element"> {{element.fromto.nameFromTo}} </td>
+          </ng-container>
+
+          <!-- amount Column -->
+          <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef> จำนวนเงิน </th>
+            <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+
+
+
+      </mat-card-title>
+      <button mat-button class = "color" [routerLink]="['/account']" ><b>กลับ</b></button>
+
+
+
+    </div>
+
+  </mat-card>
+</div>

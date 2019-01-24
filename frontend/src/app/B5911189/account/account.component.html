@@ -1,0 +1,67 @@
+<img src='/sport.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+<div align=center>
+  <mat-card class="example-card">
+    <div align=center>
+      <mat-card-title>
+      <label class = Hr2>ระบบบันทึกรายรับ-รายจ่าย</label>
+        <P></P>
+        <label>โปรดกรอกข้อมูล</label><p></p>
+
+        <label  class = "Texts">:      วันที่ :</label>
+        <mat-form-field class="example-full-width2">
+          <input matInput [(ngModel)]="views.inputTime" name = "Date" [matDatepicker]="picker" [ngModelOptions]="{standalone: true}" placeholder="วัน/เดือน/ปี"  required disabled>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker disabled="false" ></mat-datepicker>
+        </mat-form-field><p></p>
+
+        <label  class = "Texts">: รายการ :</label>
+        <mat-form-field class="example-full-width2">
+          <input matInput placeholder="รายการ..." name = "title" [(ngModel)]="views.title" >
+        </mat-form-field><p></p>
+
+
+        <label class = "Texts">: ประเภท :</label>
+        <mat-form-field class="example-full-width2">
+          <mat-select placeholder="รายรับ/รายจ่าย" name = "inout" [(ngModel)]="views.incomeSelect">
+            <mat-option *ngFor="let  watchs of recordINOUT" [value]=" watchs.incomeExpenses">
+              {{watchs.incomeExpenses}}</mat-option>
+          </mat-select>
+        </mat-form-field><p></p>
+
+        <label  class = "Texts">: ธนาคาร :</label>
+        <mat-form-field class="example-full-width2">
+          <mat-select placeholder="ธนาคาร" name = "bank" [(ngModel)]="views.bankSelect">
+            <mat-option *ngFor="let  watchs of recordBank" [value]=" watchs.nameBank">
+              {{watchs.nameBank}}</mat-option>
+          </mat-select>
+        </mat-form-field><p></p>
+
+        <label  class = "Texts">: จาก :</label>
+        <mat-form-field class="example-full-width2">
+          <mat-select placeholder="ภายใน/ภายนอก"  name = "type" [(ngModel)]="views.fromSelect" >
+            <mat-option *ngFor="let watchs of recordType" [value]="watchs.nameFromTo">
+              {{watchs.nameFromTo}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><p></p>
+
+        <label  class = "Texts">: จำนวนเงิน  :</label>
+        <mat-form-field class="example-full-width2">
+          <input matInput placeholder="จำนวนเงิน"  name = "amount" [(ngModel)]="views.amount" >
+        </mat-form-field><p></p>
+
+
+          <button mat-button class = "color" (click)="Save()" ><b>บันทึก</b></button>
+
+          <button mat-button class = "color" [routerLink]="['/table']" ><b>แสดงตาราง</b></button>
+
+
+
+      </mat-card-title>
+
+
+
+    </div>
+
+  </mat-card>
+</div>
