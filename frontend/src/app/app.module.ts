@@ -94,7 +94,9 @@ const appRoutes: Routes = [
     MemberloginComponent,
     AppComponent,
     DepartmentComponent,
-    RegisterComponent
+    RegisterComponent,
+    AccountComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
