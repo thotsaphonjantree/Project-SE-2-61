@@ -62,7 +62,16 @@ const appRoutes: Routes = [
     path: 'payment',
     component: PaymentComponent
     }
-    ,
+    ,    {
+      path: 'ReservePlace',
+      component: ReservePlaceComponent
+      }
+      ,
+      {
+        path: 'SeePlaceX',
+        component: SeePlaceXComponent
+        }
+        ,
     {
       path: 'memberlogin',
       component: MemberloginComponent
@@ -84,26 +93,9 @@ const appRoutes: Routes = [
     {
       path: 'RegisterStaff',
       component:RegisterComponent
-<<<<<<< HEAD
     },
     { path: 'account' , component: AccountComponent},
     { path: 'table' , component: TableComponent}
-=======
-    }
-    ,
-    {
-      path: 'ReservePlace',
-      component: ReservePlaceComponent
-    }
-    ,
-    {
-      path: 'SeePlaceX',
-      component: SeePlaceXComponent
-    }
-
-
-
->>>>>>> add some Backend code and User Interface - close #63
 ];
 
 @NgModule({
@@ -116,14 +108,10 @@ const appRoutes: Routes = [
     AppComponent,
     DepartmentComponent,
     RegisterComponent,
-<<<<<<< HEAD
     AccountComponent,
-    TableComponent
-=======
+    TableComponent,
     ReservePlaceComponent,
     SeePlaceXComponent
-
->>>>>>> add some Backend code and User Interface - close #63
   ],
   imports: [
     BrowserModule,
