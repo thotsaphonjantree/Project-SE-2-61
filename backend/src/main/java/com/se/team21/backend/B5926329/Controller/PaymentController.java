@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.net.URLDecoder;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -57,11 +59,13 @@ public class PaymentController {
 
         Payment payment = new Payment();
 
+        Date date = new Date();
+
         payment.setSportEvent(sportsEventRepository.getOne(jsonEventName.asLong()));
         payment.setPayCategory(payCategoryRepository.getOne(jsonPaycate.asLong()));
         payment.setMembers(memberRepository.getOne(jsonUsername.asLong()));
         payment.setPaymentPaid(jsonPaid.asLong());
-
+        payment.setPaymentDate(new Timestamp(date.getTime()));
         return paymentRepository.save(payment);
 
     }
