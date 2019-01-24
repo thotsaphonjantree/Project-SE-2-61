@@ -6,6 +6,13 @@ import com.se.team21.backend.AnanB5911417.Entity.Staff;
 import com.se.team21.backend.AnanB5911417.Repository.PlaceEventRepository;
 import com.se.team21.backend.AnanB5911417.Repository.SportEventRepository;
 import com.se.team21.backend.AnanB5911417.Repository.StaffRepository;
+import com.se.team21.backend.B5901890.Entity.AgeStaff;
+import com.se.team21.backend.B5901890.Entity.GenderStaff;
+import com.se.team21.backend.B5901890.Entity.WorkStaff;
+import com.se.team21.backend.B5901890.Repository.AgeStaffRepository;
+import com.se.team21.backend.B5901890.Repository.GenderStaffRepository;
+import com.se.team21.backend.B5901890.Repository.RegisterStaffRepository;
+import com.se.team21.backend.B5901890.Repository.WorkStaffRepository;
 import com.se.team21.backend.B5926329.Entity.Event;
 import com.se.team21.backend.B5926329.Entity.Member;
 import com.se.team21.backend.B5926329.Entity.PayCategory;
@@ -53,10 +60,15 @@ public class BackendApplication {
 	@Bean
     ApplicationRunner init(MemberRepository memberRepository, PayCategoryRepository payCategoryRepository,
 						   EventRepository eventRepository, PaymentRepository paymentRepository,
-						   PlaceEventRepository placeEventRepository,SportEventRepository sportEventRepository,
-						   StaffRepository staffRepository,LocationRepository locationRepository , SportsTypeRepository sportstypeRepository,
-							SportsEventStaffRepository sportseventstaffRepository,SportsEventRepository sportseventRepository,
-							SeStRepository sestRepository,AgencyTypeRepository AgencyTypeRepository, CountryRepository CountryRepository, ProvinceRepository ProvinceRepository, RelatedInformationRepository RelatedInformationRepository, ActivitiesRepository ActivitiesRepository, TestRepository testRepository){
+						   PlaceEventRepository placeEventRepository, SportEventRepository sportEventRepository,
+						   StaffRepository staffRepository, LocationRepository locationRepository , SportsTypeRepository sportstypeRepository,
+						   SportsEventStaffRepository sportseventstaffRepository, SportsEventRepository sportseventRepository,
+						   SeStRepository sestRepository, AgencyTypeRepository AgencyTypeRepository, CountryRepository CountryRepository,
+						   ProvinceRepository ProvinceRepository, RelatedInformationRepository RelatedInformationRepository,
+						   ActivitiesRepository ActivitiesRepository, TestRepository testRepository,
+						   GenderStaffRepository genderStaffRepository, AgeStaffRepository ageStaffRepository,
+						   WorkStaffRepository workStaffRepository,
+						   RegisterStaffRepository registerStaffRepository){
 		return args -> {
 
 			/*Member*/ Stream.of( "david01","paul06").forEach(username -> {
@@ -268,6 +280,25 @@ public class BackendApplication {
 			test2.settAddress("SUT");
 			test2.settName("NS");
 			testRepository.save(test2);
+
+
+
+			Stream.of("ลงทะเบียนนักกีฬา","ดูแลนักกีฬา","จัดสถานที่").forEach(kindActivitys -> {
+				WorkStaff k = new WorkStaff();
+				k.setWork(kindActivitys);
+				workStaffRepository.save(k);
+			});
+			Stream.of("ชาย","หญิง").forEach(genders -> {
+				GenderStaff Gender5 = new GenderStaff();
+				Gender5.setNameGender(genders);
+				genderStaffRepository.save(Gender5);
+			});
+
+			Stream.of(18,19,20,21,22,23,24,25,26,27,28,29,30).forEach(ages -> {
+				AgeStaff age = new AgeStaff();
+				age.setAge(ages);
+				ageStaffRepository.save(age);
+			});
 
 		};
 	};
