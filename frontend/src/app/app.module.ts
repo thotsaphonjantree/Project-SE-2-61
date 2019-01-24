@@ -41,6 +41,8 @@ import { CheckstatusComponent } from './B5926329/checkstatus/checkstatus.compone
 import { MemberloginComponent } from './B5926329/memberlogin/memberlogin.component';
 import { DepartmentComponent } from './B5909711/component/department/department.component';
 import { DepartmentService } from './B5909711/service/department/department.service';
+import { AccountComponent} from "./B5911189/account/account.component";
+import {TableComponent} from "./B5911189/table/table.component";
 
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { FormsModule } from '@angular/forms';
@@ -78,7 +80,9 @@ const appRoutes: Routes = [
     {
       path: 'RegisterStaff',
       component:RegisterComponent
-    }
+    },
+    { path: 'account' , component: AccountComponent},
+    { path: 'table' , component: TableComponent}
 ];
 
 @NgModule({
