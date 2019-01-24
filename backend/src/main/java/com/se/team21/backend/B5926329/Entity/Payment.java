@@ -3,6 +3,7 @@ package com.se.team21.backend.B5926329.Entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Entity
@@ -18,6 +19,7 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "payment_seq")
     private @NonNull Long paymentId;
     private @NonNull Long paymentPaid;
+    private @NonNull Date paymentDate;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
