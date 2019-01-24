@@ -42,6 +42,14 @@ import { MemberloginComponent } from './B5926329/memberlogin/memberlogin.compone
 import { DepartmentComponent } from './B5909711/component/department/department.component';
 import { DepartmentService } from './B5909711/service/department/department.service';
 
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { FormsModule } from '@angular/forms';
+//import { RouterModule, Routes } from '@angular/router';
+import { RegisterComponent } from './B5901890/component/register/register.component';
+import { RegisterserviceService } from './B5901890/service/registerservice.service';
+import { from } from 'rxjs';
+
+
 const appRoutes: Routes = [
 
     {
@@ -66,6 +74,10 @@ const appRoutes: Routes = [
     {
       path: 'Department',
       component: DepartmentComponent
+    },
+    {
+      path: 'RegisterStaff',
+      component:RegisterComponent
     }
 ];
 
@@ -77,7 +89,8 @@ const appRoutes: Routes = [
     CheckstatusComponent,
     MemberloginComponent,
     AppComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -130,7 +143,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [DepartmentService],
+  providers: [DepartmentService,RegisterserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
