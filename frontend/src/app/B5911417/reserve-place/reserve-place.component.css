@@ -1,0 +1,19 @@
+.example-card {
+  width: 800px;
+  background-color: rgb(233, 200, 187);
+  position: absolute;
+  max-height: 1500px;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 60%;
+}

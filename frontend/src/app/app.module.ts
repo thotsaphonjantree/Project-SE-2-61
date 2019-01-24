@@ -50,6 +50,10 @@ import {TableComponent} from "./B5911189/table/table.component";
 import { RegisterComponent } from './B5901890/component/register/register.component';
 import { RegisterserviceService } from './B5901890/service/registerservice.service';
 import { from } from 'rxjs';
+import { ReservePlaceComponent } from './B5911417/reserve-place/reserve-place.component';
+import { ReservePlaceService } from './B5911417/reserve-place.service';
+import { SeePlaceXComponent } from './B5911417/see-place-x/see-place-x.component';
+
 
 
 const appRoutes: Routes = [
@@ -80,9 +84,26 @@ const appRoutes: Routes = [
     {
       path: 'RegisterStaff',
       component:RegisterComponent
+<<<<<<< HEAD
     },
     { path: 'account' , component: AccountComponent},
     { path: 'table' , component: TableComponent}
+=======
+    }
+    ,
+    {
+      path: 'ReservePlace',
+      component: ReservePlaceComponent
+    }
+    ,
+    {
+      path: 'SeePlaceX',
+      component: SeePlaceXComponent
+    }
+
+
+
+>>>>>>> add some Backend code and User Interface - close #63
 ];
 
 @NgModule({
@@ -95,8 +116,14 @@ const appRoutes: Routes = [
     AppComponent,
     DepartmentComponent,
     RegisterComponent,
+<<<<<<< HEAD
     AccountComponent,
     TableComponent
+=======
+    ReservePlaceComponent,
+    SeePlaceXComponent
+
+>>>>>>> add some Backend code and User Interface - close #63
   ],
   imports: [
     BrowserModule,
@@ -149,7 +176,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [DepartmentService,RegisterserviceService],
+  providers: [DepartmentService,RegisterserviceService, ReservePlaceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,8 +14,8 @@ public class PlaceEvent {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PlaceEvent_seq")
 
 
-    private Long placeId;
-    private String placeName;
-    private String placeAddress;
-    
+    private @NonNull Long placeId;
+    private @NonNull String placeName;
+    private @NonNull String placeAddress;
+
 }
