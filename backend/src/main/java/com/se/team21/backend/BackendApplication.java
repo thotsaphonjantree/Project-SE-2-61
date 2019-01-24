@@ -35,8 +35,7 @@ import com.se.team21.backend.b5910311.entity.SportsEventStaff;
 import com.se.team21.backend.b5910311.repository.SportsEventStaffRepository;
 import com.se.team21.backend.b5910311.entity.SportsEvent;
 import com.se.team21.backend.b5910311.repository.SportsEventRepository;
-import com.se.team21.backend.b5910311.entity.SeSt;
-import com.se.team21.backend.b5910311.repository.SeStRepository;
+
 
 
 import org.springframework.boot.ApplicationRunner;
@@ -75,6 +74,10 @@ public class BackendApplication {
 						   RegisterStaffRepository registerStaffRepository,
 						   AccountRecordRepository accountrecordrepository, BankRepository bankrepository,
 						   FromToRepository fromtorepository, IncomeExpensesRepository incomeexpensesrepository){
+						   PlaceEventRepository placeEventRepository,SportEventRepository sportEventRepository,
+						   StaffRepository staffRepository,LocationRepository locationRepository , SportsTypeRepository sportstypeRepository,
+							SportsEventStaffRepository sportseventstaffRepository,SportsEventRepository sportseventRepository
+							){
 		return args -> {
 
 			/*Member*/ Stream.of( "david01","paul06").forEach(username -> {
@@ -169,18 +172,24 @@ public class BackendApplication {
 				if(eventname=="Bike For Mom"){
 					sportsevent.setEventName(eventname);
 					sportsevent.setSesname(sportseventstaffRepository.getOne(1L));
+					sportsevent.setEventDetail("Bike For Mom ปั่นเพื่อแม่เป็นกิจกรรมที่เชิญชวนให้ทุกคนออกมาปั่นจักรยานออกกำลังกายเนื่องในวันแม่แห่งชาติ");
+					sportsevent.setSportsType(sportstypeRepository.getOne(2L));
 					sportsevent.setPrice(550l);
 					sportsevent.setLocations(locationRepository.getOne(3L));
 				}
 				if(eventname=="Bike For Dad"){
 					sportsevent.setEventName(eventname);
 					sportsevent.setSesname(sportseventstaffRepository.getOne(1L));
+					sportsevent.setEventDetail("Bike For Dad ปั่นเพื่อพ่อเป็นกิจกรรมที่เชิญชวนให้ทุกคนออกมาปั่นจักรยานออกกำลังกายเนื่องในวันพ่อแห่งชาติ");
+					sportsevent.setSportsType(sportstypeRepository.getOne(2L));
 					sportsevent.setPrice(750l);
 					sportsevent.setLocations(locationRepository.getOne(1L));
 				}
 				if(eventname=="Kao Khon La Kao"){
 					sportsevent.setEventName(eventname);
 					sportsevent.setSesname(sportseventstaffRepository.getOne(2L));
+					sportsevent.setEventDetail("Kao Khon La Kao วิ่งมาราธอนกับพี่ตูนสมทบทุนเพื่อซื้ออุปกรณ์ทางการแพทย์ให้กับโรงพยาบาลทั่วประเทศ");
+					sportsevent.setSportsType(sportstypeRepository.getOne(1L));
 					sportsevent.setPrice(100l);
 					sportsevent.setLocations(locationRepository.getOne(2L));
 				}
@@ -188,25 +197,7 @@ public class BackendApplication {
 				});
 			//sportseventRepository.findAll().forEach(System.out::println);
 
-			//set sest
-			Stream.of(1l,2l,3l).forEach( id ->{
-				SeSt sest = new SeSt();
-				sest.setId(id);
-				if(id == 1l){
-					sest.setSportName(sportstypeRepository.getOne(1L));
-					sest.setEventName(sportseventRepository.getOne(3L));
-				}
-				if(id == 2l){
-					sest.setSportName(sportstypeRepository.getOne(2L));
-					sest.setEventName(sportseventRepository.getOne(1L));
-				}
-				if(id == 3l){
-					sest.setSportName(sportstypeRepository.getOne(2L));
-					sest.setEventName(sportseventRepository.getOne(2L));
-				}
-				
-				sestRepository.save(sest);
-				});
+		
 			//sestRepository.findAll().forEach(System.out::println);
 
 			/*Payments Stream.of(300L,750L).forEach(paid -> {

@@ -1,11 +1,13 @@
 package com.se.team21.backend.b5910311.controller;
-import com.se.team21.backend.b5910311.entity.SportsEvent;
-import com.se.team21.backend.b5910311.repository.SportsEventRepository;
+import com.se.team21.backend.b5910311.entity.*;
+import com.se.team21.backend.b5910311.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -15,23 +17,48 @@ import java.util.stream.Collectors;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class SportsEventController {
+
     @Autowired
     private SportsEventRepository sportseventRepository;
 
+    @Autowired
+    private LocationRepository locationRepository;
+
+    @Autowired
+    private SportsTypeRepository sportsTypeRepository;
+
+    @Autowired
+    private SportsEventStaffRepository sportEventStaffRepository;
+
     @GetMapping("/event")
-    public List<SportsEvent> showAllSportsType() {
+    public List<SportsEvent> showAllSportsEvent() {
         return sportseventRepository.findAll().stream().collect(Collectors.toList());
     }
 
     @GetMapping("/event/{seid}")
-    public Optional<SportsEvent> showLocationById(@PathVariable Long seid) {
-        return sportseventRepository.findById(seid);
+    public SportsEvent ShowSportsEvent(@PathVariable Long seid) {
+        Optional<SportsEvent> sportsevent = sportseventRepository.findById(seid);
+        return sportsevent.get();
     }
 
-    @PostMapping("/event/create/{event}")
-    public SportsEvent createSportsEvent(@PathVariable String eventname){
+     @PostMapping(path = "/event/{eventName}/{eventDetail}/{sportName}/{locations}/{sesName}/{price}")
+    public SportsEvent sportsevent(@PathVariable String eventName,
+                                       @PathVariable String eventDetail, @PathVariable Long sportName,
+                                       @PathVariable Long locations, @PathVariable Long sesName,
+                                       @PathVariable Long price){
+
         SportsEvent sportsevent = new SportsEvent();
-        sportsevent.setEventName(eventname);
+
+        sportsevent.setPrice(price);
+        sportsevent.setEventName(eventName);
+        sportsevent.setEventDetail(eventDetail);
+        sportsevent.setLocations(locationRepository.getOne(locations));
+        sportsevent.setSesname(sportEventStaffRepository.getOne(sesName));
+        sportsevent.setSportsType(sportsTypeRepository.getOne(sportName));
+
         return sportseventRepository.save(sportsevent);
+
+
     }
+
 }
