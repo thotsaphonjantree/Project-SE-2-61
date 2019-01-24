@@ -68,7 +68,9 @@ public class BackendApplication {
 						   ActivitiesRepository ActivitiesRepository, TestRepository testRepository,
 						   GenderStaffRepository genderStaffRepository, AgeStaffRepository ageStaffRepository,
 						   WorkStaffRepository workStaffRepository,
-						   RegisterStaffRepository registerStaffRepository){
+						   RegisterStaffRepository registerStaffRepository,
+						   AccountRecordRepository accountrecordrepository, BankRepository bankrepository,
+						   FromToRepository fromtorepository, IncomeExpensesRepository incomeexpensesrepository){
 		return args -> {
 
 			/*Member*/ Stream.of( "david01","paul06").forEach(username -> {
@@ -103,7 +105,6 @@ public class BackendApplication {
 					}
 				eventRepository.save(event);
 			});
-
 
 
 		
@@ -299,6 +300,25 @@ public class BackendApplication {
 				age.setAge(ages);
 				ageStaffRepository.save(age);
 			});
+			//Income
+			Stream.of("รายรับ","รายจ่าย").forEach(incomes -> {
+				IncomeExpenses income = new IncomeExpenses();
+				income.setIncomeExpenses(incomes);
+				incomeexpensesrepository.save(income);
+			});
+			//Bank
+			Stream.of("ธนาคารกรุงศรีอยุธยา ","ธนาคารกรุงเทพ","ธนาคารกรุงไทย","ธนาคารกสิกรไทย","ธนาคารไทยพาณิชย์").forEach(Bank -> {
+				Banks banks = new Banks();
+				banks.setNameBank(Bank);
+				bankrepository.save(banks);
+			});
+			//Fromto
+			Stream.of("บุคคลทั่วไป","หน่วยงาน/บริษัท").forEach(fromtos -> {
+				FromTo fromto = new FromTo();
+				fromto.setNameFromTo(fromtos);
+				fromtorepository.save(fromto);
+			});
+
 
 		};
 	};
