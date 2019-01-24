@@ -2,44 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="606c21d6-e8df-4291-8b6d-13649f7e227d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/AccountRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/Banks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/FromTo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/IncomeExpenses.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/team21.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/team21.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dla" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dla" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/AnanB5911417/Entity/PlaceEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/AnanB5911417/Entity/PlaceEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/AnanB5911417/Entity/ReservePlace.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/AnanB5911417/Entity/ReservePlace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/AnanB5911417/Entity/SportsEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/AnanB5911417/Entity/SportEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/AnanB5911417/Entity/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/AnanB5911417/Entity/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/BackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/BackendApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Controller/LocationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Controller/LocationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Controller/SportsEventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Controller/SportsEventController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Controller/SportsEventStaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Controller/SportsEventStaffController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Controller/SportsTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Controller/SportsTypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Entity/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Entity/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Entity/SportsEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Entity/SportsEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Entity/SportsEventStaff.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Entity/SportsEventStaff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Entity/SportsType.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Entity/SportsType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Repository/LocationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Repository/LocationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Repository/SportsEventRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Repository/SportsEventRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Repository/SportsEventStaffRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Repository/SportsEventStaffRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Repository/SportsTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/b5910311/Repository/SportsTypeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/se/team21/backend/BackendApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/se/team21/backend/BackendApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/B5910311/sportevent/sportevent.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/B5910311/sportevent/sportevent.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/B5910311/sportevent/sportevent.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/B5910311/sportevent/sportevent.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/B5910311/sportevent/sportevent.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/B5910311/sportevent/sportevent.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/B5910311/sportevent/sportevent.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/B5910311/sportevent/sportevent.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,14 +17,60 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="256332199">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="4" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/AnanB5911417/Entity/SportEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
+            <state relative-caret-position="340">
               <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/AccountRecord.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/FromTo.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/IncomeExpenses.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/Banks.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-355" />
           </provider>
         </entry>
       </file>
@@ -81,8 +97,29 @@
         <option value="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/AnanB5911417/Repository/SportsEventRepository.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/AnanB5911417/Repository/StaffRepository.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/AnanB5911417/Entity/SportEvent.java" />
+        <option value="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/AccountRecord.java" />
+        <option value="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/FromTo.java" />
+        <option value="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/IncomeExpenses.java" />
+        <option value="$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/Banks.java" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/frontend/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -175,7 +212,7 @@
               <item name="se" type="462c0819:PsiDirectoryNode" />
               <item name="team21" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="AnanB5911417" type="462c0819:PsiDirectoryNode" />
+              <item name="B5911189" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="team21" type="b2602c69:ProjectViewProjectNode" />
@@ -188,46 +225,29 @@
               <item name="se" type="462c0819:PsiDirectoryNode" />
               <item name="team21" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="AnanB5911417" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="team21" type="b2602c69:ProjectViewProjectNode" />
-              <item name="team21" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="se" type="462c0819:PsiDirectoryNode" />
-              <item name="team21" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="b5910311" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="team21" type="b2602c69:ProjectViewProjectNode" />
-              <item name="team21" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="se" type="462c0819:PsiDirectoryNode" />
-              <item name="team21" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="b5910311" type="462c0819:PsiDirectoryNode" />
+              <item name="B5911189" type="462c0819:PsiDirectoryNode" />
               <item name="Entity" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548171251893" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548358042098" />
+    <property name="last_opened_file_path" value="D:/se/team21" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\cygwin64\home\ComputerEzy\1234\team21\backend\src\main\java\com\se\team21\backend\B5911189\Entity" />
+      <recent name="C:\cygwin64\home\ComputerEzy\1234\team21\backend\src\main\java\com\se\team21\backend\B5911189" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -251,20 +271,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1548052972832</updated>
+      <workItem from="1548356179111" duration="1809000" />
     </task>
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1809000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2852349" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28971255" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -272,9 +297,11 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.06703911" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.4442623" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -285,12 +312,36 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/AnanB5911417/Entity/SportEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
+        <state relative-caret-position="340">
           <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/AccountRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/FromTo.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/IncomeExpenses.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/se/team21/backend/B5911189/Entity/Banks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-355" />
       </provider>
     </entry>
   </component>
