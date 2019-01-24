@@ -1,0 +1,64 @@
+.header {
+    padding: 10px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 20px;
+  }
+  
+  * {box-sizing: border-box}
+  
+  .column {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    height: 100%;
+  }
+
+  .container {
+    padding: 0;
+  }
+  
+  hr {
+    border: 1px solid red;
+    margin-bottom: 25px;
+  }
+
+.example-full-width1 {
+  width: 90%;
+  margin-left: 5px;
+}
+
+.example-form1 {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin-left: 50px;
+}
+
+.example-form2 {
+  padding: 0% 11% 0%;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin-left: 50px;
+}
+
+.next2 {
+  text-align: center;
+  color:wheat;
+}
+
+.color1{
+  background-color: green;
+  padding: 0% 10%;
+}
+
+table {
+  width: 100%;
+}
+
+.panel101{
+  text-align: center; 
+  float: center;
+}
