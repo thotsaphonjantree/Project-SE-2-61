@@ -321,7 +321,7 @@ public class BackendApplication {
 				bankrepository.save(banks);
 			});
 			//Fromto
-			Stream.of("บุคคลทั่วไป","หน่วยงาน/บริษัท").forEach(fromtos -> {
+			Stream.of("บุคคลทั่วไป","หน่วยงาน/บริษัท","------").forEach(fromtos -> {
 				FromTo fromto = new FromTo();
 				fromto.setNameFromTo(fromtos);
 				fromtorepository.save(fromto);
