@@ -14,7 +14,7 @@ export class AccountComponent implements OnInit {
   recordType: Array<any>;
   // startDate = new Date(1990, 0, 1);
   views: any = {
-    inputTime: '',
+    inputTime: null,
     title: null,
     incomeSelect: null,
     bankSelect: null,
