@@ -1,0 +1,57 @@
+<mat-card  class="example-card">
+  <div align="center" >
+  <mat-card-title><h2>จองสถานที่จัดกิจกรรม</h2></mat-card-title>
+
+  <mat-form-field>
+    <mat-select placeholder="ชื่อกิจกรรม" [(ngModel)]="eventI">
+      <mat-option *ngFor="let eventx of eventUI" [value]="eventx.seid"   >
+        {{eventx.eventName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-select placeholder="ชื่อสถานที่" [(ngModel)]="placeI">
+      <mat-option *ngFor="let placex of placeUI" [value]="placex.placeId"   >
+        {{placex.placeName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-select placeholder="ชื่อผู้จอง" [(ngModel)]="staffI">
+      <mat-option *ngFor="let staffx of staffUI" [value]="staffx.idRegister"   >
+        {{staffx.nameRegisterStaff}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="เริ่มจองวันที่" [(ngModel)]="Startdate" >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <br>
+
+
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="pickers" placeholder="ถึงวันที่" [(ngModel)]="Enddate" >
+    <mat-datepicker-toggle matSuffix [for]="pickers"></mat-datepicker-toggle>
+    <mat-datepicker #pickers></mat-datepicker>
+  </mat-form-field>
+
+  </div>
+  <div align="right">
+    <a button mat-raised-button color="warn" routerLink="/SeePlaceX">ดูการจองสถานที่</a> &nbsp;&nbsp;
+    <button mat-flat-button (click)="save()" color="warn">Save</button>
+  </div>
+</mat-card>
+

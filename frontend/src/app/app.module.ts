@@ -50,6 +50,13 @@ import {TableComponent} from "./B5911189/table/table.component";
 import { RegisterComponent } from './B5901890/component/register/register.component';
 import { RegisterserviceService } from './B5901890/service/registerservice.service';
 import { from } from 'rxjs';
+import { ReservePlaceComponent } from './B5911417/reserve-place/reserve-place.component';
+import { ReservePlaceService } from './B5911417/reserve-place.service';
+import { SeePlaceXComponent } from './B5911417/see-place-x/see-place-x.component';
+
+import { AllsporteventComponent } from './B5910311//allsportevent/allsportevent.component';
+import { SporteventService } from './B5910311/sportevent.service';
+import { AddeventComponent } from './B5910311/addevent/addevent.component';
 
 
 const appRoutes: Routes = [
@@ -58,7 +65,16 @@ const appRoutes: Routes = [
     path: 'payment',
     component: PaymentComponent
     }
-    ,
+    ,    {
+      path: 'ReservePlace',
+      component: ReservePlaceComponent
+      }
+      ,
+      {
+        path: 'SeePlaceX',
+        component: SeePlaceXComponent
+        }
+        ,
     {
       path: 'memberlogin',
       component: MemberloginComponent
@@ -82,7 +98,14 @@ const appRoutes: Routes = [
       component:RegisterComponent
     },
     { path: 'account' , component: AccountComponent},
-    { path: 'table' , component: TableComponent}
+    { path: 'table' , component: TableComponent},{
+      path: 'allsportevent',
+      component: AllsporteventComponent
+    },
+    {
+      path: 'addevent',
+      component: AddeventComponent
+    }
 ];
 
 @NgModule({
@@ -96,7 +119,11 @@ const appRoutes: Routes = [
     DepartmentComponent,
     RegisterComponent,
     AccountComponent,
-    TableComponent
+    TableComponent,
+    ReservePlaceComponent,
+    SeePlaceXComponent,
+    AllsporteventComponent,
+    AddeventComponent
   ],
   imports: [
     BrowserModule,
@@ -106,6 +133,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatInputModule,
     MatListModule,
+    MatSelectModule,
     MatToolbarModule,
     FormsModule,
     MatSelectModule,
@@ -149,7 +177,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [DepartmentService,RegisterserviceService],
+  providers: [SporteventService,DepartmentService,RegisterserviceService, ReservePlaceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

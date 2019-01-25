@@ -19,6 +19,7 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "payment_seq")
     private @NonNull Long paymentId;
     private @NonNull Long paymentPaid;
+    @Temporal(TemporalType.DATE)
     private @NonNull Date paymentDate;
 
 

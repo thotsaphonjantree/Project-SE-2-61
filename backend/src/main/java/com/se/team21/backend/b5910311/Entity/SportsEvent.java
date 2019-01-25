@@ -19,20 +19,28 @@ public class SportsEvent {
     private @NonNull Long seid;
     private @NonNull Long price;
     private @NonNull String eventname;
+    private @NonNull String eventdetail;
 
     public SportsEvent() {
     }
 
-    public SportsEvent(Long seid,Long price,String eventname) {
+    public SportsEvent(Long seid,Long price,String eventname,String eventdetail) {
         this.seid = seid;
         this.price = price;
         this.eventname = eventname;
+        this.eventname = eventdetail;
     }
     public String getEventName() {
         return eventname;
     }
     public void setEventName(String eventname) {
         this.eventname = eventname;
+    }
+    public String getEventDetail() {
+        return eventdetail;
+    }
+    public void setEventDetail(String eventdetail) {
+        this.eventdetail = eventdetail;
     }
     public void setSEid(Long seid) {
         this.seid = seid;
@@ -55,5 +63,8 @@ public class SportsEvent {
     @JoinColumn(name = "SE_SES")
     private SportsEventStaff sesname;
 
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "SE_ST")
+    private SportsType sportsType;
+    
 }

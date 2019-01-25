@@ -1,0 +1,25 @@
+<div align=center>
+  <mat-card class="example-card">
+    <div align=center>
+      <mat-card-title></mat-card-title>
+    </div>
+    <div *ngFor="let events of event">
+      <div>
+        <mat-card class="example">
+          <mat-card-content>
+            <mat-card-title>{{events.eventName}}</mat-card-title>
+            <div align=left>
+              <p>ชื่อกิจกรรม : {{events.eventName}}</p>
+              <p>รายละเอียดกิจกรรม : {{events.eventDetail}}</p>
+              <p>ชนิดกีฬา : {{events.sportsType.sportName}}</p>
+              <p>สถานที่จัดกิจกรรม : {{events.locations.locations}}</p>
+              <p>เจ้าหน้าที่จัดกิจกรรมกีฬา : {{events.sesname.sesName}}</p>
+              <p>ราคา : {{events.price}} บาท/ท่าน</p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <br><br>
+      </div>
+    </div>
+  </mat-card>
+</div>
