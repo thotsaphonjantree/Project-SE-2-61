@@ -258,7 +258,7 @@ export class DepartmentComponent implements OnInit {
   }
 
   next(){
-    window.location.reload();
+    this.router.navigate(['/']);
   }
 
 }
