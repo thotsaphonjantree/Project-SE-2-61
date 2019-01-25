@@ -1,0 +1,56 @@
+<div align=center>
+    <mat-card class="example-card">
+        <div align=center>
+
+
+
+
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="ชื่อกิจกรรม" [(ngModel)]="my.eventname">
+              </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="รายละเอียดกิจกรรม" [(ngModel)]="my.detail">
+          </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+                <mat-select placeholder="ชนิดกีฬา" [(ngModel)]="my.stype">
+                  <mat-option *ngFor="let stype of stypes" [value]="stype.stid">
+                      {{stype.sportName}}
+                  </mat-option>
+                </mat-select>
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+                <mat-select placeholder="สถานที่จัดกิจกรรม" [(ngModel)]="my.location">
+                  <mat-option *ngFor="let location of locations" [value]="location.lid">
+                    {{location.locations}}
+                  </mat-option>
+                </mat-select>
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+                <mat-select placeholder="เจ้าหน้าที่จัดกิจกรรมกีฬา" [(ngModel)]="my.eventstaff">
+                  <mat-option *ngFor="let eventstaff of eventstaffs" [value]="eventstaff.sesid"   >
+                    {{eventstaff.sesName}}
+                  </mat-option>
+                </mat-select>
+        </mat-form-field >
+        <br/>
+        <br/>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ราคา" [(ngModel)]="my.price">
+          </mat-form-field>
+
+
+
+
+
+
+        </div>
+        <mat-card-actions>
+            <a button mat-raised-button color="primary" (click)="save()"> บันทึกกิจกรรม </a>
+        </mat-card-actions>
+    </mat-card>
+</div>

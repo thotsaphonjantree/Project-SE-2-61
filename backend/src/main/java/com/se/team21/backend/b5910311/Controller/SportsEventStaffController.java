@@ -19,12 +19,12 @@ public class SportsEventStaffController {
     private SportsEventStaffRepository sportseventstaffRepository;
     
     @GetMapping("/staffname")
-    public List<SportsEventStaff> showAllLocation() {
+    public List<SportsEventStaff> showAllSportsEventStaff() {
         return sportseventstaffRepository.findAll().stream().collect(Collectors.toList());
     }
 
     @GetMapping("/staffname/{sesid}")
-    public Optional<SportsEventStaff> showLocationById(@PathVariable Long sesid) {
+    public Optional<SportsEventStaff> showSportsEventStaffById(@PathVariable Long sesid) {
         return sportseventstaffRepository.findById(sesid);
     }
 

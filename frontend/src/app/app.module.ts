@@ -54,6 +54,9 @@ import { ReservePlaceComponent } from './B5911417/reserve-place/reserve-place.co
 import { ReservePlaceService } from './B5911417/reserve-place.service';
 import { SeePlaceXComponent } from './B5911417/see-place-x/see-place-x.component';
 
+import { AllsporteventComponent } from './B5910311//allsportevent/allsportevent.component';
+import { SporteventService } from './B5910311/sportevent.service';
+import { AddeventComponent } from './B5910311/addevent/addevent.component';
 
 
 const appRoutes: Routes = [
@@ -95,7 +98,14 @@ const appRoutes: Routes = [
       component:RegisterComponent
     },
     { path: 'account' , component: AccountComponent},
-    { path: 'table' , component: TableComponent}
+    { path: 'table' , component: TableComponent},{
+      path: 'allsportevent',
+      component: AllsporteventComponent
+    },
+    {
+      path: 'addevent',
+      component: AddeventComponent
+    }
 ];
 
 @NgModule({
@@ -111,7 +121,9 @@ const appRoutes: Routes = [
     AccountComponent,
     TableComponent,
     ReservePlaceComponent,
-    SeePlaceXComponent
+    SeePlaceXComponent,
+    AllsporteventComponent,
+    AddeventComponent
   ],
   imports: [
     BrowserModule,
@@ -121,6 +133,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatInputModule,
     MatListModule,
+    MatSelectModule,
     MatToolbarModule,
     FormsModule,
     MatSelectModule,
@@ -164,7 +177,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [DepartmentService,RegisterserviceService, ReservePlaceService],
+  providers: [SporteventService,DepartmentService,RegisterserviceService, ReservePlaceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
