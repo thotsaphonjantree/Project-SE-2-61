@@ -64,18 +64,16 @@ public class BackendApplication {
     ApplicationRunner init(MemberRepository memberRepository, PayCategoryRepository payCategoryRepository,
 						   EventRepository eventRepository, PaymentRepository paymentRepository,
 						   PlaceEventRepository placeEventRepository,
-						   LocationRepository locationRepository , SportsTypeRepository sportstypeRepository,
-						   SportsEventStaffRepository sportseventstaffRepository, SportsEventRepository sportseventRepository,
-						   SeStRepository sestRepository, AgencyTypeRepository AgencyTypeRepository, CountryRepository CountryRepository,
+						   AgencyTypeRepository AgencyTypeRepository, CountryRepository CountryRepository,
 						   ProvinceRepository ProvinceRepository, RelatedInformationRepository RelatedInformationRepository,
 						   ActivitiesRepository ActivitiesRepository, TestRepository testRepository,
 						   GenderStaffRepository genderStaffRepository, AgeStaffRepository ageStaffRepository,
 						   WorkStaffRepository workStaffRepository,
 						   RegisterStaffRepository registerStaffRepository,
 						   AccountRecordRepository accountrecordrepository, BankRepository bankrepository,
-						   FromToRepository fromtorepository, IncomeExpensesRepository incomeexpensesrepository){
-						   PlaceEventRepository placeEventRepository,SportEventRepository sportEventRepository,
-						   StaffRepository staffRepository,LocationRepository locationRepository , SportsTypeRepository sportstypeRepository,
+						   FromToRepository fromtorepository, IncomeExpensesRepository incomeexpensesrepository,
+						  
+						   LocationRepository locationRepository , SportsTypeRepository sportstypeRepository,
 							SportsEventStaffRepository sportseventstaffRepository,SportsEventRepository sportseventRepository
 							){
 		return args -> {
@@ -290,7 +288,7 @@ public class BackendApplication {
 				bankrepository.save(banks);
 			});
 			//Fromto
-			Stream.of("บุคคลทั่วไป","หน่วยงาน/บริษัท","------").forEach(fromtos -> {
+			Stream.of("บุคคลทั่วไป","หน่วยงาน หรือ บริษัท","------").forEach(fromtos -> {
 				FromTo fromto = new FromTo();
 				fromto.setNameFromTo(fromtos);
 				fromtorepository.save(fromto);
