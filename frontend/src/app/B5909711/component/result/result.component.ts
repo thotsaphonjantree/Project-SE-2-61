@@ -7,25 +7,37 @@ import { Observable } from 'rxjs/observable';
 import { DataSource } from '@angular/cdk/collections';
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  resultID: number;
+  resultName: string;
+  resultAddress: string;
+  resultDate: Date;
+  sportsType: {
+    sportName: string;
+  }
+  ratingEntity: {
+    ratingName: string;
+  }
+  provinceEntity: {
+    provinceName: string;
+  }
+  sportsEvent:{
+    eventName: string;
+  }
+  personTypeEntity:{
+    personTypeName: string;
+  }
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
-
+export class RoomdataSource extends DataSource<any>{
+  constructor(private resultService:ResultService){
+    super();
+  }
+  connect(): Observable<PeriodicElement[]> {
+    console.log('Hey.Guy');
+    return this.resultService.getShow();
+  }
+  disconnect(){}
+}
 
 
 @Component({
@@ -37,6 +49,9 @@ export class ResultComponent implements OnInit {
   Activities: Array<any>;
   SportsType: Array<any>;
   Province: Array<any>;
+  Rating: Array<any>;
+  PersonType: Array<any>;
+  room: Array<any>;
 
   view: any = {
     activities: null,
@@ -45,12 +60,19 @@ export class ResultComponent implements OnInit {
     inputDate: null,
     inputAddress: null,
     provin: null,
-    rating: null
-
+    rating: null,
+    personType: null
   }
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  refresh() {
+    this.resultService.getShow().subscribe((res) => {
+      this.room = res;
+      this.dataSource = new RoomdataSource(this.resultService);
+    });
+  }
+
+  displayedColumns: string[] = ['resultID','ratingName', 'resultName','resultAddress', 'provinceName','resultDate','sportName','eventName','personTypeName'];
+  dataSource = new RoomdataSource(this.resultService);
   constructor(private resultService: ResultService, private httpClient: HttpClient, private router: Router, private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -68,21 +90,65 @@ export class ResultComponent implements OnInit {
       this.Province = data;
       console.log(this.Province);
     });
+
+    this.resultService.getRatingName().subscribe(data => {
+      this.Rating = data;
+      console.log(this.Rating);
+    });
+
+    this.resultService.getPersonTypeName().subscribe(data => {
+      this.PersonType = data;
+      console.log(this.PersonType);
+    });
   }
 
-  first(){
-    this.view.rating = 'อันดับ1';
-    console.log(this.view.rating);
+  Save() {
+    if (this.view.activities == null) {
+      alert('กรุณาเลือกชื่อกิจกรรม');
+    }
+    else if (this.view.sportsType == null) {
+      alert('กรุณาเลือกชนิดกีฬา');
+    }
+    else if(this.view.inputName == null) {
+      alert('กรุณาระบุชื่อ');
+    }
+    else if(this.view.rating == null) {
+      alert('กรุณาเลือกอันดับ');
+    }
+    else if (this.view.personType == null) {
+      alert('กรุณาเลือกประเภทบุคคล');
+    }
+    else if(this.view.inputDate == null) {
+      alert('กรุณาระบุวันที่และเวลา');
+    }
+    else if(this.view.inputAddress == null) {
+      alert('กรุณาระบุที่อยู่สถานที่แข่ง');
+    }
+    else if(this.view.provin == null) {
+      alert('กรุณาระบุจังหวัด');
+    }
+    else{
+      this.save_func();
+    }
+    
+    console.log('activities', this.view.activities)
+    console.log('sportsType', this.view.sportsType)
+    console.log('inputName', this.view.inputName)
+    console.log('rating', this.view.rating)
+    console.log('personType', this.view.personType)
+    console.log('inputDate', this.view.inputDate)
+    console.log('inputAddress', this.view.inputAddress)
+    console.log('provin', this.view.provin)
   }
-
-  second(){
-    this.view.rating = 'อันดับ2';
-    console.log(this.view.rating);
+  save_func() {this.httpClient.get('http://localhost:8080/Result/' + this.view.activities + '/' + this.view.sportsType + '/' + this.view.inputName + '/' + this.view.rating + '/' + this.view.personType + '/' + this.view.inputDate + '/' + this.view.inputAddress + '/' + this.view.provin, this.view)
+      .subscribe(
+        data => {
+          console.log('PUT Request is successfully', data);
+          this.refresh();
+        },
+        error => {
+          console.log('Error', error);
+        }
+      );
   }
-
-  third(){
-    this.view.rating = 'อันดับ3';
-    console.log(this.view.rating);
-  }
-
 }

@@ -17,23 +17,16 @@ export interface PeriodicElement {
   agencyTypeEntity: {
     agencyName: string;
   }
-  // activitiesEntity: {
-  //   activitiesName: string;
-  // }
   countryEntity: {
     countryName: string;
   }
   provinceEntity: {
     provinceName: string;
   }
-  // testEntity:{
-  //   tActivities: string;
-  // }
   sportsEvent:{
     eventName: string;
   }
 }
-
 export class RoomdataSource extends DataSource<any>{
   constructor(private departmentService: DepartmentService){
     super();

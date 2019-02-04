@@ -22,20 +22,52 @@ public class ResultController {
     private SportsTypeRepository sportsTypeRepository;
     @Autowired
     private ResultRepository resultRepository;
+    @Autowired
+    private RatingRepository ratingRepository;
+    @Autowired
+    private PersonTypeRepository personTypeRepository;
 
     @Autowired
     public ResultController(ProvinceRepository provinceRepository,
                             SportsTypeRepository sportsTypeRepository,
                             SportsEventRepository sportsEventRepository,
-                            ResultRepository resultRepository){
+                            ResultRepository resultRepository,RatingRepository ratingRepository,
+                            PersonTypeRepository personTypeRepository){
         this.provinceRepository = provinceRepository;
         this.sportsEventRepository = sportsEventRepository;
         this.sportsTypeRepository = sportsTypeRepository;
         this.resultRepository = resultRepository;
+        this.ratingRepository = ratingRepository;
+        this.personTypeRepository = personTypeRepository;
     }
 
     @GetMapping("/Result")
     public Collection<ResultEntity> Result(){
         return resultRepository.findAll().stream().collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "/Result/{activities}/{sportsType}/{inputName}/{rating}/{personType}/{inputDate}/{inputAddress}/{provin}")
+    public ResultEntity resultEntity(@PathVariable String activities,
+                                            @PathVariable String sportsType, @PathVariable String inputName,
+                                            @PathVariable String rating, @PathVariable Date inputDate,
+                                            @PathVariable String personType, @PathVariable String inputAddress,
+                                            @PathVariable String provin) {
+        ResultEntity re = new ResultEntity();
+        SportsEvent se = sportsEventRepository.findByEventname(activities);
+        SportsType st = sportsTypeRepository.findBySportname(sportsType);
+        RatingEntity ratingEntity = ratingRepository.findByratingName(rating);
+        PersonTypeEntity pte = personTypeRepository.findBypersonTypeName(personType);
+        ProvinceEntity pe = provinceRepository.findByprovinceName(provin);
+
+        re.setPersonTypeEntity(pte);
+        re.setRatingEntity(ratingEntity);
+        re.setProvinceEntity(pe);
+        re.setSportsType(st);
+        re.setSportsEvent(se);
+        re.setResultDate(inputDate);
+        re.setResultAddress(inputAddress);
+        re.setResultName(inputName);
+
+        return resultRepository.save(re);
     }
 }

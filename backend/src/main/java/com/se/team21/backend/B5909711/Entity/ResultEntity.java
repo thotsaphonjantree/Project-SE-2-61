@@ -22,7 +22,6 @@ public class ResultEntity {
     @Temporal(TemporalType.DATE)
     private @NonNull Date resultDate;
     private @NonNull String resultAddress;
-    private @NonNull String resultRating;
 
     //Many To One with SportsEvent
     @ManyToOne /*(fetch = FetchType.EAGER, targetEntity = AgencyTypeEntity.class)*/
@@ -39,4 +38,85 @@ public class ResultEntity {
     @JoinColumn(name = "stid")
     private SportsType sportsType;
 
+    //Many To One with Rating
+    @OneToOne /*(fetch = FetchType.EAGER, targetEntity = AgencyTypeEntity.class)*/
+    @JoinColumn(name = "rid")
+    private RatingEntity ratingEntity;
+
+    //Many To One with PersonType
+    @OneToOne /*(fetch = FetchType.EAGER, targetEntity = AgencyTypeEntity.class)*/
+    @JoinColumn(name = "personTypeID")
+    private PersonTypeEntity personTypeEntity;
+
+    public Long getResultID() {
+        return resultID;
+    }
+
+    public void setResultID(Long resultID) {
+        this.resultID = resultID;
+    }
+
+    public String getResultName() {
+        return resultName;
+    }
+
+    public void setResultName(String resultName) {
+        this.resultName = resultName;
+    }
+
+    public Date getResultDate() {
+        return resultDate;
+    }
+
+    public void setResultDate(Date resultDate) {
+        this.resultDate = resultDate;
+    }
+
+    public String getResultAddress() {
+        return resultAddress;
+    }
+
+    public void setResultAddress(String resultAddress) {
+        this.resultAddress = resultAddress;
+    }
+
+    public SportsEvent getSportsEvent() {
+        return sportsEvent;
+    }
+
+    public void setSportsEvent(SportsEvent sportsEvent) {
+        this.sportsEvent = sportsEvent;
+    }
+
+    public ProvinceEntity getProvinceEntity() {
+        return provinceEntity;
+    }
+
+    public void setProvinceEntity(ProvinceEntity provinceEntity) {
+        this.provinceEntity = provinceEntity;
+    }
+
+    public SportsType getSportsType() {
+        return sportsType;
+    }
+
+    public void setSportsType(SportsType sportsType) {
+        this.sportsType = sportsType;
+    }
+
+    public RatingEntity getRatingEntity() {
+        return ratingEntity;
+    }
+
+    public void setRatingEntity(RatingEntity ratingEntity) {
+        this.ratingEntity = ratingEntity;
+    }
+
+    public PersonTypeEntity getPersonTypeEntity() {
+        return personTypeEntity;
+    }
+
+    public void setPersonTypeEntity(PersonTypeEntity personTypeEntity) {
+        this.personTypeEntity = personTypeEntity;
+    }
 }

@@ -20,20 +20,17 @@ public class RelatedInformationController {
     @Autowired
     private CountryRepository countryRepository;
     @Autowired
-    private ActivitiesRepository activitiesRepository;
-    @Autowired
     private ProvinceRepository provinceRepository;
     @Autowired
     private SportsEventRepository sportsEventRepository;
 
     @Autowired
     public RelatedInformationController(RelatedInformationRepository relatedInformationRepository, AgencyTypeRepository agencyTypeRepository
-                                        , CountryRepository countryRepository, ActivitiesRepository activitiesRepository
+                                        , CountryRepository countryRepository
                                         , ProvinceRepository provinceRepository, SportsEventRepository sportsEventRepository){
         this.relatedInformationRepository = relatedInformationRepository;
         this.agencyTypeRepository = agencyTypeRepository;
         this.countryRepository = countryRepository;
-        this.activitiesRepository = activitiesRepository;
         this.provinceRepository = provinceRepository;
         this.sportsEventRepository = sportsEventRepository;
     }
@@ -52,7 +49,6 @@ public class RelatedInformationController {
         RelatedInformationEntity r = new RelatedInformationEntity();
         AgencyTypeEntity a = agencyTypeRepository.findByagencyName(agent);
         SportsEvent s = sportsEventRepository.findByEventname(activities);
-//        ActivitiesEntity ac = activitiesRepository.findByactivitiesName(activities);
         System.out.println(activities);
         System.out.println(agent);
         CountryEntity c = countryRepository.findBycountryName(country);
@@ -63,7 +59,6 @@ public class RelatedInformationController {
         r.setAgencyTypeEntity(a);
         r.setCountryEntity(c);
         r.setSportsEvent(s);
-//        r.setActivitieEntity(ac);
         r.setRelatedinformationAddress(Addressagency);
         r.setRelatedinformationName(Nameoforganization);
         r.setRelatedinformationPhone(Inputdataphonenumber);
