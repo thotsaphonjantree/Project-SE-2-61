@@ -139,7 +139,13 @@ public class BackendApplication {
 		});
 
 		
-		
+			/*//set location
+			Stream.of( "Nakhonratchasima","Bangkok","Khonkean" ).forEach( address ->{
+				Address address = new Address();
+				address.setAddress(address);
+				addressRepository.save(address); 
+				});*/
+
 			//set location
 			Stream.of( "Nakhonratchasima","Bangkok","Khonkean" ).forEach( locations ->{
 				Location location = new Location();
