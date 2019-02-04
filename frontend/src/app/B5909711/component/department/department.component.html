@@ -1,264 +1,353 @@
 <div class="header">
-  <h1>ระบบจัดกิจกรรมกีฬา</h1>
-  <p>ระบบจัดเก็บข้อมูลหน่วยงานที่เกี่ยวข้อง</p>
+        <h1>ระบบจัดกิจกรรมกีฬา</h1>
+        <p>ระบบจัดเก็บข้อมูลหน่วยงานที่เกี่ยวข้อง</p>
 </div>
 
 <body>
-  <div class="column" style="background-color:lightyellow;">
-    <hr>
-      <form action="action_page.php">
-          <div class="container">
-            <h1>Information</h1>
-            <p>Please fill in this form.</p>
-            <hr>
-            
-            <mat-horizontal-stepper [linear]="isLinear" #stepper>
-                    <mat-step [stepControl]="firstFormGroup">
-                        <ng-template matStepLabel>Information</ng-template>
-                        <mat-card [formGroup]="firstFormGroup">
-                                <form class="example-form1">
-                                        <mat-icon>accessibility_new</mat-icon>
-                                        <mat-form-field class="example-full-width1">
-                                            <mat-select placeholder="Activities name" name = "activities" [(ngModel)]="view.activities" [(value)]="view.activities">
-                                              <mat-option>None</mat-option>
-                                              <mat-option *ngFor="let activities of Activities" [value]="activities.activitiesName">
-                                                {{activities.activitiesName}}</mat-option>
-                                            </mat-select>
-                                        </mat-form-field>
-                                    </form>
+        <div class="column" style="background-color:lightyellow;">
+                <hr>
+                <form action="action_page.php">
+                        <div class="container">
+                                <h1>Information</h1>
+                                <p>Please fill in this form.</p>
+                                <hr>
 
-                                <form class="example-form1">
-                                            <mat-icon>account_balance</mat-icon>
-                                            <mat-form-field class="example-full-width1">
-                                                <mat-select placeholder="Agency type" name = "agent" [(ngModel)]="view.agent" [(value)]="view.agent">
-                                                  <mat-option >None</mat-option>
-                                                  <mat-option *ngFor="let agent of AgencyType" [value]="agent.agencyName">
-                                                    {{agent.agencyName}}</mat-option>
-                                                </mat-select>
-                                            </mat-form-field>
-                                        </form>
-
-                                <form class="example-form1">
-                                        <mat-icon>account_balance</mat-icon>
-                                                <mat-form-field class="example-full-width1">
-                                                  <input matInput placeholder="Name of Agency" name = "RIName" [(ngModel)]="view.Nameoforganization" [(value)]="view.Nameoforganization">
-                                                </mat-form-field>
-                                    </form>
-
-                                <form class="example-form1">
-                                        <mat-icon>location_on</mat-icon>
-                                                    <mat-form-field class="example-full-width1">
-                                                        <mat-select placeholder="Country" name = "country" [(ngModel)]="view.country" [(value)]="view.country">
-                                                          <mat-option >None</mat-option>
-                                                          <mat-option *ngFor="let country of Country" [value]="country.countryName">
-                                                            {{country.countryName}}</mat-option>
-                                                        </mat-select>
-                                                    </mat-form-field>
-                                    </form>
-
-                                <form class="example-form1">
-                                        <mat-icon>location_on</mat-icon>
-                                                        <mat-form-field class="example-full-width1">
-                                                            <mat-select placeholder="Province" name = "province" [(ngModel)]="view.provin" [(value)]="view.provin">
-                                                              <mat-option >None</mat-option>
-                                                              <mat-option *ngFor="let provin of Province" [value]="provin.provinceName">
-                                                                {{provin.provinceName}}</mat-option>
-                                                            </mat-select>
-                                                        </mat-form-field>
-                                    </form>
-
-                                    <form class="example-form1">
-                                            <mat-icon>location_on</mat-icon>
-                                            <mat-form-field class="example-full-width1">
-                                              <input matInput placeholder="Address agency" name = "Address" [(ngModel)]="view.Addressagency" [(value)]="view.Addressagency">
-                                            </mat-form-field>
-                                        </form>
-                                        
-                                <form class="example-form1">
-                                    <mat-icon>date_range</mat-icon>
-                                    <mat-form-field class="example-full-width1">
-                                        <input matInput [(ngModel)]="view.inputTime" name = "Date" [matDatepicker]="picker" [ngModelOptions]="{standalone: true}" placeholder="Choose a date" [(value)]="select.selectInputTime" required disabled>
-                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                        <mat-datepicker touchUi #picker disabled="false" ></mat-datepicker>
-                                    </mat-form-field>
-                                </form>
-                                    
-                                    <form class="example-form1">
-                                            <mat-icon>phone</mat-icon>
-                                        <mat-form-field class="example-full-width1">
-                                          <input matInput placeholder="Phone number agency" name = "Phone" [(ngModel)]="view.Inputdataphonenumber" [(value)]="view.Inputdataphonenumber">
-                                        </mat-form-field>
-                                    </form>
-                    
-                                    <form class="example-form1">
-                                            <mat-icon>mail_outline</mat-icon>
-                                        <mat-form-field class="example-full-width1">
-                                          <input matInput placeholder="E-mail" name = "Email" [(ngModel)]="view.Inputdatae_mail" [(value)]="view.Inputdatae_mail">
-                                        </mat-form-field>
-                                    </form>
-
-
-                                <form class="example-form1">
-                                    <button mat-button class = "color1" (click)="Save()" matStepperNext><b>{{save ? 'Update' : 'Save'}}</b></button>
-                                </form>
-                        </mat-card>
-
-                    </mat-step>
-
-                    <mat-step [stepControl]="secondFormGroup">
-                        <ng-template matStepLabel>Show Information</ng-template>
-                        <mat-card [formGroup]="secondFormGroup">
-                                        <form class="example-form1">
-                                                        <mat-icon>accessibility_new</mat-icon>
+                                <mat-horizontal-stepper [linear]="isLinear" #stepper>
+                                        <mat-step [stepControl]="firstFormGroup">
+                                                <ng-template matStepLabel>Information</ng-template>
+                                                <mat-card [formGroup]="firstFormGroup">
+                                                        <form class="example-form1">
+                                                                <mat-icon>accessibility_new</mat-icon>
                                                                 <mat-form-field class="example-full-width1">
-                                                                  <input matInput placeholder="Activities name" name = "activities" [(ngModel)]="view.activities" [(value)]="view.activities" readonly="readonly">
-                                                        </mat-form-field>
-                                        </form>
+                                                                        <mat-select placeholder="Activities name" name="activities"
+                                                                                [(ngModel)]="view.activities" [(value)]="view.activities">
+                                                                                <mat-option>None</mat-option>
+                                                                                <mat-option *ngFor="let activities of Activities"
+                                                                                        [value]="activities.eventName">
+                                                                                        {{activities.eventName}}</mat-option>
+                                                                        </mat-select>
+                                                                </mat-form-field>
+                                                        </form>
 
-                                        <form class="example-form1">
-                                                        <mat-icon>account_balance</mat-icon>
+                                                        <form class="example-form1">
+                                                                <mat-icon>account_balance</mat-icon>
                                                                 <mat-form-field class="example-full-width1">
-                                                                  <input matInput placeholder="Agency type" name = "Agency Name" [(ngModel)]="view.agent" [(value)]="view.agent" readonly="readonly">
-                                                        </mat-form-field>
-                                        </form>
+                                                                        <mat-select placeholder="Agency type" name="agent"
+                                                                                [(ngModel)]="view.agent" [(value)]="view.agent">
+                                                                                <mat-option>None</mat-option>
+                                                                                <mat-option *ngFor="let agent of AgencyType"
+                                                                                        [value]="agent.agencyName">
+                                                                                        {{agent.agencyName}}</mat-option>
+                                                                        </mat-select>
+                                                                </mat-form-field>
+                                                        </form>
 
-                                        <form class="example-form1">
-                                                        <mat-icon>account_balance</mat-icon>
+                                                        <form class="example-form1">
+                                                                <mat-icon>account_balance</mat-icon>
                                                                 <mat-form-field class="example-full-width1">
-                                                                  <input matInput placeholder="Name of Agency" name = "RIName" [(ngModel)]="view.Nameoforganization" [(value)]="view.Nameoforganization" readonly="readonly">
-                                                        </mat-form-field>
-                                        </form>
+                                                                        <input matInput placeholder="Name of Agency"
+                                                                                name="RIName" [(ngModel)]="view.Nameoforganization"
+                                                                                [(value)]="view.Nameoforganization">
+                                                                </mat-form-field>
+                                                        </form>
 
-                                        <form class="example-form1">
-                                                        <mat-icon>location_on</mat-icon>
+                                                        <form class="example-form1">
+                                                                <mat-icon>location_on</mat-icon>
                                                                 <mat-form-field class="example-full-width1">
-                                                                  <input matInput placeholder="Country" name = "country" [(ngModel)]="view.country" [(value)]="view.country" readonly="readonly">
-                                                        </mat-form-field>
-                                        </form>
+                                                                        <mat-select placeholder="Country" name="country"
+                                                                                [(ngModel)]="view.country" [(value)]="view.country">
+                                                                                <mat-option>None</mat-option>
+                                                                                <mat-option *ngFor="let country of Country"
+                                                                                        [value]="country.countryName">
+                                                                                        {{country.countryName}}</mat-option>
+                                                                        </mat-select>
+                                                                </mat-form-field>
+                                                        </form>
 
-                                        <form class="example-form1">
-                                                        <mat-icon>location_on</mat-icon>
+                                                        <form class="example-form1">
+                                                                <mat-icon>location_on</mat-icon>
                                                                 <mat-form-field class="example-full-width1">
-                                                                  <input matInput placeholder="Province" name = "province" [(ngModel)]="view.provin" [(value)]="view.provin" readonly="readonly">
-                                                        </mat-form-field>
-                                        </form>
+                                                                        <mat-select placeholder="Province" name="province"
+                                                                                [(ngModel)]="view.provin" [(value)]="view.provin">
+                                                                                <mat-option>None</mat-option>
+                                                                                <mat-option *ngFor="let provin of Province"
+                                                                                        [value]="provin.provinceName">
+                                                                                        {{provin.provinceName}}</mat-option>
+                                                                        </mat-select>
+                                                                </mat-form-field>
+                                                        </form>
 
-                                        <form class="example-form1">
-                                                        <mat-icon>location_on</mat-icon>
+                                                        <form class="example-form1">
+                                                                <mat-icon>location_on</mat-icon>
                                                                 <mat-form-field class="example-full-width1">
-                                                                  <input matInput placeholder="Address agency" name = "Address" [(ngModel)]="view.Addressagency" [(value)]="view.Addressagency" readonly="readonly">
-                                                        </mat-form-field>    
-                                        </form>
+                                                                        <input matInput placeholder="Address agency"
+                                                                                name="Address" [(ngModel)]="view.Addressagency"
+                                                                                [(value)]="view.Addressagency">
+                                                                </mat-form-field>
+                                                        </form>
 
-                                        <form class="example-form1">
-                                                        <mat-icon>date_range</mat-icon>
+                                                        <form class="example-form1">
+                                                                <mat-icon>date_range</mat-icon>
                                                                 <mat-form-field class="example-full-width1">
-                                                                  <input matInput placeholder="Choose a date" name = "date" [(ngModel)]="view.inputTime" [(value)]="view.inputTime" readonly="readonly" size="12"> 
-                                                        </mat-form-field>
-                                        </form>
+                                                                        <input matInput [(ngModel)]="view.inputTime"
+                                                                                name="Date" [matDatepicker]="picker"
+                                                                                [ngModelOptions]="{standalone: true}"
+                                                                                placeholder="Choose a date" [(value)]="select.selectInputTime"
+                                                                                required disabled>
+                                                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                                        <mat-datepicker touchUi #picker disabled="false"></mat-datepicker>
+                                                                </mat-form-field>
+                                                        </form>
 
-                                        <form class="example-form1">
-                                                        <mat-icon>phone</mat-icon>
+                                                        <form class="example-form1">
+                                                                <mat-icon>phone</mat-icon>
                                                                 <mat-form-field class="example-full-width1">
-                                                                  <input matInput placeholder="Phone number agency" name = "Phone" [(ngModel)]="view.Inputdataphonenumber" [(value)]="view.Inputdataphonenumber" readonly="readonly">
-                                                        </mat-form-field>
-                                        </form>
+                                                                        <input matInput placeholder="Phone number agency"
+                                                                                name="Phone" [(ngModel)]="view.Inputdataphonenumber"
+                                                                                [(value)]="view.Inputdataphonenumber">
+                                                                </mat-form-field>
+                                                        </form>
 
-                                        <form class="example-form1">
-                                                        <mat-icon>mail_outline</mat-icon>
+                                                        <form class="example-form1">
+                                                                <mat-icon>mail_outline</mat-icon>
                                                                 <mat-form-field class="example-full-width1">
-                                                                  <input matInput placeholder="E-mail" name = "Email" [(ngModel)]="view.Inputdatae_mail" [(value)]="view.Inputdatae_mail" readonly="readonly">
-                                                        </mat-form-field>
-                                        </form>
-                                        <form class="example-form2">
-                                                <mat-chip-list>
-                                                        <mat-chip color="accent" selected (click)="next()">Success</mat-chip>
-                                                </mat-chip-list>
-                                        </form>
-                                <p></p>
-                                <mat-accordion>
-                                        <mat-expansion-panel>
-                                                <mat-expansion-panel-header>
-                                                  <mat-panel-title>
-                                                    Information data
-                                                  </mat-panel-title>
-                                                  <mat-panel-description>
-                                                    Choose to list in table for update
-                                                  </mat-panel-description>
-                                                </mat-expansion-panel-header>
-                                            
-                                                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                                                                        <input matInput placeholder="E-mail" name="Email"
+                                                                                [(ngModel)]="view.Inputdatae_mail"
+                                                                                [(value)]="view.Inputdatae_mail">
+                                                                </mat-form-field>
+                                                        </form>
 
-                                                        <ng-container matColumnDef="relatedinformationID">
-                                                                <th mat-header-cell *matHeaderCellDef> No. </th>
-                                                                <td mat-cell *matCellDef="let element"> {{element.relatedinformationID}} </td>
-                                                        </ng-container>
-                                                      
-                                                        <ng-container matColumnDef="relatedinformationName">
-                                                                <th mat-header-cell *matHeaderCellDef> Name </th>
-                                                                <td mat-cell *matCellDef="let element"> {{element.relatedinformationName}} </td>
-                                                        </ng-container> 
-                                                      
-                                                        <ng-container matColumnDef="agencyName">
-                                                                <th mat-header-cell *matHeaderCellDef> agencytype </th>
-                                                                <td mat-cell *matCellDef="let element"> {{element.agencyTypeEntity.agencyName}} </td>
-                                                        </ng-container>
-                                                      
-                                                        <ng-container matColumnDef="provinceName">
-                                                                <th mat-header-cell *matHeaderCellDef> province </th>
-                                                                <td mat-cell *matCellDef="let element"> {{element.provinceEntity.provinceName}} </td>
-                                                        </ng-container>
-                
-                                                        <ng-container matColumnDef="countryName">
-                                                                <th mat-header-cell *matHeaderCellDef> country </th>
-                                                                <td mat-cell *matCellDef="let element"> {{element.countryEntity.countryName}} </td>
-                                                        </ng-container>
-                
-                                                        <ng-container matColumnDef="relatedinformationAddress">
-                                                                <th mat-header-cell *matHeaderCellDef> Address </th>
-                                                                <td mat-cell *matCellDef="let element"> {{element.relatedinformationAddress}} </td>
-                                                        </ng-container>
-                
-                                                        <ng-container matColumnDef="activitiesName">
-                                                                <th mat-header-cell *matHeaderCellDef> Activities Name </th>
-                                                                <td mat-cell *matCellDef="let element"> {{element.activitiesEntity.activitiesName}} </td>
-                                                        </ng-container>
 
-                                                        <!-- <ng-container matColumnDef="tActivities">
+                                                        <form class="example-form1">
+                                                                <button mat-button class="color1" (click)="Save()"
+                                                                        matStepperNext><b>{{save ? 'Update' : 'Save'}}</b></button>
+                                                        </form>
+                                                </mat-card>
+
+                                        </mat-step>
+
+                                        <mat-step [stepControl]="secondFormGroup">
+                                                <ng-template matStepLabel>Show Information</ng-template>
+                                                <mat-card [formGroup]="secondFormGroup">
+                                                        <form class="example-form1">
+                                                                <mat-icon>accessibility_new</mat-icon>
+                                                                <mat-form-field class="example-full-width1">
+                                                                        <input matInput placeholder="Activities name"
+                                                                                name="activities" [(ngModel)]="view.activities"
+                                                                                [(value)]="view.activities" readonly="readonly">
+                                                                </mat-form-field>
+                                                        </form>
+
+                                                        <form class="example-form1">
+                                                                <mat-icon>account_balance</mat-icon>
+                                                                <mat-form-field class="example-full-width1">
+                                                                        <input matInput placeholder="Agency type" name="Agency Name"
+                                                                                [(ngModel)]="view.agent" [(value)]="view.agent"
+                                                                                readonly="readonly">
+                                                                </mat-form-field>
+                                                        </form>
+
+                                                        <form class="example-form1">
+                                                                <mat-icon>account_balance</mat-icon>
+                                                                <mat-form-field class="example-full-width1">
+                                                                        <input matInput placeholder="Name of Agency"
+                                                                                name="RIName" [(ngModel)]="view.Nameoforganization"
+                                                                                [(value)]="view.Nameoforganization"
+                                                                                readonly="readonly">
+                                                                </mat-form-field>
+                                                        </form>
+
+                                                        <form class="example-form1">
+                                                                <mat-icon>location_on</mat-icon>
+                                                                <mat-form-field class="example-full-width1">
+                                                                        <input matInput placeholder="Country" name="country"
+                                                                                [(ngModel)]="view.country" [(value)]="view.country"
+                                                                                readonly="readonly">
+                                                                </mat-form-field>
+                                                        </form>
+
+                                                        <form class="example-form1">
+                                                                <mat-icon>location_on</mat-icon>
+                                                                <mat-form-field class="example-full-width1">
+                                                                        <input matInput placeholder="Province" name="province"
+                                                                                [(ngModel)]="view.provin" [(value)]="view.provin"
+                                                                                readonly="readonly">
+                                                                </mat-form-field>
+                                                        </form>
+
+                                                        <form class="example-form1">
+                                                                <mat-icon>location_on</mat-icon>
+                                                                <mat-form-field class="example-full-width1">
+                                                                        <input matInput placeholder="Address agency"
+                                                                                name="Address" [(ngModel)]="view.Addressagency"
+                                                                                [(value)]="view.Addressagency" readonly="readonly">
+                                                                </mat-form-field>
+                                                        </form>
+
+                                                        <form class="example-form1">
+                                                                <mat-icon>date_range</mat-icon>
+                                                                <mat-form-field class="example-full-width1">
+                                                                        <input matInput placeholder="Choose a date"
+                                                                                name="date" [(ngModel)]="view.inputTime"
+                                                                                [(value)]="view.inputTime" readonly="readonly"
+                                                                                size="12">
+                                                                </mat-form-field>
+                                                        </form>
+
+                                                        <form class="example-form1">
+                                                                <mat-icon>phone</mat-icon>
+                                                                <mat-form-field class="example-full-width1">
+                                                                        <input matInput placeholder="Phone number agency"
+                                                                                name="Phone" [(ngModel)]="view.Inputdataphonenumber"
+                                                                                [(value)]="view.Inputdataphonenumber"
+                                                                                readonly="readonly">
+                                                                </mat-form-field>
+                                                        </form>
+
+                                                        <form class="example-form1">
+                                                                <mat-icon>mail_outline</mat-icon>
+                                                                <mat-form-field class="example-full-width1">
+                                                                        <input matInput placeholder="E-mail" name="Email"
+                                                                                [(ngModel)]="view.Inputdatae_mail"
+                                                                                [(value)]="view.Inputdatae_mail"
+                                                                                readonly="readonly">
+                                                                </mat-form-field>
+                                                        </form>
+                                                        <form class="example-form2">
+                                                                <mat-chip-list>
+                                                                        <mat-chip color="accent" selected (click)="next()">Success</mat-chip>
+                                                                </mat-chip-list>
+                                                        </form>
+                                                        <p></p>
+                                                        <mat-accordion>
+                                                                <mat-expansion-panel>
+                                                                        <mat-expansion-panel-header>
+                                                                                <mat-panel-title>
+                                                                                        Information data
+                                                                                </mat-panel-title>
+                                                                                <mat-panel-description>
+                                                                                        Choose to list in table for
+                                                                                        update
+                                                                                </mat-panel-description>
+                                                                        </mat-expansion-panel-header>
+
+                                                                        <table mat-table [dataSource]="dataSource"
+                                                                                class="mat-elevation-z8">
+
+                                                                                <ng-container matColumnDef="relatedinformationID">
+                                                                                        <th mat-header-cell
+                                                                                                *matHeaderCellDef> No.
+                                                                                        </th>
+                                                                                        <td mat-cell *matCellDef="let element">
+                                                                                                {{element.relatedinformationID}}
+                                                                                        </td>
+                                                                                </ng-container>
+
+                                                                                <ng-container matColumnDef="relatedinformationName">
+                                                                                        <th mat-header-cell
+                                                                                                *matHeaderCellDef> Name
+                                                                                        </th>
+                                                                                        <td mat-cell *matCellDef="let element">
+                                                                                                {{element.relatedinformationName}}
+                                                                                        </td>
+                                                                                </ng-container>
+
+                                                                                <ng-container matColumnDef="agencyName">
+                                                                                        <th mat-header-cell
+                                                                                                *matHeaderCellDef>
+                                                                                                agencytype </th>
+                                                                                        <td mat-cell *matCellDef="let element">
+                                                                                                {{element.agencyTypeEntity.agencyName}}
+                                                                                        </td>
+                                                                                </ng-container>
+
+                                                                                <ng-container matColumnDef="provinceName">
+                                                                                        <th mat-header-cell
+                                                                                                *matHeaderCellDef>
+                                                                                                province </th>
+                                                                                        <td mat-cell *matCellDef="let element">
+                                                                                                {{element.provinceEntity.provinceName}}
+                                                                                        </td>
+                                                                                </ng-container>
+
+                                                                                <ng-container matColumnDef="countryName">
+                                                                                        <th mat-header-cell
+                                                                                                *matHeaderCellDef>
+                                                                                                country </th>
+                                                                                        <td mat-cell *matCellDef="let element">
+                                                                                                {{element.countryEntity.countryName}}
+                                                                                        </td>
+                                                                                </ng-container>
+
+                                                                                <ng-container matColumnDef="relatedinformationAddress">
+                                                                                        <th mat-header-cell
+                                                                                                *matHeaderCellDef>
+                                                                                                Address </th>
+                                                                                        <td mat-cell *matCellDef="let element">
+                                                                                                {{element.relatedinformationAddress}}
+                                                                                        </td>
+                                                                                </ng-container>
+
+                                                                                <ng-container matColumnDef="eventName">
+                                                                                        <th mat-header-cell
+                                                                                                *matHeaderCellDef>
+                                                                                                Activities Name </th>
+                                                                                        <td mat-cell *matCellDef="let element">
+                                                                                                {{element.sportsEvent.eventName}}
+                                                                                        </td>
+                                                                                </ng-container>
+
+                                                                                <!-- <ng-container matColumnDef="tActivities">
                                                                 <th mat-header-cell *matHeaderCellDef> Activities Name </th>
                                                                 <td mat-cell *matCellDef="let element"> {{element.testEntity.tActivities}} </td>
                                                         </ng-container> -->
-                
-                                                        <ng-container matColumnDef="relatedinformationPhone">
-                                                                <th mat-header-cell *matHeaderCellDef> Phone </th>
-                                                                <td mat-cell *matCellDef="let element"> {{element.relatedinformationPhone}} </td>
-                                                        </ng-container>
-                
-                                                        <ng-container matColumnDef="relatedinformationEmail">
-                                                                <th mat-header-cell *matHeaderCellDef> E-mail </th>
-                                                                <td mat-cell *matCellDef="let element"> {{element.relatedinformationEmail}} </td>
-                                                        </ng-container>
-                
-                                                        <ng-container matColumnDef="relatedinformationDate">
-                                                                <th mat-header-cell *matHeaderCellDef> Work Date </th>
-                                                                <td mat-cell *matCellDef="let element"> {{element.relatedinformationDate}} </td>
-                                                        </ng-container>
-                                                      
-                                                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                                                        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" (click)="Stat()"></tr>
-                                                </table>  
-                                                <p></p>
-                                                <div class="panel101">
-                                                        <button mat-button class = "color1" matStepperPrevious><b>{{save ? 'Update' : 'Save'}}</b></button> 
-                                                </div>
-                                              </mat-expansion-panel>
-                                </mat-accordion>
-                        </mat-card>
-                    </mat-step>
-            </mat-horizontal-stepper>
 
-          </div>
-          <hr>
-        </form>
-    </div>
+                                                                                <ng-container matColumnDef="relatedinformationPhone">
+                                                                                        <th mat-header-cell
+                                                                                                *matHeaderCellDef>
+                                                                                                Phone </th>
+                                                                                        <td mat-cell *matCellDef="let element">
+                                                                                                {{element.relatedinformationPhone}}
+                                                                                        </td>
+                                                                                </ng-container>
+
+                                                                                <ng-container matColumnDef="relatedinformationEmail">
+                                                                                        <th mat-header-cell
+                                                                                                *matHeaderCellDef>
+                                                                                                E-mail </th>
+                                                                                        <td mat-cell *matCellDef="let element">
+                                                                                                {{element.relatedinformationEmail}}
+                                                                                        </td>
+                                                                                </ng-container>
+
+                                                                                <ng-container matColumnDef="relatedinformationDate">
+                                                                                        <th mat-header-cell
+                                                                                                *matHeaderCellDef> Work
+                                                                                                Date </th>
+                                                                                        <td mat-cell *matCellDef="let element">
+                                                                                                {{element.relatedinformationDate}}
+                                                                                        </td>
+                                                                                </ng-container>
+
+                                                                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                                                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                                                                                        (click)="selectRow(row)"
+                                                                                        (click)="Stat()"></tr>
+                                                                        </table>
+                                                                        <p></p>
+                                                                        <div class="panel101">
+                                                                                <button mat-button class="color1"
+                                                                                        matStepperPrevious><b>{{save ?
+                                                                                                'Update' : 'Save'}}</b></button>
+                                                                        </div>
+                                                                </mat-expansion-panel>
+                                                        </mat-accordion>
+                                                </mat-card>
+                                        </mat-step>
+                                </mat-horizontal-stepper>
+
+                        </div>
+                        <hr>
+                </form>
+        </div>
 </body>

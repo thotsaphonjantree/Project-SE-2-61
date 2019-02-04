@@ -31,17 +31,9 @@ export class DepartmentService {
   }
 
   getActivitiesName(): Observable<any> {
-    return this.http.get(this.API + '/Activities');
+    return this.http.get(this.API + '/event');
   }
 
-  getTName(): Observable<any>{
-    return this.http.get(this.API + '/Test');
-  }
-
-  // getRIName(RIName): Observable<any> {
-  //   return this.http.get(this.API + '/RelatedInformation/'+RIName);
-  // }
-  //
   getShow():Observable<PeriodicElement[]>{
     return this.http.get<PeriodicElement[]>(this.serviceUrl);
   }

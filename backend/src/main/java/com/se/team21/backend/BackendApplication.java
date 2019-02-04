@@ -66,7 +66,7 @@ public class BackendApplication {
 						   PlaceEventRepository placeEventRepository,
 						   AgencyTypeRepository AgencyTypeRepository, CountryRepository CountryRepository,
 						   ProvinceRepository ProvinceRepository, RelatedInformationRepository RelatedInformationRepository,
-						   ActivitiesRepository ActivitiesRepository, TestRepository testRepository,
+						   ActivitiesRepository ActivitiesRepository,
 						   GenderStaffRepository genderStaffRepository, AgeStaffRepository ageStaffRepository,
 						   WorkStaffRepository workStaffRepository,
 						   RegisterStaffRepository registerStaffRepository,
@@ -250,20 +250,6 @@ public class BackendApplication {
 				activitie.setActivitiesName(activities);
 				ActivitiesRepository.save(activitie);
 			});
-
-			TestEntity test1 = new TestEntity();
-			test1.settActivities("ปั่นอุ่นไอรัก");
-			test1.settAddress("สนามหลวง");
-			test1.settName("NS");
-			testRepository.save(test1);
-
-			TestEntity test2 = new TestEntity();
-			test2.settActivities("วิ่งเพื่อสุขภาพ");
-			test2.settAddress("SUT");
-			test2.settName("NS");
-			testRepository.save(test2);
-
-
 
 			Stream.of("ลงทะเบียนนักกีฬา","ดูแลนักกีฬา","จัดสถานที่").forEach(kindActivitys -> {
 				WorkStaff k = new WorkStaff();

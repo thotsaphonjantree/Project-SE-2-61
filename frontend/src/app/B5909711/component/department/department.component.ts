@@ -17,17 +17,20 @@ export interface PeriodicElement {
   agencyTypeEntity: {
     agencyName: string;
   }
-  activitiesEntity: {
-    activitiesName: string;
-  }
+  // activitiesEntity: {
+  //   activitiesName: string;
+  // }
   countryEntity: {
     countryName: string;
   }
   provinceEntity: {
     provinceName: string;
   }
-  testEntity:{
-    tActivities: string;
+  // testEntity:{
+  //   tActivities: string;
+  // }
+  sportsEvent:{
+    eventName: string;
   }
 }
 
@@ -58,16 +61,16 @@ export class DepartmentComponent implements OnInit {
   // startDate = new Date(1990, 0, 1);
   view: any = {
     ID: '',
-    agent: '',
-    provin: '',
-    country: '',
-    Nameoforganization: '',
-    activities: '',
-    inputTime: '',
-    Addressagency: '',
-    Inputdataphonenumber: '',
-    Inputdatae_mail: '',
-    test: ''
+    agent: null,
+    provin: null,
+    country: null,
+    Nameoforganization: null,
+    activities: null,
+    inputTime: null,
+    Addressagency: null,
+    Inputdataphonenumber: null,
+    Inputdatae_mail: null,
+    test: null
   }
 
   select: any = {
@@ -89,7 +92,7 @@ export class DepartmentComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  displayedColumns: string[] = ['relatedinformationID', 'activitiesName', 'agencyName','relatedinformationPhone', 'relatedinformationName','countryName','relatedinformationDate','provinceName','relatedinformationAddress','relatedinformationEmail'];
+  displayedColumns: string[] = ['relatedinformationID','eventName', 'agencyName','relatedinformationPhone', 'relatedinformationName','countryName','relatedinformationDate','provinceName','relatedinformationAddress','relatedinformationEmail'];
   dataSource = new RoomdataSource(this.departmentService);
 
   constructor(private departmentService: DepartmentService , private httpClient: HttpClient,private router : Router,private _formBuilder: FormBuilder) { }
@@ -116,10 +119,10 @@ export class DepartmentComponent implements OnInit {
       console.log(this.Activities);
     });
 
-    this.departmentService.getTName().subscribe(data => {
-      this.Test = data;
-      console.log(this.Test);
-    });
+    // this.departmentService.getTName().subscribe(data => {
+    //   this.Test = data;
+    //   console.log(this.Test);
+    // });
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
@@ -141,7 +144,7 @@ export class DepartmentComponent implements OnInit {
   selectRow(row){
     this.select.selectID = row.relatedinformationID;
     this.select.selectAgent = row.agencyTypeEntity.agencyName;
-    this.select.selectActivities = row.activitiesEntity.activitiesName;
+    this.select.selectActivities = row.sportsEvent.eventName;
     this.select.selectCountry = row.countryEntity.countryName;
     this.select.selectNameoforganization = row.relatedinformationName;
     this.select.selectProvin = row.provinceEntity.provinceName;
@@ -182,22 +185,22 @@ export class DepartmentComponent implements OnInit {
   }
 
   Save() {
-    if (this.view.agent == null) {
-      alert('กรุณาเลือกประเถทหน่วยงาน');
-    }
-    else if (this.view.activities == null) {
+    if (this.view.activities == null) {
       alert('กรุณาเลือกชื่อกิจกรรม');
     }
-    else if (this.view.provin == null) {
-      alert('กรุณาเลือกจังหวัด');
-    }
-    else if(this.view.country == null) {
-      alert('กรุณาเลือกประเทศ');
+    else if (this.view.agent == null) {
+      alert('กรุณาเลือกประเถทหน่วยงาน');
     }
     else if(this.view.Nameoforganization == null) {
       alert('กรุณาระบุชื่อหน่วยงาน');
     }
-    else if(this.view.inputTime == '') {
+    else if(this.view.country == null) {
+      alert('กรุณาเลือกประเทศ');
+    }
+    else if (this.view.provin == null) {
+      alert('กรุณาเลือกจังหวัด');
+    }
+    else if(this.view.inputTime == null) {
       alert('กรุณาระบุวันที่และเวลา');
     }
     else if(this.view.Addressagency == null) {
@@ -239,7 +242,8 @@ export class DepartmentComponent implements OnInit {
   }
 
   updateType(){
-    this.httpClient.put('http://localhost:8080/updateRelatedInformation/'+  this.view.ID + '/' + this.view.Nameoforganization + '/' + this.view.inputTime  + '/' + this.view.Addressagency + '/' + this.view.Inputdataphonenumber + '/' + this.view.Inputdatae_mail + '/' + this.view.agent + '/' + this.view.country + '/' + this.view.provin + '/' + this.view.activities, this.view)
+    let newdate = new Date(this.view.inputTime);
+    this.httpClient.put('http://localhost:8080/updateRelatedInformation/'+  this.view.ID + '/' + this.view.Nameoforganization + '/' + newdate  + '/' + this.view.Addressagency + '/' + this.view.Inputdataphonenumber + '/' + this.view.Inputdatae_mail + '/' + this.view.agent + '/' + this.view.country + '/' + this.view.provin + '/' + this.view.activities, this.view)
 
       .subscribe(
         data => {
