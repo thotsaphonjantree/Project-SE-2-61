@@ -14,20 +14,20 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_seq")
     @Column(name="Address_ID",unique = true, nullable = true)
     private @NonNull Long aid;
-    private @NonNull String address;
+    private @NonNull String addressname;
 
     public Address() {
     }
 
-    public Address(Long aid,String address) {
+    public Address(Long aid,String addressname) {
         this.aid = aid;
-        this.address = address;
+        this.addressname = addressname;
     }
     public String getAddress() {
-        return address;
+        return addressname;
     }
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress(String addressname) {
+        this.addressname = addressname;
     }  
     public void setAid(Long aid) {
         this.aid = aid;
