@@ -52,6 +52,7 @@ export class ResultComponent implements OnInit {
   Rating: Array<any>;
   PersonType: Array<any>;
   room: Array<any>;
+  DataSelect: Array<any>;
 
   view: any = {
     activities: null,
@@ -61,7 +62,8 @@ export class ResultComponent implements OnInit {
     inputAddress: null,
     provin: null,
     rating: null,
-    personType: null
+    personType: null,
+    selectShow: null
   }
 
   refresh() {
@@ -151,4 +153,12 @@ export class ResultComponent implements OnInit {
         }
       );
   }
+
+  SelectShow(){
+    console.log('Hello NS');
+     this.resultService.getSelectShow(this.view.selectShow).subscribe(res =>{
+      this.dataSource = res;
+      console.log(this.dataSource);
+    })    
+  } 
 }

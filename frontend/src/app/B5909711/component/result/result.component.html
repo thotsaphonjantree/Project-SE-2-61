@@ -100,18 +100,18 @@
         </div>
 
         <div class="panel2">
-          <!-- <form style="float: right;">
+          <form style="float: right;">
             <form>
               <mat-icon>accessibility_new</mat-icon>
               <mat-form-field>
-                <mat-select placeholder="Activities name" name="activities" [(ngModel)]="view.activities" [(value)]="view.activities">
+                <mat-select placeholder="Activities name" name="activities" [(ngModel)]="view.selectShow" [(value)]="view.selectShow" (selectionChange)="SelectShow()">
                   <mat-option>None</mat-option>
                   <mat-option *ngFor="let activities of Activities" [value]="activities.eventName">
                     {{activities.eventName}}</mat-option>
                 </mat-select>
               </mat-form-field>
             </form>
-          </form> -->
+          </form>
 
           <form>
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

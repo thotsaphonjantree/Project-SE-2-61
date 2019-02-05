@@ -12,6 +12,7 @@ export class ResultService {
   dataTemp = new Subject<String>();
   public API = '//localhost:8080';
   private serviceUrl = 'http://localhost:8080/Result';
+  private serviceUrl2 = 'http://localhost:8080/Results/'
   constructor(private http: HttpClient) { }
 
   getActivitiesName(): Observable<any> {
@@ -36,5 +37,9 @@ export class ResultService {
 
   getShow():Observable<PeriodicElement[]>{
     return this.http.get<PeriodicElement[]>(this.serviceUrl);
+  }
+
+  getSelectShow(activity: string):Observable<any>{
+    return this.http.get(this.serviceUrl2 + activity);
   }
 }

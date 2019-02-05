@@ -10,6 +10,7 @@ import com.se.team21.backend.b5910311.entity.SportsType;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController @CrossOrigin(origins = "http://localhost:4200")
@@ -44,6 +45,11 @@ public class ResultController {
     @GetMapping("/Result")
     public Collection<ResultEntity> Result(){
         return resultRepository.findAll().stream().collect(Collectors.toList());
+    }
+
+    @GetMapping("/Results/{eventName}")
+    public List<ResultEntity> getResult(@PathVariable String eventName){
+        return resultRepository.findBySportsEvent_Eventname(eventName);
     }
 
     @GetMapping(path = "/Result/{activities}/{sportsType}/{inputName}/{rating}/{personType}/{inputDate}/{inputAddress}/{provin}")
