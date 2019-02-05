@@ -156,9 +156,15 @@ export class ResultComponent implements OnInit {
 
   SelectShow(){
     console.log('Hello NS');
-     this.resultService.getSelectShow(this.view.selectShow).subscribe(res =>{
-      this.dataSource = res;
-      console.log(this.dataSource);
-    })    
+    if(this.view.selectShow == 'None'){
+      this.dataSource = new RoomdataSource(this.resultService);
+    }
+    else {
+      this.resultService.getSelectShow(this.view.selectShow)
+      .subscribe(res =>{
+        this.dataSource = res;
+        console.log(this.dataSource);
+      })
+    }  
   } 
 }
