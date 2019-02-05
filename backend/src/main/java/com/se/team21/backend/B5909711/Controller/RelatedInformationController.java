@@ -4,6 +4,8 @@ import com.se.team21.backend.B5909711.Entity.*;
 import com.se.team21.backend.B5909711.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.se.team21.backend.b5910311.entity.SportsEvent;
+import com.se.team21.backend.b5910311.repository.SportsEventRepository;
 
 import java.util.Collection;
 import java.util.Date;
@@ -18,22 +20,19 @@ public class RelatedInformationController {
     @Autowired
     private CountryRepository countryRepository;
     @Autowired
-    private ActivitiesRepository activitiesRepository;
-    @Autowired
     private ProvinceRepository provinceRepository;
     @Autowired
-    private TestRepository testRepository;
+    private SportsEventRepository sportsEventRepository;
 
     @Autowired
     public RelatedInformationController(RelatedInformationRepository relatedInformationRepository, AgencyTypeRepository agencyTypeRepository
-                                        , CountryRepository countryRepository, ActivitiesRepository activitiesRepository
-                                        , ProvinceRepository provinceRepository, TestRepository testRepository){
+                                        , CountryRepository countryRepository
+                                        , ProvinceRepository provinceRepository, SportsEventRepository sportsEventRepository){
         this.relatedInformationRepository = relatedInformationRepository;
         this.agencyTypeRepository = agencyTypeRepository;
         this.countryRepository = countryRepository;
-        this.activitiesRepository = activitiesRepository;
         this.provinceRepository = provinceRepository;
-        this.testRepository = testRepository;
+        this.sportsEventRepository = sportsEventRepository;
     }
 
     @GetMapping("/RelatedInformation")
@@ -49,20 +48,17 @@ public class RelatedInformationController {
                                             @PathVariable String Inputdatae_mail, @PathVariable String activities) {
         RelatedInformationEntity r = new RelatedInformationEntity();
         AgencyTypeEntity a = agencyTypeRepository.findByagencyName(agent);
-        ActivitiesEntity ac = activitiesRepository.findByactivitiesName(activities);
+        SportsEvent s = sportsEventRepository.findByEventname(activities);
         System.out.println(activities);
         System.out.println(agent);
         CountryEntity c = countryRepository.findBycountryName(country);
         System.out.println(country);
         ProvinceEntity p = provinceRepository.findByprovinceName(provin);
         System.out.println(provin);
-//        TestEntity t = testRepository.findBytActivities(activities);
-//        System.out.println(activities);
 
         r.setAgencyTypeEntity(a);
         r.setCountryEntity(c);
-        r.setActivitieEntity(ac);
-//        r.setTestEntity(t);
+        r.setSportsEvent(s);
         r.setRelatedinformationAddress(Addressagency);
         r.setRelatedinformationName(Nameoforganization);
         r.setRelatedinformationPhone(Inputdataphonenumber);
@@ -78,8 +74,8 @@ public class RelatedInformationController {
         AgencyTypeEntity a = agencyTypeRepository.findByagencyName(agencyName);
         CountryEntity c = countryRepository.findBycountryName(countryName);
         ProvinceEntity p = provinceRepository.findByprovinceName(provinceName);
-        ActivitiesEntity ac = activitiesRepository.findByactivitiesName(activitiesName);
-//        TestEntity t = testRepository.findBytActivities(activitiesName);
+        SportsEvent s = sportsEventRepository.findByEventname(activitiesName);
+//        ActivitiesEntity ac = activitiesRepository.findByactivitiesName(activitiesName);
         return relatedInformationRepository.findById(relatedinformationID).map(roomedit ->{
                     roomedit.setRelatedinformationID(relatedinformationID);
                     roomedit.setRelatedinformationName(relatedinformationName);
@@ -90,8 +86,8 @@ public class RelatedInformationController {
                     roomedit.setAgencyTypeEntity(a);
                     roomedit.setCountryEntity(c);
                     roomedit.setProvinceEntity(p);
-                    roomedit.setActivitieEntity(ac);
-//                    roomedit.setTestEntity(t);
+                    roomedit.setSportsEvent(s);
+//                    roomedit.setActivitieEntity(ac);
 
                     return relatedInformationRepository.save(roomedit);
                 }

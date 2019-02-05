@@ -1,7 +1,7 @@
 package com.se.team21.backend.B5909711.Entity;
 
 import lombok.*;
-
+import com.se.team21.backend.b5910311.entity.SportsEvent;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -27,10 +27,10 @@ public class RelatedInformationEntity {
     private @NonNull String relatedinformationPhone;
     private @NonNull String relatedinformationEmail;
 
-    //Many To One with Activitie
+    //Many To One with SportsEvent
     @ManyToOne /*(fetch = FetchType.EAGER, targetEntity = AgencyTypeEntity.class)*/
-    @JoinColumn(name = "activityID")
-    private ActivitiesEntity activitiesEntity;
+    @JoinColumn(name = "seid")
+    private SportsEvent sportsEvent;
 
     //Many To One with AgencyType
     @ManyToOne /*(fetch = FetchType.EAGER, targetEntity = AgencyTypeEntity.class)*/
@@ -46,11 +46,6 @@ public class RelatedInformationEntity {
     @ManyToOne /*(fetch = FetchType.EAGER, targetEntity = ProvinceEntity.class)*/
     @JoinColumn(name = "provinceID")
     private ProvinceEntity provinceEntity;
-
-    //Many To One with Test
-//    @ManyToOne /*(fetch = FetchType.EAGER, targetEntity = ProvinceEntity.class)*/
-//    @JoinColumn(name = "testID")
-//    private TestEntity testEntity;
 
     public Long getRelatedinformationID() {
         return relatedinformationID;
@@ -128,19 +123,11 @@ public class RelatedInformationEntity {
 		return null;
 	}
 
-	public void setActivitieEntity(ActivitiesEntity activitiesEntity){
-        this.activitiesEntity = activitiesEntity;
+    public SportsEvent getSportsEvent() {
+        return sportsEvent;
     }
 
-    public ActivitiesEntity getActivitieEntity(){
-        return this.activitiesEntity;
+    public void setSportsEvent(SportsEvent sportsEvent) {
+        this.sportsEvent = sportsEvent;
     }
-
-//    public TestEntity getTestEntity() {
-//        return testEntity;
-//    }
-//
-//    public void setTestEntity(TestEntity testEntity) {
-//        this.testEntity = testEntity;
-//    }
 }

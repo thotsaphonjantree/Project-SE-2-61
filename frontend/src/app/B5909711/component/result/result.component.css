@@ -1,0 +1,92 @@
+.header {
+    padding: 10px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 20px;
+  }
+  
+  * {box-sizing: border-box}
+  
+  .column {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    height: 100%;
+  }
+
+  .container {
+    padding: 0;
+  }
+  
+  hr {
+    border: 1px solid red;
+    margin-bottom: 25px;
+  }
+
+  .panel1{
+      background-color: lightyellow;
+      width: 100%;
+      height: 580px;
+      width: 40%;
+      float: left;
+      border-style: outset;
+      border-radius: 5%;
+      border-width: 5px;
+      border-color: red;
+  }
+
+  .panel2{
+    background-color:lightyellow;
+    width: 100%;
+    height: 100%;
+    width: 57%;
+    margin-left: 3%;
+    float: left;
+}
+
+  .example-full-width1 {
+    width: 90%;
+    margin-left: 5px;
+  }
+
+  .color{
+    background-color: green;
+    color: white;
+    padding: 0% 10%;
+    border-radius: 10px;
+  }
+
+  .example-form1 {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin-left: 8px;
+
+  }
+
+  .example-form2 {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin-left: 20px;
+  }
+
+  .example-form3 {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin-left: 170px;
+  }
+
+  .example-form4 {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin-left: 90px;
+  }
+
+  table {
+    width: 100%;
+    border-radius: 5px;
+  }

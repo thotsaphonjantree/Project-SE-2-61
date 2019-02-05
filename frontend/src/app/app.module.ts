@@ -57,6 +57,8 @@ import { SeePlaceXComponent } from './B5911417/see-place-x/see-place-x.component
 import { AllsporteventComponent } from './B5910311//allsportevent/allsportevent.component';
 import { SporteventService } from './B5910311/sportevent.service';
 import { AddeventComponent } from './B5910311/addevent/addevent.component';
+import { ResultComponent } from './B5909711/component/result/result.component';
+import { ResultService } from './B5909711/service/result/result.service';
 
 
 const appRoutes: Routes = [
@@ -105,6 +107,10 @@ const appRoutes: Routes = [
     {
       path: 'addevent',
       component: AddeventComponent
+    },
+    {
+      path: 'Result',
+      component: ResultComponent
     }
 ];
 
@@ -123,7 +129,8 @@ const appRoutes: Routes = [
     ReservePlaceComponent,
     SeePlaceXComponent,
     AllsporteventComponent,
-    AddeventComponent
+    AddeventComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
@@ -177,7 +184,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [SporteventService,DepartmentService,RegisterserviceService, ReservePlaceService],
+  providers: [SporteventService,DepartmentService,RegisterserviceService, ReservePlaceService,ResultService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

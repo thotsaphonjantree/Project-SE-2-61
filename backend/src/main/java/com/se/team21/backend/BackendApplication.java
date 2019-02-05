@@ -25,6 +25,8 @@ import com.se.team21.backend.B5926329.Repository.EventRepository;
 import com.se.team21.backend.B5926329.Repository.MemberRepository;
 import com.se.team21.backend.B5926329.Repository.PayCategoryRepository;
 import com.se.team21.backend.B5926329.Repository.PaymentRepository;
+
+import java.util.Date;
 import java.util.stream.Stream;
 
 import com.se.team21.backend.b5910311.entity.Location;
@@ -66,15 +68,15 @@ public class BackendApplication {
 						   PlaceEventRepository placeEventRepository,
 						   AgencyTypeRepository AgencyTypeRepository, CountryRepository CountryRepository,
 						   ProvinceRepository ProvinceRepository, RelatedInformationRepository RelatedInformationRepository,
-						   ActivitiesRepository ActivitiesRepository, TestRepository testRepository,
 						   GenderStaffRepository genderStaffRepository, AgeStaffRepository ageStaffRepository,
 						   WorkStaffRepository workStaffRepository,
 						   RegisterStaffRepository registerStaffRepository,
 						   AccountRecordRepository accountrecordrepository, BankRepository bankrepository,
 						   FromToRepository fromtorepository, IncomeExpensesRepository incomeexpensesrepository,
-						  
 						   LocationRepository locationRepository , SportsTypeRepository sportstypeRepository,
-							SportsEventStaffRepository sportseventstaffRepository,SportsEventRepository sportseventRepository
+						   SportsEventStaffRepository sportseventstaffRepository,SportsEventRepository sportseventRepository,ProvinceRepository provinceRepository
+//						   ,PersonTypeRepository personTypeRepository,RatingRepository ratingRepository,
+//						   ResultRepository resultRepository
 							){
 		return args -> {
 
@@ -245,25 +247,49 @@ public class BackendApplication {
 				AgencyTypeRepository.save(agencyType);
 			});
 
-			Stream.of("ปั่นอุ่นไอรัก", "วิ่งเพื่อสุขภาพ").forEach(activities -> {
-				ActivitiesEntity activitie = new ActivitiesEntity();
-				activitie.setActivitiesName(activities);
-				ActivitiesRepository.save(activitie);
-			});
-
-			TestEntity test1 = new TestEntity();
-			test1.settActivities("ปั่นอุ่นไอรัก");
-			test1.settAddress("สนามหลวง");
-			test1.settName("NS");
-			testRepository.save(test1);
-
-			TestEntity test2 = new TestEntity();
-			test2.settActivities("วิ่งเพื่อสุขภาพ");
-			test2.settAddress("SUT");
-			test2.settName("NS");
-			testRepository.save(test2);
-
-
+//			Stream.of("อันดับ 1", "อันดับ 2", "อันดับ 3").forEach(ratings -> {
+//				RatingEntity r = new RatingEntity();
+//				r.setRatingName(ratings);
+//				ratingRepository.save(r);
+//			});
+//
+//			Stream.of("ปกติ", "พิการ").forEach(persontypes -> {
+//				PersonTypeEntity p = new PersonTypeEntity();
+//				p.setPersonTypeName(persontypes);
+//				personTypeRepository.save(p);
+//			});
+//
+//			ResultEntity resultEntity1 = new ResultEntity();
+//			resultEntity1.setResultName("Mr.Narawich saphimarn");
+//			resultEntity1.setResultAddress("SUT");
+//			resultEntity1.setResultDate(new Date(29,04,29));
+//			SportsEvent sportsEvent1 = sportseventRepository.findByEventname("Bike For Mom");
+//			ProvinceEntity provinceEntity1 = provinceRepository.findByprovinceName("กรุงเทพมหานคร");
+//			SportsType sportsType1 = sportstypeRepository.findBySportname("Marathon");
+//			RatingEntity ratingEntity1 = ratingRepository.findByratingName("อันดับ 1");
+//			PersonTypeEntity personTypeEntity1 = personTypeRepository.findBypersonTypeName("ปกติ");
+//			resultEntity1.setSportsEvent(sportsEvent1);
+//			resultEntity1.setSportsType(sportsType1);
+//			resultEntity1.setProvinceEntity(provinceEntity1);
+//			resultEntity1.setRatingEntity(ratingEntity1);
+//			resultEntity1.setPersonTypeEntity(personTypeEntity1);
+//			resultRepository.save(resultEntity1);
+//
+//			ResultEntity resultEntity2 = new ResultEntity();
+//			resultEntity2.setResultName("Ms.Kanjanaporn Boomeedai");
+//			resultEntity2.setResultAddress("Bankkok");
+//			resultEntity2.setResultDate(new Date(29,04,29));
+//			SportsEvent sportsEvent2 = sportseventRepository.findByEventname("Bike For Mom");
+//			ProvinceEntity provinceEntity2 = provinceRepository.findByprovinceName("กรุงเทพมหานคร");
+//			SportsType sportsType2 = sportstypeRepository.findBySportname("Marathon");
+//			RatingEntity ratingEntity2 = ratingRepository.findByratingName("อันดับ 2");
+//			PersonTypeEntity personTypeEntity2 = personTypeRepository.findBypersonTypeName("ปกติ");
+//			resultEntity2.setSportsEvent(sportsEvent2);
+//			resultEntity2.setSportsType(sportsType2);
+//			resultEntity2.setProvinceEntity(provinceEntity2);
+//			resultEntity2.setRatingEntity(ratingEntity2);
+//			resultEntity2.setPersonTypeEntity(personTypeEntity2);
+//			resultRepository.save(resultEntity2);
 
 			Stream.of("ลงทะเบียนนักกีฬา","ดูแลนักกีฬา","จัดสถานที่").forEach(kindActivitys -> {
 				WorkStaff k = new WorkStaff();

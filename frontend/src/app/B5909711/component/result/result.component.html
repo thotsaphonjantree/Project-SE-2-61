@@ -1,0 +1,200 @@
+<div class="header">
+  <h1>ระบบจัดกิจกรรมกีฬา</h1>
+  <p>ระบบบันทึกผลการแข่งขัน</p>
+</div>
+
+<body>
+  <div class="column" style="background-color:lightyellow;">
+    <hr>
+    <form action="action_page.php">
+      <div class="container">
+        <h1>Information</h1>
+        <p>Please fill in this form.</p>
+        <hr>
+      </div>
+
+      <form>
+        <div class="panel1">
+          <form class="example-form1">
+            <mat-icon>accessibility_new</mat-icon>
+            <mat-form-field class="example-full-width1">
+              <mat-select placeholder="Activities name" name="activities" [(ngModel)]="view.activities" [(value)]="view.activities">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let activities of Activities" [value]="activities.eventName">
+                  {{activities.eventName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+
+          <form class="example-form1">
+            <mat-icon>directions_bike</mat-icon>
+            <mat-form-field class="example-full-width1">
+              <mat-select placeholder="Sport Type" name="sportsType" [(ngModel)]="view.sportsType" [(value)]="view.sportsType">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let sportsType of SportsType" [value]="sportsType.sportName">
+                  {{sportsType.sportName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+
+          <form class="example-form1">
+            <mat-icon>portrait</mat-icon>
+            <mat-form-field class="example-full-width1">
+              <input matInput placeholder="Name of Athlete" name="Name" [(ngModel)]="view.inputName" [(value)]="view.inputName">
+            </mat-form-field>
+          </form>
+
+          <form class="example-form1">
+            <mat-icon>grade</mat-icon>
+            <mat-form-field class="example-full-width1">
+              <mat-select placeholder="Award winners" name="rating" [(ngModel)]="view.rating" [(value)]="view.rating">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let rating of Rating" [value]="rating.ratingName">
+                  {{rating.ratingName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+
+          <form class="example-form1">
+            <mat-icon>accessible_forward</mat-icon>
+            <mat-form-field class="example-full-width1">
+              <mat-select placeholder="Person type" name="persontype" [(ngModel)]="view.personType" [(value)]="view.personType">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let personType of PersonType" [value]="personType.personTypeName">
+                  {{personType.personTypeName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+
+          <form class="example-form1">
+            <mat-icon>date_range</mat-icon>
+            <mat-form-field class="example-full-width1">
+              <input matInput [(ngModel)]="view.inputDate" name="Date" [matDatepicker]="picker" [ngModelOptions]="{standalone: true}"
+                placeholder="Choose a date" required disabled>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #picker disabled="false"></mat-datepicker>
+            </mat-form-field>
+          </form>
+
+          <form class="example-form1">
+            <mat-icon>location_city</mat-icon>
+            <mat-form-field class="example-full-width1">
+              <input matInput placeholder="Address" name="address" [(ngModel)]="view.inputAddress" [(value)]="view.inputAddress">
+            </mat-form-field>
+          </form>
+
+          <form class="example-form1">
+            <mat-icon>location_on</mat-icon>
+            <mat-form-field class="example-full-width1">
+              <mat-select placeholder="Province" name="province" [(ngModel)]="view.provin" [(value)]="view.provin">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let provin of Province" [value]="provin.provinceName">
+                  {{provin.provinceName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+
+          <form class="example-form3">
+            <button mat-button class="color" (click)="Save()"><b>Save</b></button>
+          </form>
+        </div>
+
+        <div class="panel2">
+          <form style="float: right;">
+            <form>
+              <mat-icon>accessibility_new</mat-icon>
+              <mat-form-field>
+                <mat-select placeholder="Activities name" name="activities" [(ngModel)]="view.selectShow" [(value)]="view.selectShow" (selectionChange)="SelectShow()">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let activities of Activities" [value]="activities.eventName">
+                    {{activities.eventName}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </form>
+          </form>
+
+          <form>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+              <ng-container matColumnDef="resultID">
+                <th mat-header-cell *matHeaderCellDef> No.
+                </th>
+                <td mat-cell *matCellDef="let element">
+                  {{element.resultID}}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="ratingName">
+                <th mat-header-cell *matHeaderCellDef> Award
+                </th>
+                <td mat-cell *matCellDef="let element">
+                  {{element.ratingEntity.ratingName}}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="resultName">
+                <th mat-header-cell *matHeaderCellDef>
+                  Name </th>
+                <td mat-cell *matCellDef="let element">
+                  {{element.resultName}}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="resultAddress">
+                <th mat-header-cell *matHeaderCellDef>
+                  Address </th>
+                <td mat-cell *matCellDef="let element">
+                  {{element.resultAddress}}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="provinceName">
+                <th mat-header-cell *matHeaderCellDef>
+                  Province </th>
+                <td mat-cell *matCellDef="let element">
+                  {{element.provinceEntity.provinceName}}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="resultDate">
+                <th mat-header-cell *matHeaderCellDef>
+                  Date </th>
+                <td mat-cell *matCellDef="let element">
+                  {{element.resultDate}}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="sportName">
+                <th mat-header-cell *matHeaderCellDef>
+                  Sport name </th>
+                <td mat-cell *matCellDef="let element">
+                  {{element.sportsType.sportName}}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="eventName">
+                <th mat-header-cell *matHeaderCellDef>
+                  Event name </th>
+                <td mat-cell *matCellDef="let element">
+                  {{element.sportsEvent.eventName}}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="personTypeName">
+                <th mat-header-cell *matHeaderCellDef>
+                  Person type </th>
+                <td mat-cell *matCellDef="let element">
+                  {{element.personTypeEntity.personTypeName}}
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </form>
+        </div>
+
+      </form>
+    </form>
+  </div>
+</body>
