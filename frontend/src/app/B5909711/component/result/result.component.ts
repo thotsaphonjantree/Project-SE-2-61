@@ -156,7 +156,7 @@ export class ResultComponent implements OnInit {
 
   SelectShow(){
     console.log('Hello NS');
-    if(this.view.selectShow == 'None'){
+    if(this.view.selectShow == null){
       this.dataSource = new RoomdataSource(this.resultService);
     }
     else {
