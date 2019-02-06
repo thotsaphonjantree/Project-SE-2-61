@@ -41,6 +41,8 @@ import com.se.team21.backend.b5910311.entity.SportsEventStaff;
 import com.se.team21.backend.b5910311.repository.SportsEventStaffRepository;
 import com.se.team21.backend.b5910311.entity.SportsEvent;
 import com.se.team21.backend.b5910311.repository.SportsEventRepository;
+import com.se.team21.backend.AnanB5911417.sp2.Entity.EventStore;
+import com.se.team21.backend.AnanB5911417.sp2.Entity.StoreType;
 
 
 
