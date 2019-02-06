@@ -4,7 +4,7 @@ import com.se.team21.backend.AnanB5911417.Entity.PlaceEvent;
 import com.se.team21.backend.AnanB5911417.Entity.ReservePlace;
 import com.se.team21.backend.AnanB5911417.Repository.PlaceEventRepository;
 import com.se.team21.backend.AnanB5911417.Repository.ReservePlaceRepository;
-import com.se.team21.backend.B5901890.Entity.RegisterStaff;;
+import com.se.team21.backend.B5901890.Entity.RegisterStaff;
 import com.se.team21.backend.b5910311.controller.SportsEventController;
 import com.se.team21.backend.b5910311.entity.SportsEvent;
 import com.se.team21.backend.b5910311.repository.SportsEventRepository;
