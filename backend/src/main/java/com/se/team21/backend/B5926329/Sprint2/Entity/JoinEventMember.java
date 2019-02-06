@@ -22,11 +22,11 @@ public class JoinEventMember {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "joineventmember")
     @NotNull private  Long joinEventMemberId;
 
-    @NotNull private Long telNum;
+    @NotNull private String telNum;
 
     @NotNull private String tagName;
 
-    @NotNull private Long personalId;
+    @NotNull private String personalId;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sportId")
