@@ -1,5 +1,6 @@
 package com.se.team21.backend.B5926329.Sprint2.Entity;
 
+import com.se.team21.backend.B5926329.Entity.Member;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-@Table(name = "JoinEvents")
+@Table(name = "JoinEventMembers")
 
 
 public class JoinEventMember {
@@ -25,8 +26,13 @@ public class JoinEventMember {
 
     @NotNull private String tagName;
 
-    @NotNull private String name;
+    @NotNull private Long personalId;
 
-    @NotNull private String personalId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "sportId")
+    private com.se.team21.backend.b5910311.entity.SportsEvent sportEvent;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "memberId")
+    private Member members;
 }
