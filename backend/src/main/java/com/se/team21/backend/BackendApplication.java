@@ -29,6 +29,10 @@ import com.se.team21.backend.B5926329.Repository.PaymentRepository;
 import java.util.Date;
 import java.util.stream.Stream;
 
+import com.se.team21.backend.B5926329.Sprint2.Entity.ExpertLevel;
+import com.se.team21.backend.B5926329.Sprint2.Entity.JoinEventMember;
+import com.se.team21.backend.B5926329.Sprint2.Repository.ExpertLevelRepository;
+import com.se.team21.backend.B5926329.Sprint2.Repository.JoinEventMemberRepository;
 import com.se.team21.backend.b5910311.entity.Location;
 import com.se.team21.backend.b5910311.repository.LocationRepository;
 import com.se.team21.backend.b5910311.entity.SportsType;
@@ -74,10 +78,12 @@ public class BackendApplication {
 						   AccountRecordRepository accountrecordrepository, BankRepository bankrepository,
 						   FromToRepository fromtorepository, IncomeExpensesRepository incomeexpensesrepository,
 						   LocationRepository locationRepository , SportsTypeRepository sportstypeRepository,
-						   SportsEventStaffRepository sportseventstaffRepository,SportsEventRepository sportseventRepository,ProvinceRepository provinceRepository
-						   ,PersonTypeRepository personTypeRepository,RatingRepository ratingRepository,
+						   SportsEventStaffRepository sportseventstaffRepository, SportsEventRepository sportseventRepository, ProvinceRepository provinceRepository
+						   , PersonTypeRepository personTypeRepository, RatingRepository ratingRepository,
 						   ResultRepository resultRepository
-							){
+						   , ExpertLevelRepository expertLevelRepository
+						   , JoinEventMemberRepository joinEventMemberRepository
+						   ){
 		return args -> {
 
 			/*Member*/ Stream.of( "david01","paul06").forEach(username -> {
@@ -324,6 +330,33 @@ public class BackendApplication {
 				FromTo fromto = new FromTo();
 				fromto.setNameFromTo(fromtos);
 				fromtorepository.save(fromto);
+			});
+
+			//ExpertLevel
+			Stream.of("ไม่มีประสบการณ์","มือสมัครเล่น","ระดับทั่วไป","ผู้เชี่ยวชาญ").forEach(expertLevelName -> {
+				ExpertLevel expertLevel = new ExpertLevel();
+				expertLevel.setExpertLevelName(expertLevelName);
+				expertLevelRepository.save(expertLevel);
+			});
+
+			Stream.of("degea","pogba").forEach(tagName -> {
+				JoinEventMember joinEventMember = new JoinEventMember();
+
+				if(tagName == "degea"){
+					joinEventMember.setTagName(tagName);
+					joinEventMember.setPersonalId("0123456789123");
+					joinEventMember.setMembers(memberRepository.getOne(1L));
+					joinEventMember.setSportEvent(sportseventRepository.getOne(1L));
+					joinEventMember.setTelNum("123456789");
+				}
+				if(tagName == "pogba"){
+					joinEventMember.setTagName(tagName);
+					joinEventMember.setPersonalId("3219876543210");
+					joinEventMember.setMembers(memberRepository.getOne(2L));
+					joinEventMember.setSportEvent(sportseventRepository.getOne(2L));
+					joinEventMember.setTelNum("987654321");
+				}
+				joinEventMemberRepository.save(joinEventMember);
 			});
 
 
