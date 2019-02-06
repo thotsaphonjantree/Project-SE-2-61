@@ -45,6 +45,10 @@ import com.se.team21.backend.AnanB5911417.sp2.Entity.EventStore;
 import com.se.team21.backend.AnanB5911417.sp2.Entity.StoreType;
 import com.se.team21.backend.AnanB5911417.sp2.Repository.StoreTypeRepository;
 import com.se.team21.backend.AnanB5911417.sp2.Repository.EventStoreRepository;
+import com.se.team21.backend.b5910311.entity.Address;
+import com.se.team21.backend.b5910311.repository.AddressRepository;
+import com.se.team21.backend.b5910311.entity.Profile;
+import com.se.team21.backend.b5910311.repository.ProfileRepository;
 
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -85,7 +89,8 @@ public class BackendApplication {
 						   ResultRepository resultRepository
 						   , ExpertLevelRepository expertLevelRepository
 						   , JoinEventMemberRepository joinEventMemberRepository,
-						   StoreTypeRepository storeTypeRepository,EventStoreRepository eventStoreRepository
+						   StoreTypeRepository storeTypeRepository,EventStoreRepository eventStoreRepository,AddressRepository addressRepository,
+						   ProfileRepository profileRepository
 						   ){
 		return args -> {
 
@@ -150,12 +155,45 @@ public class BackendApplication {
 		});
 
 		
-			/*//set location
-			Stream.of( "Nakhonratchasima","Bangkok","Khonkean" ).forEach( address ->{
+			//set Address
+			Stream.of( "Nakhonratchasima","Bangkok","Khonkean" ).forEach( addressname ->{
 				Address address = new Address();
-				address.setAddress(address);
+				if(addressname=="Nakhonratchasima"){
+				address.setAddressname(addressname);
+				address.setCode("30000");
+				}
+				if(addressname=="Bangkok"){
+				address.setAddressname(addressname);
+				address.setCode("10000");
+				}
+				if(addressname=="Khonkean"){
+				address.setAddressname(addressname);
+				address.setCode("20000");
+				}
 				addressRepository.save(address); 
-				});*/
+				});
+
+
+			//set Profiles
+			Stream.of( "Thaweechai","Anan","Thotsaphon" ).forEach( firstname ->{
+				Profile profile = new Profile();
+				if(firstname=="Thaweechai"){
+					profile.setFirstName(firstname);
+					profile.setLastName("Kanklang");
+					profile.setAddressname(addressRepository.getOne(3L));
+				}
+				if(firstname=="Anan"){
+					profile.setFirstName(firstname);
+					profile.setLastName("Noisai");
+					profile.setAddressname(addressRepository.getOne(2L));
+				}
+				if(firstname=="Thotsaphon"){
+					profile.setFirstName(firstname);
+					profile.setLastName("JanTree");
+					profile.setAddressname(addressRepository.getOne(1L));
+				}
+				profileRepository.save(profile); 
+				});
 
 			//set location
 			Stream.of( "Nakhonratchasima","Bangkok","Khonkean" ).forEach( locations ->{
