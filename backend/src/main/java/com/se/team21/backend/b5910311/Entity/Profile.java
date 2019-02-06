@@ -46,5 +46,5 @@ public class Profile {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "P_A")
-    private Address address;
+    private Address addressname;
 }
