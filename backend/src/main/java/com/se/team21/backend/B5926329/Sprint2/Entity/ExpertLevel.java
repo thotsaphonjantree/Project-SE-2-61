@@ -18,5 +18,6 @@ public class ExpertLevel {
     @Id
     @SequenceGenerator(name = "expertlevel_seq", sequenceName = "expertlevel_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "expertlevel_seq")
-    private @NotNull Long expertLevel;
+    private @NotNull Long expertLevelId;
+    private @NotNull String expertLevelName;
 }
