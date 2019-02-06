@@ -43,8 +43,8 @@ import com.se.team21.backend.b5910311.entity.SportsEvent;
 import com.se.team21.backend.b5910311.repository.SportsEventRepository;
 import com.se.team21.backend.AnanB5911417.sp2.Entity.EventStore;
 import com.se.team21.backend.AnanB5911417.sp2.Entity.StoreType;
-
-
+import com.se.team21.backend.AnanB5911417.sp2.Repository.StoreTypeRepository;
+import com.se.team21.backend.AnanB5911417.sp2.Repository.EventStoreRepository;
 
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -84,7 +84,8 @@ public class BackendApplication {
 						   , PersonTypeRepository personTypeRepository, RatingRepository ratingRepository,
 						   ResultRepository resultRepository
 						   , ExpertLevelRepository expertLevelRepository
-						   , JoinEventMemberRepository joinEventMemberRepository
+						   , JoinEventMemberRepository joinEventMemberRepository,
+						   StoreTypeRepository storeTypeRepository,EventStoreRepository eventStoreRepository
 						   ){
 		return args -> {
 
@@ -361,6 +362,12 @@ public class BackendApplication {
 				joinEventMemberRepository.save(joinEventMember);
 			});
 
+			//type of store
+			Stream.of("เครื่องดื่ม","ปิ้งย่าง","กับราดข้าว","ลูกชิ้น","ก๋วยเตี๊ยว","อาหารตามสั่ง").forEach(type -> {
+				StoreType storeType = new StoreType();
+				storeType.setTypeName(type);
+				storeTypeRepository.save(storeType);
+			});
 
 		};
 	};
