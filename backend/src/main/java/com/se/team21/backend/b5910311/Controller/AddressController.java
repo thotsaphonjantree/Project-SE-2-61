@@ -33,9 +33,10 @@ public class AddressController {
         return addressRepository.findById(aid);
     }
 
-    @PostMapping("/address/create/{addressname}")
-    public Address createAddress(@PathVariable String addressname){
+    @PostMapping("/address/{code}/{addressname}")
+    public Address createAddress(@PathVariable String code,@PathVariable String addressname){
         Address address = new Address();
+        address.setCode(code);
         address.setAddressname(addressname);
         return addressRepository.save(address);
     }

@@ -28,7 +28,7 @@ public class SportsEventStaffController {
         return sportseventstaffRepository.findById(sesid);
     }
 
-    @PostMapping("/staffname/create/{staffname}")
+    @PostMapping("/staffname/{sesname}")
     public SportsEventStaff createSportsEventStaff(@PathVariable String sesname){
         SportsEventStaff sportseventstaff = new SportsEventStaff();
         sportseventstaff.setSesName(sesname);

@@ -45,20 +45,17 @@ public class ProfilesController {
         return profileRepository.save(profile);
 
     }
-
-    @PutMapping(path = "/updateprofile/{pid}/{firstname}/{lastname}/{addressname}")
-    public Profile editprofile(@RequestBody Profile profile,@PathVariable Long pid,@PathVariable String firstname,@PathVariable String lastname, @PathVariable Long addressname){
-        return profileRepository.findById(pid).map(roomedit ->{
-                    roomedit.setPid(pid);
-                    roomedit.setFirstName(firstname);
-                    roomedit.setLastName(lastname);
-                    roomedit.setAddressname(addressRepository.getOne(addressname));
-                    return profileRepository.save(roomedit);
-                }
-        ).orElseGet(() ->{
-            return profileRepository.save(profile);
-        });
+    
+    @PutMapping(path = "/profile/update/{pid}/{firstname}/{lastname}/{addressname}")
+    public Profile updateprofile(@RequestBody Profile updateprofile,@PathVariable Long pid,@PathVariable String firstname,@PathVariable String lastname, @PathVariable Long addressname){
+        Profile updatep = profileRepository.getOne(pid);
+        updatep.setFirstName(firstname);
+        updatep.setLastName(lastname);
+        Address add = addressRepository.getOne(addressname);
+        updatep.setAddressname(add);
+        return profileRepository.save(updatep);
     }
+
 
 
 }
