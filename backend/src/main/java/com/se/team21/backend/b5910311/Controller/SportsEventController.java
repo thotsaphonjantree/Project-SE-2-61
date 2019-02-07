@@ -25,7 +25,7 @@ public class SportsEventController {
     private LocationRepository locationRepository;
 
     @Autowired
-    private SportsTypeRepository sportsTypeRepository;
+    private SportsTypeRepository sportstypeRepository;
 
     @Autowired
     private SportsEventStaffRepository sportEventStaffRepository;
@@ -51,7 +51,7 @@ public class SportsEventController {
 
         sportsevent.setEventName(eventName);
         sportsevent.setEventDetail(eventDetail);
-        sportsevent.setSportsType(sportsTypeRepository.getOne(sportName));
+        sportsevent.setSportsType(sportstypeRepository.getOne(sportName));
         sportsevent.setLocations(locationRepository.getOne(locations));
         sportsevent.setSesname(sportEventStaffRepository.getOne(sesName));
         sportsevent.setPrice(price);
@@ -59,6 +59,25 @@ public class SportsEventController {
         return sportseventRepository.save(sportsevent);
 
 
+    }
+
+    @PutMapping(path = "/event/update/{aid}/{eventName}/{eventDetail}/{sportName}/{locations}/{sesName}/{price}")
+    public SportsEvent updatesportsevent(@RequestBody SportsEvent updatesportsevent,@PathVariable Long aid,@PathVariable String eventName,
+                                       @PathVariable String eventDetail, @PathVariable Long sportName,
+                                       @PathVariable Long locations, @PathVariable Long sesName,
+                                       @PathVariable Long price){
+        SportsEvent updatev = sportseventRepository.getOne(aid);
+        SportsType st = sportstypeRepository.getOne(sportName);
+        Location lo = locationRepository.getOne(locations);
+        SportsEventStaff ses = sportEventStaffRepository.getOne(sesName);
+        updatev.setEventName(eventName);
+        updatev.setEventDetail(eventDetail);
+        updatev.setSportsType(st);
+        updatev.setLocations(lo);
+        updatev.setSesname(ses);
+        updatev.setPrice(price);
+
+        return sportseventRepository.save(updatesportsevent);
     }
 
 }
