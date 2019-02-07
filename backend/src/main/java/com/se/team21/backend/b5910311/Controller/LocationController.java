@@ -30,7 +30,7 @@ public class LocationController {
         return locationRepository.findById(lid);
     }
 
-    @PostMapping("/location/create/{locations}")
+    @PostMapping("/location/{locations}")
     public Location createLocation(@PathVariable String locations){
         Location location = new Location();
         location.setLocations(locations);
