@@ -49,12 +49,12 @@ public class SportsEventController {
 
         SportsEvent sportsevent = new SportsEvent();
 
-        sportsevent.setPrice(price);
         sportsevent.setEventName(eventName);
         sportsevent.setEventDetail(eventDetail);
+        sportsevent.setSportsType(sportsTypeRepository.getOne(sportName));
         sportsevent.setLocations(locationRepository.getOne(locations));
         sportsevent.setSesname(sportEventStaffRepository.getOne(sesName));
-        sportsevent.setSportsType(sportsTypeRepository.getOne(sportName));
+        sportsevent.setPrice(price);
 
         return sportseventRepository.save(sportsevent);
 

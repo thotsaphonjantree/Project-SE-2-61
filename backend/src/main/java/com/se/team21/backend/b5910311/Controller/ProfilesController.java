@@ -45,7 +45,7 @@ public class ProfilesController {
         return profileRepository.save(profile);
 
     }
-
+    
     @PutMapping(path = "/updateprofile/{pid}/{firstname}/{lastname}/{addressname}")
     public Profile editprofile(@RequestBody Profile profile,@PathVariable Long pid,@PathVariable String firstname,@PathVariable String lastname, @PathVariable Long addressname){
         return profileRepository.findById(pid).map(roomedit ->{

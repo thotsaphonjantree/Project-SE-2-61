@@ -28,7 +28,7 @@ public class SportsTypeController {
         return sportstypeRepository.findById(stid);
     }
 
-    @PostMapping("/sportstype/create/{sportname}")
+    @PostMapping("/sportstype/{sportname}")
     public SportsType createSportsType(@PathVariable String sportname){
         SportsType sportstype = new SportsType();
         sportstype.setSportName(sportname);
