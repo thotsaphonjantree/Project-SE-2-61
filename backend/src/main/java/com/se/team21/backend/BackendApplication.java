@@ -16,10 +16,16 @@ import com.se.team21.backend.B5911189.Entity.AccountRecord;
 import com.se.team21.backend.B5911189.Entity.Banks;
 import com.se.team21.backend.B5911189.Entity.FromTo;
 import com.se.team21.backend.B5911189.Entity.IncomeExpenses;
+import com.se.team21.backend.B5911189.Entity.Transfer;
+import com.se.team21.backend.B5911189.Entity.SponsorRegis;
+import com.se.team21.backend.B5911189.Entity.SponsorStatus;
 import com.se.team21.backend.B5911189.Repository.AccountRecordRepository;
 import com.se.team21.backend.B5911189.Repository.BankRepository;
 import com.se.team21.backend.B5911189.Repository.FromToRepository;
 import com.se.team21.backend.B5911189.Repository.IncomeExpensesRepository;
+import com.se.team21.backend.B5911189.Repository.TransferRepository;
+import com.se.team21.backend.B5911189.Repository.SponsorStatusRepository;
+import com.se.team21.backend.B5911189.Repository.SponsorRegisRepository;
 import com.se.team21.backend.B5926329.Entity.Payment;
 import com.se.team21.backend.B5926329.Repository.EventRepository;
 import com.se.team21.backend.B5926329.Repository.MemberRepository;
@@ -90,7 +96,7 @@ public class BackendApplication {
 						   , ExpertLevelRepository expertLevelRepository
 						   , JoinEventMemberRepository joinEventMemberRepository,
 						   StoreTypeRepository storeTypeRepository,EventStoreRepository eventStoreRepository,AddressRepository addressRepository,
-						   ProfileRepository profileRepository
+						   ProfileRepository profileRepository,TransferRepository transferrepository,SponsorStatusRepository sponsorStatusRepository,SponsorRegisRepository sponsorRegisRepository
 						   ){
 		return args -> {
 
@@ -405,6 +411,18 @@ public class BackendApplication {
 				StoreType storeType = new StoreType();
 				storeType.setTypeName(type);
 				storeTypeRepository.save(storeType);
+			});
+			//SponsorTranfer
+			Stream.of("เงินสด","เช็คเงินสด","โอนผ่านธนาคาร").forEach(transFer -> {
+				Transfer transfer = new Transfer();
+				transfer.setNameTransfer(transFer);
+				transferrepository.save(transfer);
+			});
+			//SponsorStatus
+			Stream.of("บุคคลทั่วไป","ร้านค้า","ห้างหุ้นส่วนจำกัด","บริษัท").forEach(status -> {
+				SponsorStatus sponsorStatus = new SponsorStatus();
+				sponsorStatus.setNameStatus(status);
+				sponsorStatusRepository.save(sponsorStatus);
 			});
 
 		};
