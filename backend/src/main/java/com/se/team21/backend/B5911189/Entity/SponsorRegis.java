@@ -49,7 +49,11 @@ public  class  SponsorRegis{
     public void setAmount(String Amount) { this.Amount = Amount;}
     public String getAmount() {return Amount;}
 
+    public void setTransfer(Transfer transfer) { this.transfer = transfer;}
+    public Transfer getTransfer() {return transfer;}
 
+    public void setSponsorStatus(SponsorStatus sponsorstatus) { this.sponsorstatus = sponsorstatus;}
+    public SponsorStatus getSponsorStatus() {return sponsorstatus;}
 
 
 
