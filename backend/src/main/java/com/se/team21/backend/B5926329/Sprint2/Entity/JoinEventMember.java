@@ -35,4 +35,8 @@ public class JoinEventMember {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "memberId")
     private Member members;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "expertlevelId")
+    private ExpertLevel expertLevels;
 }

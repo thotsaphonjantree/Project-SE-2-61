@@ -395,6 +395,7 @@ public class BackendApplication {
 					joinEventMember.setMembers(memberRepository.getOne(1L));
 					joinEventMember.setSportEvent(sportseventRepository.getOne(1L));
 					joinEventMember.setTelNum("123456789");
+					joinEventMember.setExpertLevels(expertLevelRepository.getOne(2L));
 				}
 				if(tagName == "pogba"){
 					joinEventMember.setTagName(tagName);
@@ -402,6 +403,7 @@ public class BackendApplication {
 					joinEventMember.setMembers(memberRepository.getOne(2L));
 					joinEventMember.setSportEvent(sportseventRepository.getOne(2L));
 					joinEventMember.setTelNum("987654321");
+					joinEventMember.setExpertLevels(expertLevelRepository.getOne(1L));
 				}
 				joinEventMemberRepository.save(joinEventMember);
 			});
