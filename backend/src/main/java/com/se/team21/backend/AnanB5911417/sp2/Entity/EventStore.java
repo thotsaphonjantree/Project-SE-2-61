@@ -3,6 +3,10 @@ package com.se.team21.backend.AnanB5911417.sp2.Entity;
 import javax.persistence.*;
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 @Entity
 @Getter @Setter
 @NoArgsConstructor
