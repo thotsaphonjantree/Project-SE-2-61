@@ -3,6 +3,7 @@ package com.se.team21.backend.B5901890.Entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -17,8 +18,10 @@ public class KindMedia {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="KindMedia_seq")
     @Column(name="KindMedia_Id",unique = true, nullable = false)
 
-    private @NonNull Long id_kind;
-    private @NonNull String kind_Media;
+    private @NotNull Long id_kind;
+
+    private @NotNull (message="kind_Media must not be null to be valid")
+     @NonNull String kind_Media;
 
 
     public Long getId_kind() {

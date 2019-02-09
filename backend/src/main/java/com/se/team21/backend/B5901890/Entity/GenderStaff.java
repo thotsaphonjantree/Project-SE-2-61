@@ -3,6 +3,7 @@ package com.se.team21.backend.B5901890.Entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -16,8 +17,10 @@ public class GenderStaff {
     @SequenceGenerator(name="Gender_seq",sequenceName="Gender_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Gender_seq")
     @Column(name="Gender_Id",unique = true, nullable = false)
-    private @NonNull Long idGender;
-    private @NonNull String nameGender;
+    private @NotNull Long idGender;
+
+    private @NotNull (message="kind_Media must not be null to be valid")
+    @NonNull String nameGender;
 
 
    /* @ManyToOne(fetch = FetchType.LAZY)   //set fetch data เป็น LAZY LAZY = fetch when needed EAGER = fetch immediately
