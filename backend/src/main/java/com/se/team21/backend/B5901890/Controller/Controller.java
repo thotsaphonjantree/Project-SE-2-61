@@ -94,7 +94,7 @@ public class Controller {
        genderStaff.setNameGender(genderA);
        return genderStaffRepository.save(genderStaff);
    }
-    @GetMapping("/genders")
+    @GetMapping("/gender")
     public Collection<GenderStaff> getGenderStaff(){
         return  genderStaffRepository
                 .findAll().stream().collect(Collectors.toList());
