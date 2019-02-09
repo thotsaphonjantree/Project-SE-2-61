@@ -1,6 +1,8 @@
 package com.se.team21.backend.b5910311.controller;
 import com.se.team21.backend.b5910311.entity.*;
 import com.se.team21.backend.b5910311.repository.*;
+import com.se.team21.backend.B5926329.Entity.Member;
+import com.se.team21.backend.B5926329.Repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,13 +26,16 @@ public class ProfilesController {
     @Autowired
     private AddressRepository addressRepository;
 
+    @Autowired
+    MemberRepository memberRepository;
+
     @GetMapping("/profile")
     public List<Profile> showAllProfile() {
         return profileRepository.findAll().stream().collect(Collectors.toList());
     }
 
     @GetMapping("/profile/{pid}")
-    public Profile ShowProfile(@PathVariable Long pid) {
+    public Profile ShowProfileById(@PathVariable Long pid) {
         Optional<Profile> profile = profileRepository.findById(pid);
         return profile.get();
     }
@@ -46,16 +51,21 @@ public class ProfilesController {
 
     }
     
-    @PutMapping(path = "/profile/update/{pid}/{firstname}/{lastname}/{addressname}")
-    public Profile updateprofile(@RequestBody Profile updateprofile,@PathVariable Long pid,@PathVariable String firstname,@PathVariable String lastname, @PathVariable Long addressname){
-        Profile updatep = profileRepository.getOne(pid);
-        updatep.setFirstName(firstname);
-        updatep.setLastName(lastname);
+    @PutMapping(path = "/updateprofile/{pid}/{firstname}/{lastname}/{addressname}")
+    public Profile editProfile(@RequestBody Profile editProfile,@PathVariable Long pid,
+                                      @PathVariable String firstname,
+                                       @PathVariable String lastname,
+                                        @PathVariable Long addressname){
         Address add = addressRepository.getOne(addressname);
-        updatep.setAddressname(add);
-        return profileRepository.save(updatep);
+        return profileRepository.findById(pid).map(profileEdit ->{
+            profileEdit.setPid(pid);
+            profileEdit.setFirstName(firstname);
+            profileEdit.setLastName(lastname);
+            profileEdit.setAddressname(add);
+            return profileRepository.save(profileEdit);
+        }).orElseGet(() ->{
+            return profileRepository.save(editProfile);
+        });
     }
-
-
 
 }
