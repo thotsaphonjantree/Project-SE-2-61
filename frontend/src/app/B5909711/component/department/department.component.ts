@@ -226,6 +226,7 @@ export class DepartmentComponent implements OnInit {
       .subscribe(
         data => {
           console.log('PUT Request is successfully', data);
+          alert('PUT Request is successfully');
           this.refresh();
         },
         error => {
@@ -245,6 +246,7 @@ export class DepartmentComponent implements OnInit {
             this.refresh();
             this.stat--;
             this.save = !this.save;
+            alert('Update Request is successfully');
           }
             
         },
