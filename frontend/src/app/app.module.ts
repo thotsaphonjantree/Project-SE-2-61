@@ -66,6 +66,12 @@ import { UpdateeventComponent } from './B5910311/updateevent/updateevent.compone
 import { UpdateprofileComponent } from './B5910311/updateprofile/updateprofile.component';
 
 
+import { RegisterMComponent } from './B5901890/component/registerMedia/registermedia.component';
+
+import { RegisterserMviceService } from './B5901890/serviceMedia/registerservicemedia.service';
+
+
+
 const appRoutes: Routes = [
 
     {
@@ -137,7 +143,11 @@ const appRoutes: Routes = [
     {
       path: 'eventdetail/:seid',
       component: EventdetailComponent
-    }
+    },
+
+{path: '' ,redirectTo: '/RegisterMedia',pathMatch:'full'},
+{path: 'RegisterMedia',component:RegisterMComponent}
+
 ];
 
 @NgModule({
@@ -161,7 +171,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     ProfiledetailComponent,
     UpdateeventComponent,
-    UpdateprofileComponent
+    UpdateprofileComponent,
+    RegisterMComponent
   ],
   imports: [
     BrowserModule,
@@ -215,7 +226,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [SporteventService,DepartmentService,RegisterserviceService, ReservePlaceService,ResultService],
+  providers: [SporteventService,DepartmentService,RegisterserviceService, ReservePlaceService,ResultService,RegisterserMviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
