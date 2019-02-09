@@ -13,6 +13,9 @@ export interface AccountTable {
   incomeExpenses:{
     incomeExpenses: string;
   }
+  SportsEvent:{
+    eventname: string;
+  }
   FromTo: {
     nameFromTo: string;
   };
@@ -25,7 +28,7 @@ export interface AccountTable {
 })
 export class TableComponent implements OnInit {
 
-  displayedColumns: string[] = ['idaccount', 'savedate', 'title', 'incomeexpenses', 'nameBank', 'fromto', 'amount'];
+  displayedColumns: string[] = ['idaccount', 'savedate', 'title', 'incomeexpenses', 'nameBank', 'fromto', 'amount' ,'eventname'];
   dataSource = new Account(this.accountService);
   constructor(private accountService: AccountService) { }
 
