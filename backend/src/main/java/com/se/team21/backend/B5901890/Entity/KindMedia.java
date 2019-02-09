@@ -21,7 +21,7 @@ public class KindMedia {
     private @NotNull Long id_kind;
 
     private @NotNull (message="kind_Media must not be null to be valid")
-     @NonNull String kind_Media;
+    String kind_Media;
 
 
     public Long getId_kind() {
