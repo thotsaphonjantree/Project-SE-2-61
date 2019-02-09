@@ -19,5 +19,6 @@ public class ExpertLevel {
     @SequenceGenerator(name = "expertlevel_seq", sequenceName = "expertlevel_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "expertlevel_seq")
     private @NotNull Long expertLevelId;
-    private @NotNull String expertLevelName;
+    private @NotNull (message="expertLevelName must not be null to be valid")
+    String expertLevelName;
 }
