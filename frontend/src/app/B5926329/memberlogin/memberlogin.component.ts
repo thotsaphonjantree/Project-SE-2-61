@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { PaymentService } from '../payment.service';
 import { Router } from '@angular/router';
+import { LoginmemberService } from '../loginmember.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class MemberloginComponent implements OnInit {
   checkround:Number;
 
 
-  constructor(private paymentService:PaymentService,private router: Router) { }
+  constructor(private paymentService:PaymentService,private router: Router,private loginmemberService: LoginmemberService) { }
 
   ngOnInit() {
     this.paymentService.getMembers().subscribe(data => {
@@ -36,7 +37,7 @@ export class MemberloginComponent implements OnInit {
         {
             this.checkround = 1;
             console.log("User Found" , this.members[i]);
-            this.paymentService.setMemberLoginId(this.members[i].memberId);
+            this.loginmemberService.setMemberLoginId(this.members[i].memberId);
             break;
         }
         else
@@ -45,7 +46,7 @@ export class MemberloginComponent implements OnInit {
 
     if(this.checkround === 1){
       alert("Login Success");
-          this.router.navigate(['payment']);
+          this.router.navigate(['']);
         }
       else
       alert("Username/Password is Invalid");

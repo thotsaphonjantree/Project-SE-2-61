@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PaymentService } from '../payment.service';
+import { LoginmemberService } from '../loginmember.service';
 
 @Component({
   selector: 'app-checkstatus',
@@ -12,13 +13,13 @@ export class CheckstatusComponent implements OnInit {
 
   payments:Array<any>;
 
-  constructor(private data:PaymentService) {
+  constructor(private data:PaymentService,private loginmemberService:LoginmemberService) {
 
 
   }
 
   ngOnInit() {
-    this.data.getPaymentByMember(this.data.getMemberLoginId()).subscribe(
+    this.data.getPaymentByMember(this.loginmemberService.getMemberLoginId()).subscribe(
       data => {this.payments = data})
 
   }
