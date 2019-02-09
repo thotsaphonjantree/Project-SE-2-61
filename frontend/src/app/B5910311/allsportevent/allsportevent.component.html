@@ -16,6 +16,9 @@
               <p>เจ้าหน้าที่จัดกิจกรรมกีฬา : {{events.sesname.sesName}}</p>
               <p>ราคา : {{events.price}} บาท/ท่าน</p>
             </div>
+            <mat-card-actions>
+              <button button mat-raised-button color="primary" routerLink="/eventdetail/{{events.seid}}">ดูกิจกรรม</button>
+          </mat-card-actions>
           </mat-card-content>
         </mat-card>
         <br><br>

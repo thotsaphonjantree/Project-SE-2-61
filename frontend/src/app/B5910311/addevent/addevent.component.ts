@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./addevent.component.css']
 })
 export class AddeventComponent implements OnInit {
-
+sportsevent:Array<any>;
 eventstaffs:Array<any>;
 locations:Array<any>;
 stypes:Array<any>;

@@ -28,6 +28,16 @@ export class SporteventService {
   showAllSportTypes(): Observable<any> {
     return this.http.get('//localhost:8080/sportstype');
   }
-
-
+  showAlladdress(): Observable<any> {
+    return this.http.get('//localhost:8080/address');
+  }
+  showAddressById(aid) {
+  return this.http.get('//localhost:8080/address/' +aid);
+  }
+  showAllProfile(): Observable<any> {
+    return this.http.get('//localhost:8080/profile');
+  }
+  ShowProfileById(pid) {
+  return this.http.get('//localhost:8080/profile/' +pid);
+  }
 }

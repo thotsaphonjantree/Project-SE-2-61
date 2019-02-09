@@ -59,6 +59,11 @@ import { SporteventService } from './B5910311/sportevent.service';
 import { AddeventComponent } from './B5910311/addevent/addevent.component';
 import { ResultComponent } from './B5909711/component/result/result.component';
 import { ResultService } from './B5909711/service/result/result.service';
+import { EventdetailComponent } from './B5910311/eventdetail/eventdetail.component';
+import { ProfileComponent } from './B5910311/profile/profile.component';
+import { ProfiledetailComponent } from './B5910311/profiledetail/profiledetail.component';
+import { UpdateeventComponent } from './B5910311/updateevent/updateevent.component';
+import { UpdateprofileComponent } from './B5910311/updateprofile/updateprofile.component';
 
 
 const appRoutes: Routes = [
@@ -111,6 +116,27 @@ const appRoutes: Routes = [
     {
       path: 'Result',
       component: ResultComponent
+    },
+    {
+      path: 'updateevent',
+      component: UpdateeventComponent
+    },
+    {
+      path: 'profile',
+      component: ProfileComponent
+    },
+    {
+      path: 'updateprofile',
+      component: UpdateprofileComponent
+    }
+    ,
+    {
+      path: 'profiledetail',
+      component: ProfiledetailComponent
+    },
+    {
+      path: 'eventdetail/:seid',
+      component: EventdetailComponent
     }
 ];
 
@@ -130,7 +156,12 @@ const appRoutes: Routes = [
     SeePlaceXComponent,
     AllsporteventComponent,
     AddeventComponent,
-    ResultComponent
+    ResultComponent,
+    EventdetailComponent,
+    ProfileComponent,
+    ProfiledetailComponent,
+    UpdateeventComponent,
+    UpdateprofileComponent
   ],
   imports: [
     BrowserModule,

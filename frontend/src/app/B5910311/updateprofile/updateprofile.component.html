@@ -1,0 +1,33 @@
+<div align=center>
+  <mat-card class="example-card">
+    <div align=center>
+        <mat-form-field class="example-full-width">
+            <mat-select placeholder="เลือกโปรไฟล์" [(ngModel)]="my.pid">
+              <mat-option *ngFor="let profiles of profile" [value]="profiles.pid">
+                {{profiles.firstName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br />
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="ชื่อ" [(ngModel)]="my.firstname">
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="นามสกุล" [(ngModel)]="my.lastname">
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="ที่อยู่" [(ngModel)]="my.address">
+          <mat-option *ngFor="let address of adds" [value]="address.aid">
+            {{address.addressname}}  
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+    </div>
+    <mat-card-actions>
+      <a button mat-raised-button color="primary" (click)="edit()"> บันทึก </a>
+    </mat-card-actions>
+  </mat-card>
+</div>
