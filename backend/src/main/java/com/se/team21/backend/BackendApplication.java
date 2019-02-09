@@ -56,6 +56,15 @@ import com.se.team21.backend.b5910311.repository.AddressRepository;
 import com.se.team21.backend.b5910311.entity.Profile;
 import com.se.team21.backend.b5910311.repository.ProfileRepository;
 
+import com.se.team21.backend.B5901890.Entity.KindSportMedia;
+import com.se.team21.backend.B5901890.Entity.GenderMedia;
+import com.se.team21.backend.B5901890.Entity.KindMedia;
+import com.se.team21.backend.B5901890.Repository.*;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -96,8 +105,10 @@ public class BackendApplication {
 						   , ExpertLevelRepository expertLevelRepository
 						   , JoinEventMemberRepository joinEventMemberRepository,
 						   StoreTypeRepository storeTypeRepository,EventStoreRepository eventStoreRepository,AddressRepository addressRepository,
-						   ProfileRepository profileRepository,TransferRepository transferrepository,SponsorStatusRepository sponsorStatusRepository,SponsorRegisRepository sponsorRegisRepository
-						   ){
+						   ProfileRepository profileRepository,TransferRepository transferrepository,SponsorStatusRepository sponsorStatusRepository,SponsorRegisRepository sponsorRegisRepository,
+						   BackendApplication backendApplication, GenderMediaRepository genderMediaRepository, KindSportMediaRepository kindSportMediaRepository,
+						   KindMediaRepository kindMediaRepository,
+						   RegisterMediaRepository registerMediaRepository){
 		return args -> {
 
 			/*Member*/ Stream.of( "david01","paul06").forEach(username -> {
@@ -425,6 +436,23 @@ public class BackendApplication {
 				SponsorStatus sponsorStatus = new SponsorStatus();
 				sponsorStatus.setNameStatus(status);
 				sponsorStatusRepository.save(sponsorStatus);
+			});
+
+			Stream.of("ช่างภาพ","นักข่าว","ถ่ายทอดสด","อาสาสมัคร").forEach(kindActivityss -> {
+				KindMedia k = new KindMedia();
+				k.setKind_Media(kindActivityss);
+				kindMediaRepository.save(k);
+			});
+			Stream.of("ชาย","หญิง").forEach(genderss -> {
+				GenderMedia Gender5 = new GenderMedia();
+				Gender5.setNameGenderM(genderss);
+				genderMediaRepository.save(Gender5);
+			});
+
+			Stream.of("ปั่นจักรยาน","วิ่งมาราธอน").forEach(agess -> {
+				KindSportMedia sport = new KindSportMedia();
+				sport.setKind_Sport(agess);
+				kindSportMediaRepository.save(sport);
 			});
 
 		};
