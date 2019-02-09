@@ -1,5 +1,6 @@
 package com.se.team21.backend.B5911189.Entity;
 
+import com.se.team21.backend.b5910311.entity.SportsEvent;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
@@ -40,6 +41,11 @@ public  class  AccountRecord{
     @JoinColumn(name= "idFromTo",insertable = true)      // join colume video_id จาก video กับ entity comment
     private FromTo FromTo;
 
+    @ManyToOne(fetch = FetchType.EAGER,targetEntity = SportsEvent.class)
+    @JoinColumn(name= "seid",insertable = true)
+    private  SportsEvent sportsEvent;
+
+
 
 
     public void setIdaccount(Long idAccount) { this.idaccount = idAccount; }
@@ -65,6 +71,9 @@ public  class  AccountRecord{
 
     public void setFromto(FromTo fromTo) { this.FromTo = fromTo;}
     public FromTo getFromto() {return FromTo;}
+
+    public void setSportsEvent(SportsEvent sportsEvent ){this.sportsEvent = sportsEvent;}
+    public SportsEvent getSportsEvent() {return sportsEvent;}
 
 
 }

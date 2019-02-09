@@ -1,0 +1,60 @@
+.example-card {
+  max-width: 900px;
+  background: ghostwhite;
+}
+.example {
+  max-width: 600px;
+  background-color: #da9842;
+}
+
+
+
+
+.Hr2{
+  max-width: 400px;
+  font-size: 25px;
+  color: black;
+  text-align: center;
+  border: 5px solid gray;
+  background-color: darkgray;
+
+}
+.Texts{
+  margin-left: 10px;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+
+.example-full-width2 {
+  width: 50%;
+  height: 5px;
+  margin-left: 10px;
+
+
+}
+
+
+
+/*-------------------*/
+* {box-sizing: border-box}
+
+
+
+
+
+
+.color{
+  margin-top: 25px;
+  margin-left: 75px;
+  background-color: red;
+  margin-right: 75px;
+}
+
+
+
+.date{
+  margin-left: 5%;
+  width: 50%;
+}

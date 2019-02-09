@@ -42,6 +42,7 @@ import { MemberloginComponent } from './B5926329/memberlogin/memberlogin.compone
 import { DepartmentComponent } from './B5909711/component/department/department.component';
 import { DepartmentService } from './B5909711/service/department/department.service';
 import { AccountComponent} from "./B5911189/account/account.component";
+import { SponsorComponent } from './B5911189/sponsor/sponsor.component';
 import {TableComponent} from "./B5911189/table/table.component";
 
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -59,6 +60,8 @@ import { SporteventService } from './B5910311/sportevent.service';
 import { AddeventComponent } from './B5910311/addevent/addevent.component';
 import { ResultComponent } from './B5909711/component/result/result.component';
 import { ResultService } from './B5909711/service/result/result.service';
+import {SponsorService} from "./B5911189/Service/sponsor.service";
+
 
 
 const appRoutes: Routes = [
@@ -109,6 +112,10 @@ const appRoutes: Routes = [
       component: AddeventComponent
     },
     {
+    path: 'sponsor',
+    component: SponsorComponent
+    },
+    {
       path: 'Result',
       component: ResultComponent
     }
@@ -130,7 +137,8 @@ const appRoutes: Routes = [
     SeePlaceXComponent,
     AllsporteventComponent,
     AddeventComponent,
-    ResultComponent
+    ResultComponent,
+    SponsorComponent
   ],
   imports: [
     BrowserModule,
@@ -184,7 +192,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [SporteventService,DepartmentService,RegisterserviceService, ReservePlaceService,ResultService],
+  providers: [SporteventService,DepartmentService,RegisterserviceService, ReservePlaceService,ResultService,SponsorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

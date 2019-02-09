@@ -9,6 +9,7 @@ import { AccountService } from '../service/account.service';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
+  recordEvent: Array<any>;
   recordINOUT: Array<any>;
   recordBank: Array<any>;
   recordType: Array<any>;
@@ -19,6 +20,7 @@ export class AccountComponent implements OnInit {
     incomeSelect: null,
     bankSelect: null,
     fromSelect: null,
+    eventSelect: null,
     amount: null
   };
 
@@ -40,19 +42,26 @@ export class AccountComponent implements OnInit {
       this.recordType = data;
       console.log(this.recordType);
     });
+    this.accountService.getEvent().subscribe(data => {
+      this.recordEvent = data;
+      console.log(this.recordEvent);
+    });
+
   }
     Save() {
       if (this.views.inputTime == null) {
         alert('กรุณากรอกวันที่');
       } else if (this.views.title == null) {
         alert('กรุณากรอกรายการ');
-      } else if (this.views.incomeSelect == null) {
-        alert('กรุณากระบุรายรับ/รายจ่าย');
+      } else if (this.views.eventSelect == null) {
+        alert('กรุณาระบุรกิจกรรมกีฬา');
+      }else if (this.views.incomeSelect == null) {
+        alert('กรุณาระบุรายรับ/รายจ่าย');
       } else if (this.views.bankSelect == null) {
         alert('กรุณาระบุธนาคาร');
       } else if (this.views.fromSelect == null) {
         alert('กรุณาระบุรูปแบบการเงิน');
-      } else if (this.views.amount == null) {
+      } else if (this.views.amount == null || this.views.amount == "" ) {
         alert('กรุณากรอกจำนวนเงิน');
       } else {
         this.SaveData();
@@ -61,7 +70,7 @@ export class AccountComponent implements OnInit {
     }
       SaveData() {
         this.httpClient.get('http://localhost:8080/AccountRecord/'+ this.views.inputTime+ '/' + this.views.title + '/'
-        + this.views.incomeSelect + '/' + this.views.bankSelect + '/' + this.views.fromSelect + '/' + this.views.amount   , this.views)
+        + this.views.incomeSelect + '/' + this.views.bankSelect + '/' + this.views.fromSelect + '/' + this.views.amount  + '/' + this.views.eventSelect , this.views)
           .subscribe(
             data => {
               console.log('PUT Request is successful', data);
@@ -73,39 +82,11 @@ export class AccountComponent implements OnInit {
               console.log(this.views.bankSelect);
               console.log(this.views.fromSelect);
               console.log(this.views.amount);
+              console.log(this.views.eventSelect);
               console.log('Error', error);
             }
           );
-
-
-
-
-
   }
-
-  // SaveData() {
-  //   this.httpClient.get('http://localhost:8080/AccountRecord/' +this.views.inputTime + '/' + this.views.title + '/'
-  //     + this.views.incomeSelect + '/' + this.views.bankSelect + '/' + this.views.fromSelect + '/' + this.views.amount   , this.views)
-  //     .subscribe(
-  //       data => {
-  //         console.log('PUT Request is successful', data);
-  //       },
-  //       error => {
-  //         console.log(this.views.inputTime);
-  //         console.log(this.views.title);
-  //         console.log(this.views.incomeSelect);
-  //         console.log(this.views.bankSelect);
-  //         console.log(this.views.fromSelect);
-  //         console.log(this.views.amount);
-  //         console.log('Error', error);
-  //       }
-  //     );
-  //
-  //
-  //
-  //
-  //
-  // }
 
 }
 
