@@ -445,13 +445,13 @@ public class BackendApplication {
 				kindSportMediaRepository.save(sport);
 			});
 
-			Stream.of("Anan","Thotsaphon").forEach(staff -> {
+			Stream.of("Anan").forEach(staffname -> {
 				RegisterStaff registerStaff = new RegisterStaff();
-				registerStaff.setNameRegisterStaff(staff);
+				registerStaff.setNameStaff(staffname);
 				registerStaff.setTell("0123456");
 				registerStaff.setAgeStaff(ageStaffRepository.getOne(1L));
-				registerStaff.setWorkStaff(workStaffRepository.getOne(2L));
-				registerStaff.setGenderStaff(genderStaffRepository.getOne(2L));
+				registerStaff.setWorkStaff(workStaffRepository.getOne(1L));
+				registerStaff.setGenderStaff(genderStaffRepository.getOne(1L));
 				registerStaffRepository.save(registerStaff);
 
 			});
