@@ -108,7 +108,7 @@ public class BackendApplication {
 				memberRepository.save(member);
 			});
 
-			/*PayCategory*/Stream.of("Wallet","PayPal").forEach(paycate -> {
+			/*PayCategory*/Stream.of("Wallet","PayPal","Mastercard").forEach(paycate -> {
 				PayCategory payCategory = new PayCategory();
 				payCategory.setPaycateName(paycate);
 				payCategoryRepository.save(payCategory);

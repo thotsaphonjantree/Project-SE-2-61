@@ -56,7 +56,7 @@ public class PaymentController {
         JsonNode jsonEventName = actualObj.get("eventname");
         JsonNode jsonPaid = actualObj.get("paid");
         JsonNode jsonPaycate = actualObj.get("paycatename");
-
+        JsonNode jsonNameOnCard = actualObj.get("nameoncard");
 
         Payment payment = new Payment();
 
@@ -66,6 +66,7 @@ public class PaymentController {
         payment.setPayCategory(payCategoryRepository.getOne(jsonPaycate.asLong()));
         payment.setMembers(memberRepository.getOne(jsonUsername.asLong()));
         payment.setPaymentPaid(jsonPaid.asLong());
+        payment.setNameOnCard(jsonNameOnCard.asText());
         payment.setPaymentDate(new Timestamp(date.getTime()));
         return paymentRepository.save(payment);
 
