@@ -1,8 +1,12 @@
 package com.se.team21.backend.B5901890.Entity;
+import javax.persistence.Entity;
+import javax.persistence.*;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import lombok.*;
-
-import javax.persistence.*;
 
 @Entity
 @Data
@@ -13,28 +17,27 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class GenderMedia {
     @Id
-    @SequenceGenerator(name="Gender_seq",sequenceName="Gender_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Gender_seq")
-    @Column(name="Gender_Id",unique = true, nullable = false)
-    private @NonNull Long idGender;
+    @SequenceGenerator(name="GenderMedia_seq",sequenceName="GenderMedia_seq")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="GenderMedia_seq")
+    @Column(name="GenderMedia_Id",unique = true, nullable = false)
+    private @NonNull Long idGenderM;
 
 
-    private @NonNull String nameGender;
+    private @NonNull String nameGenderM;
 
-
-    public Long getIdGender() {
-        return idGender;
+    public Long getIdGenderM() {
+        return idGenderM;
     }
 
-    public void setIdGender(Long idGender) {
-        this.idGender = idGender;
+    public void setIdGenderM(Long idGenderM) {
+        this.idGenderM = idGenderM;
     }
 
-    public String getNameGender() {
-        return nameGender;
+    public String getNameGenderM() {
+        return nameGenderM;
     }
 
-    public void setNameGender(String nameGender) {
-        this.nameGender = nameGender;
+    public void setNameGenderM(String nameGenderM) {
+        this.nameGenderM = nameGenderM;
     }
 }
