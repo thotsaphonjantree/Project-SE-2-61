@@ -27,7 +27,7 @@ public class JoinEventMember {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "joineventmember")
     @NotNull private  Long joinEventMemberId;
 
-    @NotNull
+    @NotNull(message="telNum must not be null to be valid")
     @Size(max = 10, min = 10)
     @Pattern(regexp = "[0-9]*")
     private String telNum;
@@ -38,25 +38,25 @@ public class JoinEventMember {
     @Size(max = 13, min = 13)
     @Pattern(regexp = "[0-9]*")
     @Column(unique = true)
-    @NotNull
+    @NotNull(message="personalId must not be null to be valid")
     private String personalId;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sportId")
-    @NotNull
+    @NotNull(message="SportId must not be null to be valid")
     private com.se.team21.backend.b5910311.entity.SportsEvent sportEvent;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "memberId")
-    @NotNull
+    @NotNull(message="memberId must not be null to be valid")
     private Member members;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "expertlevelId")
-    @NotNull
+    @NotNull(message="expertlevelId must not be null to be valid")
     private ExpertLevel expertLevels;
 
 }
