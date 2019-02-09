@@ -5,6 +5,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Data
 @Entity
@@ -13,7 +15,10 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-@Table(name = "JoinEventMembers")
+@Table(name = "JoinEventMembers",
+        uniqueConstraints=
+        @UniqueConstraint(columnNames={"memberId", "sportId"})
+)
 
 
 public class JoinEventMember {
@@ -22,21 +27,36 @@ public class JoinEventMember {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "joineventmember")
     @NotNull private  Long joinEventMemberId;
 
-    @NotNull private String telNum;
+    @NotNull
+    @Size(max = 10, min = 10)
+    @Pattern(regexp = "[0-9]*")
+    private String telNum;
 
-    @NotNull private String tagName;
+    @NotNull(message="tagName must not be null to be valid")
+    private String tagName;
 
-    @NotNull private String personalId;
+    @Size(max = 13, min = 13)
+    @Pattern(regexp = "[0-9]*")
+    @Column(unique = true)
+    @NotNull
+    private String personalId;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sportId")
+    @NotNull
     private com.se.team21.backend.b5910311.entity.SportsEvent sportEvent;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "memberId")
+    @NotNull
     private Member members;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "expertlevelId")
+    @NotNull
     private ExpertLevel expertLevels;
+
 }
