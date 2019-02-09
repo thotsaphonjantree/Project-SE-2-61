@@ -30,4 +30,7 @@ export class AccountService {
   getRoom(): Observable<AccountTable[]> {
     return this.http.get<AccountTable[]>(this.serviceUrl);
   }
+  getEvent(): Observable<any> {
+    return this.http.get(this.API + '/event');
+  }
 }

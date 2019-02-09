@@ -26,29 +26,55 @@ public class SponsorRegisController {
         return sponsorRegisRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @GetMapping(path = "/SponsorRegis/{nameSponsorRegis}/{nameStatus}/{nameTransfer}/{Amount}")
-    public SponsorRegis sponsorregis(  @PathVariable String nameSponsorRegis, @PathVariable String nameStatus,
-                                       @PathVariable String nameTransfer,
-                                       @PathVariable String Amount){
+//    @GetMapping(path = "/SponsorRegis/{nameSponsorRegis}/{nameStatus}/{Address}/{nameTransfer}/{Amount}/{Phonenumber}")
+//    public SponsorRegis sponsorregis(  @PathVariable String nameSponsorRegis, @PathVariable String nameStatus,
+//                                       @PathVariable String Address,@PathVariable String nameTransfer,
+//                                       @PathVariable String Amount,@PathVariable String phonenumber)
+//    {
+//
+//        SponsorRegis s = new SponsorRegis();
+//
+//        Transfer t = transferRepository.findBynameTransfer(nameTransfer);
+//        System.out.println(nameTransfer);
+//
+//        SponsorStatus ss = sponsorStatusRepository.findBynameStatus(nameStatus);
+//        System.out.println(nameStatus);
+//
+//
+//
+//        s.setNameSponsorRegis(nameSponsorRegis);
+//        s.setTransfer(t);
+//        s.setSponsorStatus(ss);
+//        s.setAmount(Amount);
+//        s.setAddress(Address);
+//        s.setPhonenumber(phonenumber);
+//
+//        return sponsorRegisRepository.save(s);
+//
+//
+//    }
+@GetMapping(path = "/SponsorRegis/{nameSponsorRegis}/{nameStatus}/{Address}/{nameTransfer}/{Amount}/{Phonenumber}")
+public SponsorRegis sponsorregis(  @PathVariable String nameSponsorRegis,@PathVariable String nameStatus,@PathVariable String Address,@PathVariable String nameTransfer,@PathVariable String Amount,@PathVariable String Phonenumber )
+{
 
-        SponsorRegis s = new SponsorRegis();
+    SponsorRegis s = new SponsorRegis();
+    SponsorStatus ss = sponsorStatusRepository.findBynameStatus(nameStatus);
+    System.out.println(nameStatus);
+    Transfer transfer = transferRepository.findBynameTransfer(nameTransfer);
+    System.out.println(nameTransfer);
 
-        Transfer t = transferRepository.findBynameTransfer(nameTransfer);
-        System.out.println(nameTransfer);
+    s.setNameSponsorRegis(nameSponsorRegis);
+    s.setSponsorStatus(ss);
+    s.setAddress(Address);
+    s.setTransfer(transfer);
+    s.setAmount(Amount);
+    s.setPhonenumber(Phonenumber);
 
-        SponsorStatus ss = sponsorStatusRepository.findBynameStatus(nameStatus);
-        System.out.println(nameStatus);
-
-
-
-        s.setNameSponsorRegis(nameSponsorRegis);
-        s.setTransfer(t);
-        s.setSponsorStatus(ss);
-        s.setAmount(Amount);
-
-        return sponsorRegisRepository.save(s);
+    return sponsorRegisRepository.save(s);
 
 
-    }
+}
+
+
 
 }

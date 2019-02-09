@@ -19,6 +19,14 @@
           <input matInput placeholder="รายการ..." name = "title" [(ngModel)]="views.title" >
         </mat-form-field><p></p>
 
+        <label class = "Texts">: กิจกรรมกีฬา :</label>
+        <mat-form-field class="example-full-width2">
+          <mat-select placeholder="รายชื่อกิจกรรมกีฬา.." name = "event" [(ngModel)]="views.eventSelect">
+            <mat-option *ngFor="let  eventSelect of recordEvent" [value]=" eventSelect.eventName">
+              {{eventSelect.eventName}}</mat-option>
+          </mat-select>
+        </mat-form-field><p></p>
+
 
         <label class = "Texts">: ประเภท :</label>
         <mat-form-field class="example-full-width2">
@@ -51,9 +59,11 @@
         </mat-form-field><p></p>
 
 
+          <button mat-button class = "color" [routerLink]="['/table']" ><b>แสดงตาราง</b></button>
+
           <button mat-button class = "color" (click)="Save()" ><b>บันทึก</b></button>
 
-          <button mat-button class = "color" [routerLink]="['/table']" ><b>แสดงตาราง</b></button>
+
 
 
 

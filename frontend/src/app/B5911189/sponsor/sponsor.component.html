@@ -1,0 +1,65 @@
+<!--<img src='/sport.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>-->
+<div align=center>
+  <mat-card class="example-card">
+    <div align=center>
+      <mat-card-title>
+        <label class = Hr2>ระบบลงทะเบียนผู้สนับสนุน</label>
+        <P></P>
+        <label>โปรดกรอกข้อมูล</label><p></p>
+
+        <label  class = "Texts">: กรอกชื่อผู้สนับสนุน :</label>
+        <mat-form-field class="example-full-width2">
+          <input matInput placeholder="ชื่อ..." name = "name" [(ngModel)]="views.name" >
+        </mat-form-field><p></p>
+
+
+        <label class = "Texts">:สถานะ:</label>
+        <mat-form-field class="example-full-width2">
+          <mat-select placeholder="สถานะผู้สนับสนุน.." name = "status" [(ngModel)]="views.statusSelect">
+            <mat-option *ngFor="let  watchs of recordstatus" [value]=" watchs.nameStatus">
+              {{watchs.nameStatus}}</mat-option>
+          </mat-select>
+        </mat-form-field><p></p>
+
+        <label  class = "Texts">: ที่อยู่ :</label>
+        <mat-form-field class="example-full-width2">
+          <input matInput placeholder="ที่อยู่..." name = "Address" [(ngModel)]="views.Address" >
+        </mat-form-field><p></p>
+
+
+
+        <label  class = "Texts">: รับมอบ :</label>
+        <mat-form-field class="example-full-width2">
+          <mat-select placeholder="รับมอบจาก..." name = "transfer" [(ngModel)]="views.transferSelect">
+            <mat-option *ngFor="let  watchs of recordTransfer" [value]=" watchs.nameTransfer">
+              {{watchs.nameTransfer}}</mat-option>
+          </mat-select>
+        </mat-form-field><p></p>
+
+
+
+        <label  class = "Texts">: จำนวนเงิน  :</label>
+        <mat-form-field class="example-full-width2">
+          <input matInput placeholder="จำนวนเงิน"  name = "amount" [(ngModel)]="views.amount" >
+        </mat-form-field><p></p>
+
+        <label  class = "Texts">: เบอร์โทรศัพท์-ติดต่อ :</label>
+        <mat-form-field class="example-full-width2">
+          <input matInput placeholder="เบอร์โทรศัพท์-ติดต่อ." name = "phonenumber" [(ngModel)]="views.phonenumber" >
+        </mat-form-field><p></p>
+
+
+        <button mat-button class = "color" (click)="Save()" ><b>บันทึก</b></button>
+
+
+
+
+
+      </mat-card-title>
+
+
+
+    </div>
+
+  </mat-card>
+</div>

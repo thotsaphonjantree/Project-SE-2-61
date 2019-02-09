@@ -25,6 +25,8 @@ public  class  SponsorRegis{
     private @NonNull Long idSponsorRegis;
     private @NonNull String nameSponsorRegis;
     private @NonNull String Amount;
+    private @NonNull String Address;
+    private @NonNull String Phonenumber;
 
     @ManyToOne(fetch = FetchType.EAGER,targetEntity = Banks.class)
     @JoinColumn(name= "idTransfer",insertable = true)
@@ -48,6 +50,13 @@ public  class  SponsorRegis{
 
     public void setAmount(String Amount) { this.Amount = Amount;}
     public String getAmount() {return Amount;}
+
+    public void setAddress(String Address) { this.Address = Address;}
+    public String getAddress() {return Address;}
+
+    public void setPhonenumber(String Amount) { this.Phonenumber = Amount;}
+    public String getPhonenumber() {return Phonenumber;}
+
 
     public void setTransfer(Transfer transfer) { this.transfer = transfer;}
     public Transfer getTransfer() {return transfer;}
