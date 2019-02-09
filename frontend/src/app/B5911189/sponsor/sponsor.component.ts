@@ -49,7 +49,7 @@ export class SponsorComponent implements OnInit {
       alert('กรุณากรอกที่อยู่');
     }  else {
       this.SaveData();
-      alert('บันทึกเรียบร้อย');
+
     }
   }
   SaveData() {
@@ -57,8 +57,10 @@ export class SponsorComponent implements OnInit {
       .subscribe(
         data => {
           console.log('PUT Request is successful', data);
+          alert('บันทึกเรียบร้อย');
         },
         error => {
+
           console.log(this.views.name);
           console.log(this.views.statusSelect);
           console.log(this.views.Address);
@@ -66,6 +68,7 @@ export class SponsorComponent implements OnInit {
           console.log(this.views.amount);
           console.log(this.views.phonenumber);
           console.log('Error', error);
+          alert('บันทึกไม่สำเร็จ ข้อมูลผิดพลาด');
         }
       );
   }

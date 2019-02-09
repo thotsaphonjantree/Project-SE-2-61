@@ -85,7 +85,7 @@ export class AccountComponent implements OnInit {
               console.log(this.views.amount);
               console.log(this.views.eventSelect);
               console.log('Error', error);
-              alert('บันทึกไม่สำเร็จ');
+              alert('บันทึกไม่สำเร็จ ข้อมูลผิดพลาด');
             }
           );
   }
