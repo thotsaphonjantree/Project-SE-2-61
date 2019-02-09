@@ -143,19 +143,19 @@ public class BackendApplication {
 
 			if(placeName == "สนามสุรพลากรีฑาสถาน"){
 				placeEvent.setPlaceAddress("ตำบล สุรนารี อำเภอเมืองนครราชสีมา นครราชสีมา 30000");
-				
+				placeEvent.setPlaceTel("0552362846");
 			}
 			else if(placeName == "สนามกีฬาเฉลิมพระเกียรติ 80 พรรษา"){
 				placeEvent.setPlaceAddress("ตำบล สุรนารี อำเภอเมืองนครราชสีมา นครราชสีมา 30000");
-				
+				placeEvent.setPlaceTel("0554568845");
 			}
 			else if(placeName == "สนามกีฬาอเนกประสงค์พราหมณสุทธิ์"){
 				placeEvent.setPlaceAddress("ตำบล สุรนารี อำเภอเมืองนครราชสีมา นครราชสีมา 30000");
-				
+				placeEvent.setPlaceTel("0552385971");
 			}
 			else if(placeName == "สนามกีฬากลาง มหาวิทยาลัยเทคโนโลยีราชมงคลอีสาน"){
 				placeEvent.setPlaceAddress(" 744 ถนนสุรนารายณ์ ตำบล ในเมือง อำเภอเมืองนครราชสีมา นครราชสีมา 30000");
-				
+				placeEvent.setPlaceTel("0554589675");
 			}
 			placeEventRepository.save(placeEvent);
 		});

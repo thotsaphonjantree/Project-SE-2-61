@@ -54,12 +54,13 @@ public class PlaceEventController {
         return reservePlaceRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @PostMapping("/reserve/create/{eventI}/{placeI}/{staffI}/{Sdate}/{Edate}")
+    @PostMapping("/reserve/create/{eventI}/{placeI}/{staffI}/{Sdate}/{Edate}/{PlaceTel}")
     public ReservePlace createReservePlace(@PathVariable Long eventI,
                                          @PathVariable Long placeI,
                                          @PathVariable Long staffI,
                                          @PathVariable Date Sdate,
-                                         @PathVariable Date Edate)
+                                         @PathVariable Date Edate
+                                         )
      {
        
         ReservePlace reservePlace = new ReservePlace();
