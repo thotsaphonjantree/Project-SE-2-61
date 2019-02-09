@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins =  "http://localhost:4200")
 public class TransferController{
     @Autowired private TransferRepository transferRepository;
+
     @Autowired TransferController(TransferRepository transferRepository){
         this.transferRepository = transferRepository;
     }

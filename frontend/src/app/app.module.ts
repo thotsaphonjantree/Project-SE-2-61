@@ -72,6 +72,7 @@ import { RegisterMComponent } from './B5901890/component/registerMedia/registerm
 
 import { RegisterserMviceService } from './B5901890/serviceMedia/registerservicemedia.service';
 import {SponsorService} from "./B5911189/Service/sponsor.service";
+import { StableComponent } from './B5911189/stable/stable.component';
 
 
 
@@ -118,6 +119,10 @@ const appRoutes: Routes = [
     { path: 'table' , component: TableComponent},{
       path: 'allsportevent',
       component: AllsporteventComponent
+    },
+    {
+    path: 'stable',
+    component:StableComponent
     },
     {
       path: 'addevent',
@@ -183,7 +188,8 @@ const appRoutes: Routes = [
     UpdateeventComponent,
     UpdateprofileComponent,
     RegisterMComponent,
-    SponsorComponent
+    SponsorComponent,
+    StableComponent
   ],
   imports: [
     BrowserModule,

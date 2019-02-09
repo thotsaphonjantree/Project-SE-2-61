@@ -28,11 +28,11 @@ public  class  SponsorRegis{
     private @NonNull String Address;
     private @NonNull String Phonenumber;
 
-    @ManyToOne(fetch = FetchType.EAGER,targetEntity = Banks.class)
+    @ManyToOne(fetch = FetchType.EAGER,targetEntity = Transfer.class)
     @JoinColumn(name= "idTransfer",insertable = true)
     private Transfer transfer;
 
-    @ManyToOne(fetch = FetchType.EAGER,targetEntity = IncomeExpenses.class)
+    @ManyToOne(fetch = FetchType.EAGER,targetEntity = SponsorStatus.class)
     @JoinColumn(name= "idStatus",insertable = true)
     private SponsorStatus sponsorstatus;
 
