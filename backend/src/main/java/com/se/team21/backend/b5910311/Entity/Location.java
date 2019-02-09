@@ -2,8 +2,11 @@ package com.se.team21.backend.b5910311.entity;
 
 import lombok.Data;
 import lombok.NonNull;
-
+import lombok.*;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Data
 @Entity
@@ -14,7 +17,10 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "location_seq")
     @Column(name="Location_ID",unique = true, nullable = true)
     private @NonNull Long lid;
-    private @NonNull String locations;
+    @Size(max = 20, min = 5)
+    @Pattern(regexp = "[A-Z |a-z]*")
+    @NotNull(message="locations must not be null to be valid")
+    private String locations;
 
     public Location() {
     }

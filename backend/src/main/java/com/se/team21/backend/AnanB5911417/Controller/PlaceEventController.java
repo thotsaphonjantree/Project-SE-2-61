@@ -59,7 +59,8 @@ public class PlaceEventController {
                                          @PathVariable Long placeI,
                                          @PathVariable Long staffI,
                                          @PathVariable Date Sdate,
-                                         @PathVariable Date Edate)
+                                         @PathVariable Date Edate
+                                         )
      {
        
         ReservePlace reservePlace = new ReservePlace();

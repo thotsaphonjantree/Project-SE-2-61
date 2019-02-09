@@ -26,6 +26,8 @@ export class PaymentComponent implements OnInit {
     nameoncard:''
   }
 
+  text : String = ''
+
   checkevent : any;
   joins:Array<any>;
   
@@ -54,23 +56,27 @@ export class PaymentComponent implements OnInit {
       data => { this.checkevent = data})
 
     if(this.pay.eventname === '' || this.pay.paycatename === '' || this.pay.paid === '' || this.memberLogin.username === '' || this.pay.nameoncard === '')
-    alert('กรอกข้อมูลให้ครบถ้วน');
+    //alert('กรอกข้อมูลให้ครบถ้วน');
+    this.text = "กรุณากรอกข้อมูลให้ครบถ้วน"
     else if(this.pay.paid == this.checkevent.price){
 
       this.httpClient.post('http://localhost:8080/payment/save/',this.pay).subscribe(
         data => {
             console.log('POST Request is successful', data);
-            alert('จ่ายเงินสำเร็จ !!');
+            //alert('จ่ายเงินสำเร็จ !!');
+    this.text = "จ่ายเงินสำเร็จ !!"
         },
         error => {
             console.log('Error', error);
-            alert('กรอกข้อมูลให้ถูกต้อง');
+           // alert('กรอกข้อมูลให้ถูกต้อง');
+            this.text = "กรอกข้อมูลให้ถูกต้อง !!"
         })
         //this.router.navigate(['checkstatus/']);
         //window.location.reload();
       }
     else{
-      alert('กรอกจำนวนเงินให้ถูกต้อง');
+      //alert('กรอกจำนวนเงินให้ถูกต้อง');
+      this.text = "กรอกข้อมูลให้ถูกต้อง !!"
 }
   }
 

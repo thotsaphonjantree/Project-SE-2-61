@@ -19,6 +19,7 @@ public class StoreType {
 
 
     private @NonNull Long typeId;
-    private @NonNull String typeName;
+    private @NotNull (message="typeName must not be null to be valid")
+      String typeName;
 
 }

@@ -7,6 +7,13 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.Data;
+import lombok.NonNull;
+import lombok.*;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 @Data
 @Entity
 @Table(name = "SportsType")
@@ -16,7 +23,8 @@ public class SportsType {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sportstype_seq")
     @Column(name="SportsType_ID",unique = true, nullable = true)
     private @NonNull Long stid;
-    private @NonNull String sportname;
+    @NotNull(message="sportname must not be null to be valid")
+    private String sportname;
 
     public SportsType() {
     }

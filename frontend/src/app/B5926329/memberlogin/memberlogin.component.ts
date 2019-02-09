@@ -14,7 +14,7 @@ export class MemberloginComponent implements OnInit {
 
   members:Array<any>;
   checkround:Number;
-
+  text : String = ''
 
   constructor(private paymentService:PaymentService,private router: Router,private loginmemberService: LoginmemberService) { }
 
@@ -49,8 +49,8 @@ export class MemberloginComponent implements OnInit {
           this.router.navigate(['joinevent']);
         }
       else
-      alert("Username/Password is Invalid");
-
+      //alert("Username/Password is Invalid");
+      this.text = "กรอกข้อมูลให้ถูกต้อง !!"
   }
 
 
