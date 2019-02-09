@@ -49,34 +49,34 @@ export class RegisterComponent implements OnInit {
   ages: Array<any>;
   register: Array<any>;
   view: any={
-    KindWork:null,  
-    Gender:null,  
+    KindWork:null,
+    Gender:null,
     NameInput:null,
     TellInput:null,
-    Age:null, 
+    Age:null,
   }
 
 
   constructor(private relatedService: RegisterserviceService , private httpClient: HttpClient,private router : Router) { }
 
   ngOnInit() {
-    this.relatedService.getWork().subscribe(data => { 
+    this.relatedService.getWork().subscribe(data => {
       this.works = data;
       console.log(this.works);
     });
-    
-    this.relatedService.getGender().subscribe(data => { //getที่อยุ่service 
-      this.genders = data; 
+
+    this.relatedService.getGender().subscribe(data => { //getที่อยุ่service
+      this.genders = data;
       console.log(this.genders);
     });
 
-   
+
     this.relatedService.getAge().subscribe(data => {
       this.ages = data;
       console.log(this.ages);
     });
-   
-    
+
+
 
   }
 
@@ -99,28 +99,29 @@ export class RegisterComponent implements OnInit {
       alert('กรุณาเลือกอายุ');
     }
     else{
-      
+
         this.save_func();
-        alert('บันทึกเรียบร้อย');
+
       }
   }
   save_func(){
-    this.httpClient.get('http://localhost:8080/RegisterStaff/' +this.view.NameInput + '/' + this.view.KindWork + '/' 
+    this.httpClient.get('http://localhost:8080/RegisterStaff/' +this.view.NameInput + '/' + this.view.KindWork + '/'
     + this.view.Gender+ '/' + this.view.Age + '/' + this.view.TellInput, this.view)  //จากhtml
     .subscribe(
       data => {
           console.log('PUT Request is successful', data);
-          this.refresh();
+          this.refresh();alert('บันทึกเรียบร้อย');
       },
       error => {
           console.log(this.view.NameInput);  //จากhtml
           console.log(this.view.KindWork);
           console.log(this.view.Gender);
-        
+
           console.log(this.view.TellInput);
           console.log(this.view.Age);
-          
+
            console.log('Rrror', error);
+alert('Error');
      }
 );
     }
