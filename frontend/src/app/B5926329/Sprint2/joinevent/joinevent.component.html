@@ -29,6 +29,14 @@
   </mat-form-field >
   <br/>
   <mat-form-field class="example-full-width">
+          <mat-select placeholder="เพศ" [(ngModel)]="join.genderId">
+            <mat-option *ngFor="let genderJoin of genderJoins" [value]="genderJoin.genderId" >
+              {{genderJoin.genderName}}
+            </mat-option>
+          </mat-select>
+  </mat-form-field >
+  <br/>
+  <mat-form-field class="example-full-width">
       <input matInput placeholder="เบอร์โทรศัพท์" [(ngModel)]="join.tel">
     </mat-form-field>
     <br/>
