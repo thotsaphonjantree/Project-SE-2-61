@@ -38,12 +38,8 @@ export class PaymentService {
     return this.http.get('//localhost:8080/member/'+id);
   }
 
-  setMemberLoginId(id){
-    localStorage.setItem('key',id);
-  }
-
-  getMemberLoginId(){
-    return localStorage.getItem('key');
+  getJoineventByMember(mid): Observable<any>{
+    return this.http.get('//localhost:8080/jointbymember/'+mid);
   }
 
 }

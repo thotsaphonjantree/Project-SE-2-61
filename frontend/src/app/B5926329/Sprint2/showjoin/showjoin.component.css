@@ -1,0 +1,36 @@
+.example-card {
+    width: 400px;
+    background-color: Primary;
+    position: absolute;
+    max-height: 1500px;
+}
+
+.card2{
+    margin-left: 35%;
+      width: 400px;
+      background-color: rgb(255, 255, 255);;
+      position: absolute;
+      max-height: 1500px;
+  }
+
+  .showjoincard{
+    background-color: 	rgb(255, 249, 249);
+max-height: 1500;
+}
+.cardtitle{
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.cardtitle2{
+    color: rgb(255, 4, 4);
+    text-align: center;
+}
+
+.showjoinborder{
+    background-color: 	rgb(255, 255, 255);
+    border-style: groove;
+    color:rgb(0, 0, 0);
+    border-radius: 5px;
+    height:200;
+    }

@@ -76,6 +76,8 @@ import { StableComponent } from './B5911189/stable/stable.component';
 import { EditStoreComponent } from './B5911417/edit-store/edit-store.component';
 import { EventStoreComponent } from './B5911417/event-store/event-store.component';
 import { SeeStoreComponent } from './B5911417/see-store/see-store.component';
+import { JoineventComponent } from './B5926329/Sprint2/joinevent/joinevent.component';
+import { ShowjoinComponent } from './B5926329/Sprint2/showjoin/showjoin.component';
 
 
 
@@ -174,6 +176,14 @@ const appRoutes: Routes = [
     {
             path: 'seestore',
             component:SeeStoreComponent},
+            {
+              path: 'joinevent',
+              component: JoineventComponent
+            },
+            {
+              path: 'showjoin',
+              component: ShowjoinComponent
+            }
 
 ];
 
@@ -204,7 +214,9 @@ const appRoutes: Routes = [
     StableComponent,
     EditStoreComponent,
     EventStoreComponent,
-    SeeStoreComponent
+    SeeStoreComponent,
+    JoineventComponent,
+    ShowjoinComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,53 @@
+<mat-card class ="joineventcard">
+
+  <mat-card-title class="cardtitle">ลงทะเบียนเข้าร่วมกิจกรรม</mat-card-title>
+
+      
+
+  <mat-form-field class="example-full-width">
+          <mat-select placeholder="Members" [(ngModel)]="join.userId" name="username">
+                  <mat-option [value]="memberLogin.memberId">
+                      {{memberLogin.username}} : {{memberLogin.name}}
+                  </mat-option>
+                </mat-select>
+  </mat-form-field>
+  <br/>
+  <mat-form-field class="example-full-width">
+          <mat-select placeholder="กิจกรรม" [(ngModel)]="join.eventId">
+            <mat-option *ngFor="let event of events" [value]="event.seid">
+              {{event.eventName}} : ราคา {{event.price}}
+            </mat-option>
+          </mat-select>
+  </mat-form-field>
+  <br/>
+  <mat-form-field class="example-full-width">
+          <mat-select placeholder="เลือกระดับความเชี่ยวชาญ" [(ngModel)]="join.expertlevelId">
+            <mat-option *ngFor="let expertlevel of expertlevels" [value]="expertlevel.expertLevelId"   >
+              {{expertlevel.expertLevelName}}
+            </mat-option>
+          </mat-select>
+  </mat-form-field >
+  <br/>
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="เบอร์โทรศัพท์" [(ngModel)]="join.tel">
+    </mat-form-field>
+    <br/>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="ชื่อที่ต้องการติดป้าย" [(ngModel)]="join.tagName">
+      </mat-form-field>
+      <br/>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="รหัสบัตรประจำตัวประชาชน" [(ngModel)]="join.personalId">
+        </mat-form-field>
+
+
+
+
+
+
+
+<br/>
+
+<a button mat-raised-button color="primary" (click)="save()">สมัคร</a>
+<a button mat-raised-button color="warn" routerLink="/showjoin">ตรวจดูสถานะการลงทะเบียน</a>
+</mat-card> 

@@ -1,25 +1,26 @@
 
 <mat-card class="card2">
-    <mat-card-title class="cardtitle">ลงทะเบียนเสร็จสิ้น</mat-card-title>
-  <br/>
-  <mat-card class="paymentcard">
+  <mat-card-title class="cardtitle">จ่ายเงินเสร็จสิ้น</mat-card-title>
+<br/>
+<mat-card class="paymentcard">
 
-    <mat-card-content>
-      <div *ngFor="let payment of payments">
-        <div class="paymentborder">
-            <p>USERNAME : {{payment.members.username}}</p>
-            <p>ชื่อ :  {{payment.members.name}}</p>
-            <p>กิจกรรม : {{payment.sportEvent.eventName}}</p>
-            <p>ค่าเข้าร่วม : {{payment.sportEvent.price}}</p>
-            <p>จำนวนเงินที่จ่าย : {{payment.paymentPaid}}</p>
-            <p>ประเภทการจ่ายเงิน : {{payment.payCategory.paycateName}}</p>
-            <p>เวลาที่จ่ายเงิน : {{payment.paymentDate}}</p>
-            <mat-card-title class="cardtitle2">ชำระเงินแล้ว</mat-card-title>
-        </div>
+  <mat-card-content>
+    <div *ngFor="let payment of payments">
+      <div class="paymentborder">
+          <p>USERNAME : {{payment.members.username}}</p>
+          <p>ชื่อ :  {{payment.members.name}}</p>
+          <p>กิจกรรม : {{payment.joinEventMember.sportEvent.eventName}}</p>
+          <p>ค่าเข้าร่วม : {{payment.joinEventMember.sportEvent.price}}</p>
+          <p>จำนวนเงินที่จ่าย : {{payment.paymentPaid}}</p>
+          <p>ประเภทการจ่ายเงิน : {{payment.payCategory.paycateName}}</p>
+          <p>ชื่อบนบัตร : {{payment.nameOnCard}}</p>
+          <p>เวลาที่จ่ายเงิน : {{payment.paymentDate}}</p>
+          <mat-card-title class="cardtitle2">ชำระเงินแล้ว</mat-card-title>
       </div>
-    </mat-card-content>
-  </mat-card>
-  <div align = "center">
-  <a button mat-raised-button color="warn" routerLink="/memberlogin">Logout</a>
-  </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<div align = "center">
+<a button mat-raised-button color="warn" routerLink="/memberlogin">Logout</a>
+</div>
 </mat-card>
