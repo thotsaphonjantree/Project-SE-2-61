@@ -31,7 +31,7 @@ public class ResultEntity {
     private @NonNull Date resultDate;
 
     @NotNull
-    @Pattern(regexp = "[ก-๙]+|[A-Z|a-z|' '|1-9]+")
+    @Pattern(regexp = "[ก-๙]+|[A-Z|a-z|' '|1-9|_|-]+")
     @Size(min=2, max=20)
     private @NonNull String resultAddress;
 
