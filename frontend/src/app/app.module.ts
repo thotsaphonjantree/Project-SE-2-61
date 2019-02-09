@@ -153,8 +153,10 @@ const appRoutes: Routes = [
       component: EventdetailComponent
     },
 
-{path: '' ,redirectTo: '/RegisterMedia',pathMatch:'full'},
-{path: 'RegisterMedia',component:RegisterMComponent}
+
+    {
+      path: 'RegisterMedia',
+      component:RegisterMComponent}
 
 ];
 
