@@ -16,7 +16,8 @@ import java.util.Date;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-@Table(name = "Payments")
+@Table(name = "Payments",uniqueConstraints=
+@UniqueConstraint(columnNames={"memberId", "JoinEventId"}))
 public class Payment {
     @Id
     @SequenceGenerator(name = "payment_seq", sequenceName = "payment_seq")
