@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+
 @Entity
 @Getter @Setter
 @NoArgsConstructor
@@ -19,20 +20,28 @@ public class EventStore {
 
 
     private @NonNull Long storeId;
-    private @NonNull String storeName;
-    private @NonNull String storeTel;
-    private @NonNull String octime;
+    private @NotNull (message="storeName must not be null to be valid")
+     String storeName;
+    @Size(max = 10, min = 10)
+    @Pattern(regexp = "[0-9]*")
+    @Column(unique = true)
+    private @NotNull String storeTel;
+    private @NotNull String octime;
 
+    
     @ManyToOne(fetch = FetchType.EAGER)
-     @JoinColumn(name = "sportEventForStoreId")
+    @JoinColumn(name = "sportEventForStoreId")
+    @NotNull
     private com.se.team21.backend.b5910311.entity.SportsEvent sportEventFStore;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "StaffForStoreId")
+    @NotNull
     private com.se.team21.backend.B5901890.Entity.RegisterStaff staffFStore;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "TypeforStoreID")
+    @NotNull
     private StoreType setTypeStoreFStore;
     
 }
