@@ -9,6 +9,9 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 @Data
@@ -25,24 +28,35 @@ public  class  AccountRecord{
     @Column(name="idaccount",unique = true, nullable = false)
     private @NonNull Long idaccount;
     @Temporal(TemporalType.DATE)
-    private @NonNull Date Savedate;
+    @NotNull
+    private  Date Savedate;
+    @Column(unique = true)
     private @NonNull String Title;
-    private @NonNull String Amount;
 
-    @ManyToOne(fetch = FetchType.EAGER,targetEntity = Banks.class)   //set fetch data เป็น LAZY LAZY = fetch when needed EAGER = fetch immediately
-    @JoinColumn(name= "idBank",insertable = true)      // join colume video_id จาก video กับ entity comment
+    @NotNull
+    @Size(max = 10, min = 2)
+    @Pattern(regexp = "[0-9]*")
+    private String Amount;
+
+
+    @ManyToOne(fetch = FetchType.EAGER,targetEntity = Banks.class)
+    @JoinColumn(name= "idBank",insertable = true)
+    @NotNull
     private Banks Banks;
 
     @ManyToOne(fetch = FetchType.EAGER,targetEntity = IncomeExpenses.class)   //set fetch data เป็น LAZY LAZY = fetch when needed EAGER = fetch immediately
     @JoinColumn(name= "idIncomeExpenses",insertable = true)      // join colume video_id จาก video กับ entity comment
+    @NotNull
     private IncomeExpenses IncomeExpenses;
 
     @ManyToOne(fetch = FetchType.EAGER,targetEntity = FromTo.class)   //set fetch data เป็น LAZY LAZY = fetch when needed EAGER = fetch immediately
     @JoinColumn(name= "idFromTo",insertable = true)      // join colume video_id จาก video กับ entity comment
+    @NotNull
     private FromTo FromTo;
 
     @ManyToOne(fetch = FetchType.EAGER,targetEntity = SportsEvent.class)
     @JoinColumn(name= "seid",insertable = true)
+    @NotNull
     private  SportsEvent sportsEvent;
 
 
