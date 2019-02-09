@@ -47,4 +47,8 @@ public class Profile {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "P_A")
     private Address addressname;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "P_M")
+    private com.se.team21.backend.B5926329.Entity.Member name;
 }
