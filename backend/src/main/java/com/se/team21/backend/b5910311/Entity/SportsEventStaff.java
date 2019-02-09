@@ -4,6 +4,13 @@ import lombok.Data;
 import lombok.NonNull;
 
 import javax.persistence.*;
+import lombok.Data;
+import lombok.NonNull;
+import lombok.*;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Data
 @Entity
@@ -14,7 +21,8 @@ public class SportsEventStaff {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sportseventstaff_seq")
     @Column(name="sportseventstaff_seq_ID",unique = true, nullable = true)
     private @NonNull Long sesid;
-    private @NonNull String sesname;
+    @NotNull(message="sportname must not be null to be valid")
+    private String sesname;
 
     public SportsEventStaff() {
     }
