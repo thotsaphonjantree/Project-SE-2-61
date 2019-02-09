@@ -34,8 +34,8 @@ public class Payment {
 
     @NotNull
     @Size(min = 1 , max = 25)
-    @Pattern(regexp = "[/D]")
-    private String namePaid;
+    @Pattern(regexp = "[^0-9]*")
+    private String nameOnCard;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "payCateId")

@@ -53,7 +53,7 @@ public class Sprint2B5926329Test {
 	}
 
 	@Test
-	public void testSuccess() {
+	public void testJointEventSuccess() {
 
 		JoinEventMember joinEventMember = new JoinEventMember();
 		joinEventMember.setTagName("David");
@@ -70,8 +70,8 @@ public class Sprint2B5926329Test {
 		} catch(javax.validation.ConstraintViolationException e) {
 			fail("Should not pass to this line");
 		}
-		System.out.println("Test1 Success ==============");
-		System.out.println("================= Success");
+		System.out.println("Test1 testJointEventSuccess ==============");
+		System.out.println("================= testJointEventSuccess");
 	}
 
 
@@ -311,6 +311,25 @@ public class Sprint2B5926329Test {
 
 	}
 
+
+	@Test
+	public void testExpertLevelSuccess() {
+
+		ExpertLevel expertLevel = new ExpertLevel();
+		expertLevel.setExpertLevelName("เก่งมากๆ");
+
+		try {
+			entityManager.persist(expertLevel);
+			entityManager.flush();
+
+		} catch(javax.validation.ConstraintViolationException e) {
+			fail("Should not pass to this line");
+		}
+		System.out.println("Test11 testExpertLevelSuccess ==============");
+		System.out.println("================= Test11 testExpertLevelSuccess");
+	}
+
+
 	@Test
 	public void testExpertLevelNameNotBeNull() {
 		ExpertLevel expertLevel = new ExpertLevel();
@@ -324,9 +343,9 @@ public class Sprint2B5926329Test {
 			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
 			assertEquals(violations.isEmpty(), false);
 			assertEquals(violations.size(), 1);
-			System.out.println("Test11 ExpertLevelNameNotBeNull ==============");
+			System.out.println("Test12 ExpertLevelNameNotBeNull ==============");
 			System.out.println(e);
-			System.out.println("================= Test11 ExpertLevelNameNotBeNull");
+			System.out.println("================= Test12 ExpertLevelNameNotBeNull");
 		}
 	}
 
