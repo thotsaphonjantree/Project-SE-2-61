@@ -30,39 +30,6 @@ public class AccountRecordController {
         return accountrecordrepository.findAll().stream().collect(Collectors.toList());
     }
 
-//    @GetMapping(path = "/AccountRecord/{Time}/{Title}/{Income}/{Bank}/{fromto}/{Amount}/{SportsEvent}")
-//    public AccountRecord accountrecord(@PathVariable Date Time,
-//                                       @PathVariable String Title, @PathVariable String Income,
-//                                       @PathVariable String Bank, @PathVariable String fromto,
-//                                       @PathVariable String Amount, @PathVariable String sportsevent){
-//
-//        AccountRecord a = new AccountRecord();
-//
-//        Banks b = bankRepository.findBynameBank(Bank);
-//        System.out.println(Bank);
-//
-//        FromTo f = fromToRepository.findBynameFromTo(fromto);
-//        System.out.println(fromto);
-//
-//        IncomeExpenses inout = incomeExpensesRepository.findByIncomeExpenses(Income);
-//        System.out.println(Income);
-//
-//        SportsEvent se = sportsEventRepository.findByEventname(sportsevent);
-//        System.out.println(sportsevent);
-//
-//
-//        a.setSavedate(Time);
-//        a.setTitle(Title);
-//        a.setIncomeExpenses(inout);
-//        a.setBanks(b);
-//        a.setFromto(f);
-//        a.setSportsEvent(se);
-//        a.setAmount(Amount);
-//
-//        return accountrecordrepository.save(a);
-//
-//
-//    }
 
     @GetMapping(path = "/AccountRecord/{Time}/{Title}/{Income}/{Bank}/{fromto}/{Amount}/{SportsEvent}")
     public AccountRecord accountrecord(@PathVariable Date Time,

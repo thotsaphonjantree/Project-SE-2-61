@@ -1,0 +1,61 @@
+<!--<img src='/sport.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>-->
+<div align=center>
+  <mat-card class="example-card">
+    <div align=center>
+      <mat-card-title>
+        <label class = Hr2>ระบบบลงทะเบียนผู้สนับสนุน</label>
+        <P></P>
+        <table mat-table  [dataSource]="dataSource" >
+
+          <!-- No Column -->
+          <ng-container matColumnDef="idSponsorRegis">
+            <th mat-header-cell *matHeaderCellDef> ลำดับที่ </th>
+            <td mat-cell *matCellDef="let element"> {{element.idSponsorRegis}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="nameSponsorRegis">
+            <th mat-header-cell *matHeaderCellDef> ชื่อ </th>
+            <td mat-cell *matCellDef="let element"> {{element.nameSponsorRegis}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="nameStatus">
+            <th mat-header-cell *matHeaderCellDef> สถานะผู้สนับสนุน </th>
+            <td mat-cell *matCellDef="let element"> {{element.sponsorStatus.nameStatus}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> ที่อยู่ </th>
+            <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="nameTransfer">
+            <th mat-header-cell *matHeaderCellDef> รับมอบ </th>
+            <td mat-cell *matCellDef="let element"> {{element.transfer.nameTransfer}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef> จำนวนเงิน </th>
+            <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="phonenumber">
+            <th mat-header-cell *matHeaderCellDef> เบอร์ติดต่อ </th>
+            <td mat-cell *matCellDef="let element"> {{element.phonenumber}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+
+
+
+      </mat-card-title>
+      <button mat-button class = "color" [routerLink]="['/sponsor']" ><b>กลับ</b></button>
+
+
+
+    </div>
+
+  </mat-card>
+</div>
