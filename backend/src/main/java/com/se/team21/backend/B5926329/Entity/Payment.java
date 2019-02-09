@@ -1,7 +1,6 @@
 package com.se.team21.backend.B5926329.Entity;
 
 import com.se.team21.backend.B5926329.Sprint2.Entity.JoinEventMember;
-import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 import lombok.*;
 
 import javax.persistence.*;

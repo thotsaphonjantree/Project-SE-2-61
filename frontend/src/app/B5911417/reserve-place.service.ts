@@ -25,4 +25,11 @@ export class ReservePlaceService {
   showAllReserve(): Observable<any> {
     return this.http.get('//localhost:8080/reserve');
   }
+  showAllStores(): Observable<any> {
+    return this.http.get('//localhost:8080/showstore');
+  }
+  showAllStoreType(): Observable<any> {
+    return this.http.get('//localhost:8080/showstoretype');
+  }
+
 }

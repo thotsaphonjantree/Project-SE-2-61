@@ -1,0 +1,25 @@
+<div align=center>
+  <mat-card class="example-card">
+    <div align=center>
+      <mat-card-title></mat-card-title>
+    </div>
+    <div *ngFor="let storex of storeUI">
+      <div>
+        <mat-card class="example">
+          <mat-card-content>
+            <mat-card-title>{{storex.storeName}}</mat-card-title>
+            <div align=left>
+              <p>ชื่อร้านค้า : {{storex.storeName}}</p>
+              <p>เบอร์โทรศัพท์ : {{storex.storeTel}}</p>
+              <p>เวลาเปิดปิด : {{storex.octime}} นาฬิกา</p>
+              <p>เข้าร่วมกิจกรรม : {{storex.sportEventFStore.eventName}}</p>
+              <p>เจ้าหน้าที่จัดกิจกรรมกีฬา : {{storex.staffFStore.nameRegisterStaff}}</p>
+              <p>ชนิดร้านค้า : {{storex.setTypeStoreFStore.typeName}} </p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <br><br>
+      </div>
+    </div>
+  </mat-card>
+</div>

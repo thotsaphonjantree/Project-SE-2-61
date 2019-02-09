@@ -1,0 +1,58 @@
+<div align=center>
+  <mat-card  class="example-card" >
+  <div align=center>
+      <mat-card-title><h2>ลงทะเบียนร้านค้า</h2></mat-card-title>
+
+      <mat-form-field class="example-full-width">
+      <input matInput placeholder="ชื่อร้านค้า" [(ngModel)]="storename">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+        <mat-select placeholder="ชื่อกิจกรรม" [(ngModel)]="eventII">
+          <mat-option *ngFor="let eventx of eventUI" [value]="eventx.seid" >
+            {{eventx.eventName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="เวลาเปิด-ปิด" [(ngModel)]="octime">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field>
+          <mat-select placeholder="ชื่อผู้จอง" [(ngModel)]="staffI">
+            <mat-option *ngFor="let staffx of staffUI" [value]="staffx.idRegister"   >
+              {{staffx.nameRegisterStaff}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field>
+            <mat-select placeholder="ชนิดร้านค้า" [(ngModel)]="storetype">
+              <mat-option *ngFor="let typex of storetypeUI" [value]="typex.typeId" >
+                {{typex.typeName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder="หมายเลขโทรศัพท์ร้านค้า" [(ngModel)]="storetel">
+            </mat-form-field>
+            <br>
+
+            <div align=center>
+                <a button mat-raised-button color="warn" routerLink="/seestore">ข้อมูลร้านค้า</a>
+                &nbsp;&nbsp;
+              <a button mat-raised-button color="warn" routerLink="/editstore">แก้ไขข้อมูล</a>
+              &nbsp;&nbsp; <button mat-flat-button (click)="save()" color="warn">บันทึก</button>
+
+              </div>
+
+  </div>
+  </mat-card>
+  </div>

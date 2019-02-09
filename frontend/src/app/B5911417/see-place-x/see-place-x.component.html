@@ -1,16 +1,24 @@
-<mat-card class="example-card">
-  <div align="center">
-    <mat-card-title><h2>รายการจองสถานที่</h2></mat-card-title>
-    <mat-list>
-      <div *ngFor="let resev of reserveInfo">
-        <mat-card-content>
-          <mat-divider></mat-divider>
-          <a >• ชื่อกิจกรรม {{resev.sportEventF.eventName}} : สถานที่
-            {{resev.placeEventF.placeName}} : พนักงานจอง {{resev.staffF.nameRegisterStaff}} : จองตั้งแต่ {{resev.sdate}} : ถึงวันที่ {{resev.edate}} </a>
-          <mat-divider></mat-divider>
-        </mat-card-content>
+<div align=center>
+  <mat-card class="example-card">
+    <div align=center>
+      <mat-card-title></mat-card-title>
+    </div>
+    <div *ngFor="let resev of reserveInfo">
+      <div>
+        <mat-card class="example">
+          <mat-card-content>
+            <mat-card-title>{{resev.sportEventF.eventName}}</mat-card-title>
+            <div align=left>
+              <p>ชื่อกิจกรรม : {{resev.sportEventF.eventName}}</p>
+              <p>สถานที่ : {{resev.placeEventF.placeName}}</p>
+              <p>พนักงานจอง : {{resev.staffF.nameRegisterStaff}}</p>
+              <p>จองตั้งแต่ : {{resev.sdate}} </p>
+              <p>ถึงวันที่ : {{resev.edate}} </p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <br><br>
       </div>
-    </mat-list>
-  </div>
-
-</mat-card>
+    </div>
+  </mat-card>
+</div>

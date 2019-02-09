@@ -35,18 +35,20 @@ public class StoreEventController {
         return storeTypeRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @PostMapping("/store/create/{storename}/{eventI}/{octime}/{storetelI}/{storeTypeUI}")
+    @PostMapping("/store/create/{storename}/{eventI}/{octime}/{storetelI}/{storeTypeUI}/{staffI}")
     public EventStore createReservePlace(@PathVariable String storename,
                                          @PathVariable Long eventI,
                                          @PathVariable String octime,
                                          @PathVariable String storetelI,
-                                         @PathVariable Long storeTypeUI)
+                                         @PathVariable Long storeTypeUI,
+                                         @PathVariable Long staffI)
      {
        
         EventStore eventStore = new EventStore();
         
         eventStore.setSportEventFStore(sportsEventRepository.getOne(eventI));
         eventStore.setSetTypeStoreFStore(storeTypeRepository.getOne(storeTypeUI));
+        eventStore.setStaffFStore(staffRepository.getOne(staffI));
         eventStore.setStoreName(storename);
         eventStore.setOctime(octime);
         eventStore.setStoreTel(storetelI);

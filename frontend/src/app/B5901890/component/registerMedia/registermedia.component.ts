@@ -87,10 +87,14 @@ export class RegisterMComponent implements OnInit {
       alert('กรุณาชื่อบริษัท');
     }
     else if( this.view.KindSport == null){
-      alert('กรุณาเลือกอายุ');
+      alert('กรุณาเลือกประเภทกีฬา');
     }
-    else if( this.view.TelInput == null){
-      alert('กรุณาเลือกอายุ');
+   // else if( this.view.TelInput == null){
+    //  alert('กรุณาเกรอเบอร์');
+    //}
+    else if ((this.view.TelInput == null)||((this.view.TelInput.toUpperCase() >= 'A')&&(this.view.TelInput.toUpperCase() <= 'Z'))||
+            ((this.view.TelInput >= 'ก')&&(this.view.TelInput <= 'ฮ'))) { //จากhtml
+    alert('กรุณาใส่เบอร์');
     }
     else{
 
