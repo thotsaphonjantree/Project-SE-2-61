@@ -1,0 +1,51 @@
+<div align=center>
+  <mat-card  class="example-card" >
+      <mat-card-title><h2>แก้ไขข้อมูลร้านค้า</h2></mat-card-title>
+      <div> กรุณาเลือกร้านค้าที่ต้องการแก้ไข </div> <br>
+       <mat-form-field>
+          <mat-select placeholder="ชื่อร้านค้า" [(ngModel)]="my.storeID">
+            <mat-option *ngFor="let storex of storeUI" [value]="storex.storeId" >
+              {{storex.storeName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <br>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ชื่อร้านค้าแก้" [(ngModel)]="my.EstoreName">
+          </mat-form-field>
+          <br>
+
+          <mat-form-field>
+              <mat-select placeholder="ชื่อกิจกรรม" [(ngModel)]="my.EeventII">
+                <mat-option *ngFor="let eventx of EeventUI" [value]="eventx.seid" >
+                  {{eventx.eventName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="เวลาเปิด-ปิด" [(ngModel)]="my.Eoctime">
+              </mat-form-field>
+              <br>
+
+              <mat-form-field>
+                  <mat-select placeholder="ชนิดร้านค้า" [(ngModel)]="my.Estoretype">
+                    <mat-option *ngFor="let typex of EstoretypeUI" [value]="typex.typeId" >
+                      {{typex.typeName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="หมายเลขโทรศัพท์ร้านค้า" [(ngModel)]="my.Estoretel">
+                  </mat-form-field>
+                  <br>
+                  <button mat-flat-button (click)="edit()" color="warn">ยืนยัน</button>
+    </mat-card>
+  </div>

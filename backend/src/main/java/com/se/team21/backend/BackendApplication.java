@@ -53,6 +53,8 @@ import com.se.team21.backend.b5910311.entity.Profile;
 import com.se.team21.backend.b5910311.repository.ProfileRepository;
 
 import com.se.team21.backend.B5901890.Entity.KindSportMedia;
+import com.se.team21.backend.B5901890.Entity.RegisterStaff;
+import com.se.team21.backend.B5901890.Entity.GenderMedia;
 import com.se.team21.backend.B5901890.Entity.KindMedia;
 import com.se.team21.backend.B5901890.Repository.*;
 import org.springframework.boot.ApplicationRunner;
@@ -430,6 +432,11 @@ public class BackendApplication {
 				kindSportMediaRepository.save(sport);
 			});
 
+			Stream.of("Anan","Thotsaphon").forEach(staff -> {
+				RegisterStaff registerStaff = new RegisterStaff();
+				registerStaff.setNameStaff(staff);
+				registerStaffRepository.save(registerStaff);
+			});
 		};
 	};
 
