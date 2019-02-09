@@ -15,8 +15,8 @@ import javax.validation.constraints.NotNull;
 @Table(name = "Genders")
 public class GenderJoin {
     @Id
-    @SequenceGenerator(name = "gender_seq", sequenceName = "gender_seq")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gender_seq")
+    @SequenceGenerator(name = "gender2_seq", sequenceName = "gender2_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gender2_seq")
     @NotNull
     private  Long genderId;
 

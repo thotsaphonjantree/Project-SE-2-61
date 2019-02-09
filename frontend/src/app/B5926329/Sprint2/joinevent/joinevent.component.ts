@@ -31,7 +31,7 @@ export class JoineventComponent implements OnInit {
 
   }
 
-
+text : String = ''
 
   ngOnInit() {
 
@@ -56,15 +56,18 @@ export class JoineventComponent implements OnInit {
 
     if(this.join.userId  === '' || this.join.eventId  === '' || this.join.expertlevelId  === '' ||
       this.join.tel  === '' || this.join.tagName  === '' || this.join.personalId  === '' || this.join.genderId  === ''  )
-      alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+      //alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+      this.text = "กรุณากรอกข้อมูลให้ครบถ้วน"
     else
     this.httpClient.post('http://localhost:8080/joinevent/save',this.join).subscribe(
       data => {
           console.log('POST Request is successful', data);
-          alert('ลงทะเบียนสำเร็จ');
+          //alert('ลงทะเบียนสำเร็จ');
+          this.text = "ลงทะเบียนสำเร็จ"
       },
       error => {
-        alert('กรอกข้อมูลผิดพลาด');
+        //alert('กรอกข้อมูลผิดพลาด');
+        this.text = "กรอกข้อมูลผิดพลาด"
           console.log('Error', error);
       })
       
