@@ -60,24 +60,30 @@ public class SportsEventController {
 
 
     }
-
-    @PutMapping(path = "/event/update/{aid}/{eventName}/{eventDetail}/{sportName}/{locations}/{sesName}/{price}")
-    public SportsEvent updatesportsevent(@RequestBody SportsEvent updatesportsevent,@PathVariable Long aid,@PathVariable String eventName,
+    @PutMapping(path = "/updateevent/{seid}/{eventName}/{eventDetail}/{sportName}/{locations}/{sesName}/{price}")
+    public SportsEvent editsportsevent(@RequestBody SportsEvent editsportsevent,
+                                     @PathVariable Long seid,@PathVariable String eventName,
                                        @PathVariable String eventDetail, @PathVariable Long sportName,
                                        @PathVariable Long locations, @PathVariable Long sesName,
                                        @PathVariable Long price){
-        SportsEvent updatev = sportseventRepository.getOne(aid);
         SportsType st = sportstypeRepository.getOne(sportName);
         Location lo = locationRepository.getOne(locations);
         SportsEventStaff ses = sportEventStaffRepository.getOne(sesName);
-        updatev.setEventName(eventName);
-        updatev.setEventDetail(eventDetail);
-        updatev.setSportsType(st);
-        updatev.setLocations(lo);
-        updatev.setSesname(ses);
-        updatev.setPrice(price);
+        return sportseventRepository.findById(seid).map(eventEdit ->{
+            eventEdit.setSEid(seid);
+            eventEdit.setEventName(eventName);
+            eventEdit.setEventDetail(eventDetail);
+            eventEdit.setSportsType(st);
+            eventEdit.setLocations(lo);
+            eventEdit.setSesname(ses);
+            eventEdit.setPrice(price);
+            
 
-        return sportseventRepository.save(updatesportsevent);
+                    return sportseventRepository.save(eventEdit);
+                }
+        ).orElseGet(() ->{
+            return sportseventRepository.save(editsportsevent);
+        });
     }
 
 }
