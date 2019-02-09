@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PaymentService } from '../payment.service';
+import { LoginmemberService } from '../loginmember.service';
 import { HttpClient} from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class PaymentComponent implements OnInit {
 
-  constructor(private data:PaymentService,private httpClient:HttpClient,private router:Router) { }
+  constructor(private data:PaymentService,private httpClient:HttpClient,private router:Router,
+              private loginmemberService:LoginmemberService) { }
 
   events: Array<any>;
   memberLogin:any;
@@ -20,11 +22,13 @@ export class PaymentComponent implements OnInit {
     eventname:'',
     paycatename:'',
     paid:'',
-    username:''
+    username:'',
+    nameoncard:''
   }
 
   checkevent : any;
-
+  joins:Array<any>;
+  
   ngOnInit() {
 
       this.data.getAllEvent().subscribe(data => {
@@ -35,8 +39,11 @@ export class PaymentComponent implements OnInit {
       this.paycates = data;
       })
 
-      this.data.getMemberById(this.data.getMemberLoginId()).subscribe(
+      this.data.getMemberById(this.loginmemberService.getMemberLoginId()).subscribe(
         data => { this.memberLogin = data})
+
+        this.data.getJoineventByMember(this.loginmemberService.getMemberLoginId()).subscribe(
+          data => {this.joins = data})
 
   }
 
@@ -46,19 +53,21 @@ export class PaymentComponent implements OnInit {
     this.data.getEventById(this.pay.eventname).subscribe(
       data => { this.checkevent = data})
 
-    if(this.pay.eventname === '' || this.pay.paycatename === '' || this.pay.paid === '' || this.memberLogin.username === '')
+    if(this.pay.eventname === '' || this.pay.paycatename === '' || this.pay.paid === '' || this.memberLogin.username === '' || this.pay.nameoncard === '')
     alert('กรอกข้อมูลให้ครบถ้วน');
     else if(this.pay.paid == this.checkevent.price){
-      alert('จ่ายเงินสำเร็จ !!');
+
       this.httpClient.post('http://localhost:8080/payment/save/',this.pay).subscribe(
         data => {
             console.log('POST Request is successful', data);
+            alert('จ่ายเงินสำเร็จ !!');
         },
         error => {
             console.log('Error', error);
+            alert('กรอกข้อมูลให้ถูกต้อง');
         })
-        this.router.navigate(['checkstatus/']);
-        window.location.reload();
+        //this.router.navigate(['checkstatus/']);
+        //window.location.reload();
       }
     else{
       alert('กรอกจำนวนเงินให้ถูกต้อง');

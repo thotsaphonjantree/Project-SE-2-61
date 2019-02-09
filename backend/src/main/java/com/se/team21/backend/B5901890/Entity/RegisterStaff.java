@@ -3,6 +3,9 @@ package com.se.team21.backend.B5901890.Entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -17,10 +20,16 @@ public class RegisterStaff {
     @SequenceGenerator(name="RegisterStaff_seq",sequenceName="RegisterStaff_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="RegisterStaff_seq")
     @Column(name="RegisterStaff_Id",unique = true, nullable = false)
-
     private @NonNull Long idRegister;
-    private @NonNull String nameRegisterStaff;
-    private @NonNull String tell;
+
+    @NotNull
+    @Column(unique = true)
+    private String nameRegisterStaff;
+
+    @Pattern(regexp = "[0-9]*")
+    @Size(min=3, max=12)
+    @NotNull
+    private  String tell;
 
 
 

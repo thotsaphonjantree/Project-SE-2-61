@@ -8,6 +8,9 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 @Data
@@ -22,18 +25,30 @@ public  class  SponsorRegis{
     @SequenceGenerator(name="SponsorRegis_seq",sequenceName="SponsorRegis_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SponsorRegis_seq")
     @Column(name="idSponsorRegis",unique = true, nullable = false)
-    private @NonNull Long idSponsorRegis;
-    private @NonNull String nameSponsorRegis;
-    private @NonNull String Amount;
-    private @NonNull String Address;
-    private @NonNull String Phonenumber;
+    @NotNull
+    private Long idSponsorRegis;
+    @NotNull
+    @Column(unique = true)
+    private  String nameSponsorRegis;
+    @NotNull
+    @Size(max = 10, min = 2)
+    @Pattern(regexp = "[0-9]*")
+    private  String Amount;
+    @NotNull
+    private  String Address;
+    @NotNull
+    @Size(max = 10, min = 9)
+    @Pattern(regexp = "[0-9]*")
+    private  String Phonenumber;
 
     @ManyToOne(fetch = FetchType.EAGER,targetEntity = Transfer.class)
     @JoinColumn(name= "idTransfer",insertable = true)
+    @NotNull
     private Transfer transfer;
 
     @ManyToOne(fetch = FetchType.EAGER,targetEntity = SponsorStatus.class)
     @JoinColumn(name= "idStatus",insertable = true)
+    @NotNull
     private SponsorStatus sponsorstatus;
 
 

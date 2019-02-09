@@ -1,0 +1,27 @@
+<mat-card class="card2">
+  <mat-card-title class="cardtitle">ลงทะเบียนเข้าร่วมกิจกรรม</mat-card-title>
+<br/>
+<mat-card class="showjoincard">
+
+  <mat-card-content>
+    <div *ngFor="let join of joins">
+      <div class="showjoinborder">
+          <p>username : {{join.members.username}}</p>
+          <p>ชื่อ :  {{join.members.name}}</p>
+          <p>กิจกรรม : {{join.sportEvent.eventName}}</p>
+          <p>สถานที่ : {{join.sportEvent.locations.locations}}</p>
+          <p>ค่าเข้าร่วม : {{join.sportEvent.price}}</p>
+          <p>ระดับความเชี่ยวชาญ : {{join.expertLevels.expertLevelName}}</p>
+          <p>เบอร์โทรศัพท์ : {{join.telNum}}</p>
+          <p>ป้ายชื่อ : {{join.tagName}}</p>
+          <p>บัตรประชาชน : {{join.personalId}}</p>
+
+      </div>
+    </div>
+    <mat-card-title class="cardtitle2">ลงทะเบียนเสร็จสิ้น</mat-card-title>
+  </mat-card-content>
+</mat-card>
+<div align = "center">
+<a button mat-raised-button color="warn" routerLink="/payment">จ่ายเงินค่าลงทะเบียน</a>
+</div>
+</mat-card>
