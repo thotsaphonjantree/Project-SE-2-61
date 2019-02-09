@@ -447,9 +447,13 @@ public class BackendApplication {
 
 			Stream.of("Anan","Thotsaphon").forEach(staff -> {
 				RegisterStaff registerStaff = new RegisterStaff();
-				registerStaff.setNameStaff(staff);
+				registerStaff.setNameRegisterStaff(staff);
 				registerStaff.setTell("0123456");
+				registerStaff.setAgeStaff(ageStaffRepository.getOne(1L));
+				registerStaff.setWorkStaff(workStaffRepository.getOne(2L));
+				registerStaff.setGenderStaff(genderStaffRepository.getOne(2L));
 				registerStaffRepository.save(registerStaff);
+
 			});
 		};
 	};
