@@ -1,5 +1,6 @@
 package com.se.team21.backend.B5926329.Entity;
 
+import com.se.team21.backend.B5926329.Sprint2.Entity.JoinEventMember;
 import lombok.*;
 
 import javax.persistence.*;
@@ -29,8 +30,8 @@ public class Payment {
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "sportId")
-    private com.se.team21.backend.b5910311.entity.SportsEvent sportEvent;
+    @JoinColumn(name = "JoinEventId")
+    private JoinEventMember joinEventMember;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
