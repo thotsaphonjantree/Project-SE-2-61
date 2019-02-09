@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+
+
+
+  </style>
+  <title>Page Title</title>
+</head>
+<body>
+<div class="container"> <!--หัวข้อ-->
+  <h1>จัดกิจกรรมกีฬา</h1>
+  <p>ระบบลงทะเบียนสื่อ</p>
+
+</div>
+<div>
+
+  <div class="topnav">
+    <a > </a><!-- ใส้หน้าหลักMenu-->
+    <!-- <a class="active" href="#home">ลงทะบียน</a>-->
+    <a class="active" href="#home">ลงทะเบียน</a>
+  </div>
+
+  <div class="panelmaster">
+    <div class="panel1">
+      <form id="formtext">
+
+        <label for="ชื่อ">ชื่อ-สกุล :</label>
+        <br>
+        <br>
+        <label for="ประเภทสื่อ">ประเภทสื่อ :</label>
+        <br>
+        <br>
+        <label for="เพศ">เพศ :</label>
+        <br>
+        <br>
+
+      </form>
+    </div>
+    <div class="panel2">
+
+      <mat-form-field class="example-full-width">               <!-- ชื่อสกุล -->
+        <input matInput placeholder="ชื่อสกุล" [(ngModel)]="view.NameInput" >
+      </mat-form-field>
+
+
+      <mat-form-field>                                            <!-- ประเภทสื่อ -->
+        <mat-select placeholder="ประเภทสื่อ" name = "Kindmedia" [(ngModel)]="view.KindMediaInput">
+          <mat-option *ngFor="let kind of kindMedias" [value]="kind.kind_Media">
+            {{kind.kind_Media}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field>                                            <!-- เพศ -->
+        <mat-select placeholder="เพศ" name = "Gender" [(ngModel)]="view.Gender">
+          <mat-option *ngFor="let gender of genders" [value]="gender.nameGenderM">
+            {{gender.nameGenderM}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+    </div>
+    <div class="panel3">
+      <form id="formtext2">
+        <label for="ชื่อบริษัท">ชื่อบริษัท :</label>
+        <br>
+        <br>
+        <label for="ประเภทกีฬา">ประเภทกีฬา :</label>
+        <br>
+        <br>
+        <label for="เบอร์">เบอร์ :</label>
+      </form>
+    </div>
+    <div class="panel4">
+      <mat-form-field class="example-full-width">               <!-- ชื่อบริษัท -->
+        <input matInput placeholder="ชื่อบริษัท" [(ngModel)]="view.NameCompanyInput">
+      </mat-form-field>
+
+      <br>
+      <!-- ประเภทกีฬา -->
+      <mat-form-field>
+        <mat-select placeholder="ประเภทกีฬา" name = "KindSport" [(ngModel)]="view.KindSport">
+          <mat-option *ngFor="let age of KindSports" [value]="age.kind_Sport">
+            {{age.kind_Sport}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+
+      <mat-form-field class="example-full-width">               <!-- ชื่อบริษัท -->
+        <input matInput placeholder="เบอร์" [(ngModel)]="view.TelInput">
+      </mat-form-field>
+
+
+    </div>
+    <div class="panel5">
+      <form id="formtext">
+        <label for="ชื่อ"> </label> <!-- -->
+      </form>
+    </div>
+
+    <div class="panel6">
+      <form id="formtext">
+        <label for="ชื่อ"> </label> <!-- -->
+      </form>
+    </div>
+
+    <div class="panel7">
+      <form id="formtext">
+        <label for="ชื่อ"> </label> <!-- -->
+      </form>
+    </div>
+
+    <div class="panel8">
+      <form id="formtext">
+        <button class="btn info" (click)="Save()" >Save</button>
+      </form>
+    </div>
+
+    <div class="panel9">
+      <form id="formtext">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <!--- ======================================ตารางโชว์====================================== -->
+          <!-- RegisterMedia Column -->
+          <ng-container matColumnDef="nameMedia">
+            <th mat-header-cell *matHeaderCellDef> ชื่อ-สกุล </th>
+            <td mat-cell *matCellDef="let element"> {{element.name_Media}} </td>
+          </ng-container>
+
+          <!-- KindMedia Column -->
+          <ng-container matColumnDef="kindMedia">
+            <th mat-header-cell *matHeaderCellDef> ประเภทสื่อ </th>
+            <td mat-cell *matCellDef="let element"> {{element.kindMedia.kind_Media}} </td>
+          </ng-container>
+
+          <!-- genderMedia Column -->
+          <ng-container matColumnDef="genderMedia">
+            <th mat-header-cell *matHeaderCellDef> เพศ </th>
+            <td mat-cell *matCellDef="let element"> {{element.genderMedia.nameGender}} </td>
+          </ng-container>
+
+
+          <!-- KindSportMedia Column -->
+          <ng-container matColumnDef="kindSport">
+            <th mat-header-cell *matHeaderCellDef> ประเภทกีฬา </th>
+            <td mat-cell *matCellDef="let element"> {{element.kindSportMedia.kind_Sport}} </td>
+          </ng-container>
+
+          <!-- nameCopany Column -->
+          <ng-container matColumnDef="nameCopany">
+            <th mat-header-cell *matHeaderCellDef> ชื่อบริษัท </th>
+            <td mat-cell *matCellDef="let element"> {{element.name_Company_Media}} </td>
+          </ng-container>
+
+          <!-- Tel Column -->
+          <ng-container matColumnDef="nameTel">
+            <th mat-header-cell *matHeaderCellDef> เบอร์ </th>
+            <td mat-cell *matCellDef="let element"> {{element.tel}} </td>
+          </ng-container>
+
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
+
+
+
+
