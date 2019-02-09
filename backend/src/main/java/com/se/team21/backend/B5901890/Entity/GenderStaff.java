@@ -14,8 +14,8 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class GenderStaff {
     @Id
-    @SequenceGenerator(name="Gender_seq",sequenceName="Gender_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Gender_seq")
+    @SequenceGenerator(name="Gender1_seq",sequenceName="Gender1_seq")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Gender1_seq")
     @Column(name="Gender_Id",unique = true, nullable = false)
     private @NotNull Long idGender;
 
