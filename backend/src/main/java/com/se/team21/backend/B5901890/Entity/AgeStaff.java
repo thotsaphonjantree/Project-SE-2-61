@@ -3,6 +3,7 @@ package com.se.team21.backend.B5901890.Entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -16,8 +17,10 @@ public class AgeStaff {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="age_seq")
     @Column(name="age_Id",unique = true, nullable = false)
 
-    private @NonNull Long idAge;
-    private @NonNull Integer age;
+    private @NotNull Long idAge;
+
+    private @NotNull (message="AgeStaff must not be null to be valid")
+    Integer age;
 
     public Long getIdAge() {
         return idAge;
