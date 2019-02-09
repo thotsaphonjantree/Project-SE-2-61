@@ -9,6 +9,7 @@ import com.se.team21.backend.B5926329.Entity.Payment;
 import com.se.team21.backend.B5926329.Repository.MemberRepository;
 import com.se.team21.backend.B5926329.Repository.PayCategoryRepository;
 import com.se.team21.backend.B5926329.Repository.PaymentRepository;
+import com.se.team21.backend.B5926329.Sprint2.Repository.JoinEventMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;
 import org.springframework.web.bind.annotation.*;
@@ -28,8 +29,8 @@ public class PaymentController {
     @Autowired
     PaymentRepository paymentRepository;
 
-    /*@Autowired
-    EventRepository eventRepository;*/
+    @Autowired
+    JoinEventMemberRepository joinEventMemberRepository;
 
     @Autowired
     com.se.team21.backend.b5910311.repository.SportsEventRepository sportsEventRepository;
@@ -61,7 +62,7 @@ public class PaymentController {
 
         Date date = new Date();
 
-        payment.setSportEvent(sportsEventRepository.getOne(jsonEventName.asLong()));
+        payment.setJoinEventMember(joinEventMemberRepository.getOne(jsonEventName.asLong()));
         payment.setPayCategory(payCategoryRepository.getOne(jsonPaycate.asLong()));
         payment.setMembers(memberRepository.getOne(jsonUsername.asLong()));
         payment.setPaymentPaid(jsonPaid.asLong());
