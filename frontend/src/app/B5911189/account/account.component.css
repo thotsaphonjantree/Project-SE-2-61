@@ -1,6 +1,6 @@
 .example-card {
   max-width: 900px;
-  background: ghostwhite;
+  background: skyblue;
 }
 .example {
   max-width: 600px;
@@ -15,8 +15,8 @@
   font-size: 25px;
   color: black;
   text-align: center;
-  border: 5px solid gray;
-  background-color: darkgray;
+  border: 5px solid black;
+  background-color: whitesmoke;
 
 }
 .Texts{
@@ -48,7 +48,7 @@
 .color{
   margin-top: 25px;
   margin-left: 75px;
-  background-color: red;
+  background-color: greenyellow;
   margin-right: 75px;
 }
 
