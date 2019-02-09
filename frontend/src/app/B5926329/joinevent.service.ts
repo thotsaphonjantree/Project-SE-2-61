@@ -26,6 +26,10 @@ export class JoineventService {
     return this.http.get('//localhost:8080/expertlevels');
   }
 
+  getAllGenders(): Observable<any>{
+    return this.http.get('//localhost:8080/genderjoins');
+  }
+
   getJoineventByMember(mid): Observable<any>{
     return this.http.get('//localhost:8080/jointbymember/'+mid);
   }

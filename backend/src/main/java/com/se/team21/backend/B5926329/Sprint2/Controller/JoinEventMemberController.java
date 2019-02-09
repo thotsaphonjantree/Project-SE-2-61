@@ -2,11 +2,10 @@ package com.se.team21.backend.B5926329.Sprint2.Controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.se.team21.backend.B5926329.Repository.EventRepository;
 import com.se.team21.backend.B5926329.Repository.MemberRepository;
-import com.se.team21.backend.B5926329.Sprint2.Entity.ExpertLevel;
 import com.se.team21.backend.B5926329.Sprint2.Entity.JoinEventMember;
 import com.se.team21.backend.B5926329.Sprint2.Repository.ExpertLevelRepository;
+import com.se.team21.backend.B5926329.Sprint2.Repository.GenderJoinRepository;
 import com.se.team21.backend.B5926329.Sprint2.Repository.JoinEventMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;
@@ -29,6 +28,9 @@ public class JoinEventMemberController {
 
     @Autowired
     ExpertLevelRepository expertLevelRepository;
+
+    @Autowired
+    GenderJoinRepository genderRepository;
 
     @Autowired
     com.se.team21.backend.b5910311.repository.SportsEventRepository sportsEventRepository;
@@ -54,12 +56,13 @@ public class JoinEventMemberController {
         JsonNode jsontel = actualObj.get("tel");
         JsonNode jsonTagName = actualObj.get("tagName");
         JsonNode jsonPersonalId = actualObj.get("personalId");
-
+        JsonNode jsonGenderId = actualObj.get("genderId");
 
         JoinEventMember joinEventMember = new JoinEventMember();
         joinEventMember.setMembers(memberRepository.getOne(jsonUserId.asLong()));
         joinEventMember.setSportEvent(sportsEventRepository.getOne(jsonEventId.asLong()));
         joinEventMember.setExpertLevels(expertLevelRepository.getOne(jsonExpertLevelId.asLong()));
+        joinEventMember.setGenders(genderRepository.getOne(jsonGenderId.asLong()));
         joinEventMember.setTelNum(jsontel.asText());
         joinEventMember.setTagName(jsonTagName.asText());
         joinEventMember.setPersonalId(jsonPersonalId.asText());

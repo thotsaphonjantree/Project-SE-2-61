@@ -37,7 +37,6 @@ public class JoinEventMember {
 
     @Size(max = 13, min = 13)
     @Pattern(regexp = "[0-9]*")
-    @Column(unique = true)
     @NotNull(message="personalId must not be null to be valid")
     private String personalId;
 
@@ -59,4 +58,8 @@ public class JoinEventMember {
     @NotNull(message="expertlevelId must not be null to be valid")
     private ExpertLevel expertLevels;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "GenderId")
+    @NotNull(message="GenderId must not be null to be valid")
+    private GenderJoin genders;
 }

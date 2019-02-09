@@ -33,8 +33,10 @@ import java.util.Date;
 import java.util.stream.Stream;
 
 import com.se.team21.backend.B5926329.Sprint2.Entity.ExpertLevel;
+import com.se.team21.backend.B5926329.Sprint2.Entity.GenderJoin;
 import com.se.team21.backend.B5926329.Sprint2.Entity.JoinEventMember;
 import com.se.team21.backend.B5926329.Sprint2.Repository.ExpertLevelRepository;
+import com.se.team21.backend.B5926329.Sprint2.Repository.GenderJoinRepository;
 import com.se.team21.backend.B5926329.Sprint2.Repository.JoinEventMemberRepository;
 import com.se.team21.backend.b5910311.entity.Location;
 import com.se.team21.backend.b5910311.repository.LocationRepository;
@@ -93,7 +95,9 @@ public class BackendApplication {
 						   ProfileRepository profileRepository,TransferRepository transferrepository,SponsorStatusRepository sponsorStatusRepository,SponsorRegisRepository sponsorRegisRepository,
 						    KindSportMediaRepository kindSportMediaRepository,
 						   KindMediaRepository kindMediaRepository,
-						   RegisterMediaRepository registerMediaRepository){
+						   RegisterMediaRepository registerMediaRepository,
+						   GenderJoinRepository genderJoinRepository
+						   ){
 		return args -> {
 
 			/*Member*/ Stream.of( "david01","paul06").forEach(username -> {
@@ -267,6 +271,12 @@ public class BackendApplication {
 				}
 				paymentRepository.save(payment);
 			});*/
+			//Gender
+			Stream.of("Male","Female").forEach(gd -> {
+				GenderJoin gender = new GenderJoin();
+				gender.setGenderName(gd);
+				genderJoinRepository.save(gender);
+			});
 
 
 			Stream.of("กรุงเทพมหานคร", "กระบี่", "กาญจนบุรี", "กาฬสินธุ์", "กำแพงเพชร", "ขอนแก่น", "จันทบุรี", "ฉะเชิงเทรา", "ชลบุรี", "ชัยนาท"
@@ -389,6 +399,7 @@ public class BackendApplication {
 					joinEventMember.setSportEvent(sportseventRepository.getOne(1L));
 					joinEventMember.setTelNum("0123456789");
 					joinEventMember.setExpertLevels(expertLevelRepository.getOne(2L));
+					joinEventMember.setGenders(genderJoinRepository.getOne(1L));
 				}
 				if(tagName == "pogba"){
 					joinEventMember.setTagName(tagName);
@@ -397,6 +408,7 @@ public class BackendApplication {
 					joinEventMember.setSportEvent(sportseventRepository.getOne(2L));
 					joinEventMember.setTelNum("9876543210");
 					joinEventMember.setExpertLevels(expertLevelRepository.getOne(1L));
+					joinEventMember.setGenders(genderJoinRepository.getOne(2L));
 				}
 				joinEventMemberRepository.save(joinEventMember);
 			});
