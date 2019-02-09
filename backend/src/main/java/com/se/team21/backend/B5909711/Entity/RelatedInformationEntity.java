@@ -4,8 +4,9 @@ import lombok.*;
 import com.se.team21.backend.b5910311.entity.SportsEvent;
 import javax.persistence.*;
 import java.util.Date;
-
-// import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 @Data
@@ -20,11 +21,27 @@ public class RelatedInformationEntity {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="related_seq")
     @Column(name="RELATED_ID",unique = true, nullable = false)
     private @NonNull Long relatedinformationID;
+
+    @NotNull
+    @Pattern(regexp = "[A-Z |a-z|ก-๐]*")
     private @NonNull String relatedinformationName;
+
+    @NotNull
+    @Pattern(regexp = "[A-Z |a-z|0-9|ก-๙|.-]*")
     private @NonNull String relatedinformationAddress;
+
+    @NotNull
     @Temporal(TemporalType.DATE)
     private @NonNull Date relatedinformationDate;
+
+    @NotNull
+    @Size(min=3,max=30)
+    @Pattern(regexp = "\\d+")
     private @NonNull String relatedinformationPhone;
+
+    @NotNull
+    @Column(unique = true)
+    @Pattern(regexp = "[A-Z|a-z|@._|-]*")
     private @NonNull String relatedinformationEmail;
 
     //Many To One with SportsEvent
