@@ -46,7 +46,7 @@ public class StoreEventController {
         EventStore eventStore = new EventStore();
         
         eventStore.setSportEventFStore(sportsEventRepository.getOne(eventI));
-        eventStore.setTypeStoreFStore(storeTypeRepository.getOne(storeTypeUI));
+        eventStore.setSetTypeStoreFStore(storeTypeRepository.getOne(storeTypeUI));
         eventStore.setStoreName(storename);
         eventStore.setOctime(octime);
         eventStore.setStoreTel(storetelI);
@@ -69,7 +69,7 @@ public class StoreEventController {
             storeEdit.setStoreName(storeName);
             storeEdit.setOctime(octime);
             storeEdit.setSportEventFStore(s);
-            storeEdit.setTypeStoreFStore(type);
+            storeEdit.setSetTypeStoreFStore(type);
             
 
                     return eventStoreRepository.save(storeEdit);
