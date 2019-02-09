@@ -38,7 +38,7 @@ public class RegisterMedia {
 
     @ManyToOne   //set fetch data เป็น LAZY LAZY = fetch when needed EAGER = fetch immediately
     @JoinColumn(name= "idGender")      // join colume video_id จาก video กับ entity comment
-    private GenderMedia genderMedia;
+    private GenderStaff genderStaff;
 
     @ManyToOne   //set fetch data เป็น LAZY LAZY = fetch when needed EAGER = fetch immediately
     @JoinColumn(name= "id_kind")      // join colume video_id จาก video กับ entity comment
@@ -82,12 +82,12 @@ public class RegisterMedia {
         this.tel = tel;
     }
 
-    public GenderMedia getGenderMedia() {
-        return genderMedia;
+    public GenderStaff getGenderMedia() {
+        return genderStaff;
     }
 
-    public void setGenderMedia(GenderMedia genderMedia) {
-        this.genderMedia = genderMedia;
+    public void setGenderMedia(GenderStaff genderMedia) {
+        this.genderStaff = genderMedia;
     }
 
     public KindMedia getKindMedia() {

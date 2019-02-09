@@ -1,10 +1,10 @@
 package com.se.team21.backend.B5901890.Controller;
 
-import com.se.team21.backend.B5901890.Entity.GenderMedia;
+import com.se.team21.backend.B5901890.Entity.GenderStaff;
 import com.se.team21.backend.B5901890.Entity.KindMedia;
 import com.se.team21.backend.B5901890.Entity.KindSportMedia;
 import com.se.team21.backend.B5901890.Entity.RegisterMedia;
-import com.se.team21.backend.B5901890.Repository.GenderMediaRepository;
+import com.se.team21.backend.B5901890.Repository.GenderStaffRepository;
 import com.se.team21.backend.B5901890.Repository.KindMediaRepository;
 import com.se.team21.backend.B5901890.Repository.KindSportMediaRepository;
 import com.se.team21.backend.B5901890.Repository.RegisterMediaRepository;
@@ -25,16 +25,16 @@ public class ControllerM {
     @Autowired
     private RegisterMediaRepository registerMediaRepository;
     @Autowired
-    private GenderMediaRepository genderMediaRepository;
+    private GenderStaffRepository genderStaffRepository;
     @Autowired
     private KindMediaRepository kindMediaRepository;
     @Autowired
     private KindSportMediaRepository kindSportMediaRepository;
     @Autowired
-    public ControllerM(RegisterMediaRepository registerMediaRepository, GenderMediaRepository genderMediaRepository,
+    public ControllerM(RegisterMediaRepository registerMediaRepository, GenderStaffRepository genderStaffRepository,
                        KindMediaRepository kindMediaRepository, KindSportMediaRepository kindSportMediaRepository){
     this.registerMediaRepository = registerMediaRepository;
-    this.genderMediaRepository = genderMediaRepository;
+    this.genderStaffRepository = genderStaffRepository;
     this.kindMediaRepository = kindMediaRepository;
     this.kindSportMediaRepository = kindSportMediaRepository;
 
@@ -75,14 +75,14 @@ public class ControllerM {
 
    //------------Gender------------------------------------------------------------------------------------------
    @GetMapping(path = "/genders/{genderA}", produces = MediaType.APPLICATION_JSON_VALUE)
-   public GenderMedia getNameGenderM(@PathVariable String genderA){
-       GenderMedia genderMedia = new GenderMedia();
-       genderMedia.setNameGenderM(genderA);
-       return genderMediaRepository.save(genderMedia);
+   public GenderStaff getNameGenderM(@PathVariable String genderA){
+       GenderStaff genderStaff = new GenderStaff();
+       genderStaff.setNameGender(genderA);
+       return genderStaffRepository.save(genderStaff);
    }
     @GetMapping("/genders")
-    public Collection<GenderMedia> getGenderMedia(){
-        return  genderMediaRepository
+    public Collection<GenderStaff> getGenderStaff(){
+        return  genderStaffRepository
                 .findAll().stream().collect(Collectors.toList());
     }
 
@@ -116,8 +116,8 @@ public class ControllerM {
         KindMedia kindMediaAA = kindMediaRepository.findByName(kindMediaA);
         registerMedia.setKindMedia(kindMediaAA);
 
-        GenderMedia genderAA = genderMediaRepository.findBynameGenderM(genderA);
-        registerMedia.setGenderMedia(genderAA);
+        GenderStaff genderAA = genderStaffRepository.findBynameGender(genderA);
+        registerMedia.setGenderStaff(genderAA);
 
         KindSportMedia kindSportMediaAA = kindSportMediaRepository.findBynameKindsportMedia(kindSportMediaA);
         registerMedia.setKindSportMedia(kindSportMediaAA);

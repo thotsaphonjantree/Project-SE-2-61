@@ -12,12 +12,10 @@ import com.se.team21.backend.B5901890.Repository.WorkStaffRepository;
 import com.se.team21.backend.B5926329.Entity.Event;
 import com.se.team21.backend.B5926329.Entity.Member;
 import com.se.team21.backend.B5926329.Entity.PayCategory;
-import com.se.team21.backend.B5911189.Entity.AccountRecord;
 import com.se.team21.backend.B5911189.Entity.Banks;
 import com.se.team21.backend.B5911189.Entity.FromTo;
 import com.se.team21.backend.B5911189.Entity.IncomeExpenses;
 import com.se.team21.backend.B5911189.Entity.Transfer;
-import com.se.team21.backend.B5911189.Entity.SponsorRegis;
 import com.se.team21.backend.B5911189.Entity.SponsorStatus;
 import com.se.team21.backend.B5911189.Repository.AccountRecordRepository;
 import com.se.team21.backend.B5911189.Repository.BankRepository;
@@ -26,7 +24,6 @@ import com.se.team21.backend.B5911189.Repository.IncomeExpensesRepository;
 import com.se.team21.backend.B5911189.Repository.TransferRepository;
 import com.se.team21.backend.B5911189.Repository.SponsorStatusRepository;
 import com.se.team21.backend.B5911189.Repository.SponsorRegisRepository;
-import com.se.team21.backend.B5926329.Entity.Payment;
 import com.se.team21.backend.B5926329.Repository.EventRepository;
 import com.se.team21.backend.B5926329.Repository.MemberRepository;
 import com.se.team21.backend.B5926329.Repository.PayCategoryRepository;
@@ -47,7 +44,6 @@ import com.se.team21.backend.b5910311.entity.SportsEventStaff;
 import com.se.team21.backend.b5910311.repository.SportsEventStaffRepository;
 import com.se.team21.backend.b5910311.entity.SportsEvent;
 import com.se.team21.backend.b5910311.repository.SportsEventRepository;
-import com.se.team21.backend.AnanB5911417.sp2.Entity.EventStore;
 import com.se.team21.backend.AnanB5911417.sp2.Entity.StoreType;
 import com.se.team21.backend.AnanB5911417.sp2.Repository.StoreTypeRepository;
 import com.se.team21.backend.AnanB5911417.sp2.Repository.EventStoreRepository;
@@ -57,7 +53,6 @@ import com.se.team21.backend.b5910311.entity.Profile;
 import com.se.team21.backend.b5910311.repository.ProfileRepository;
 
 import com.se.team21.backend.B5901890.Entity.KindSportMedia;
-import com.se.team21.backend.B5901890.Entity.GenderMedia;
 import com.se.team21.backend.B5901890.Entity.KindMedia;
 import com.se.team21.backend.B5901890.Repository.*;
 import org.springframework.boot.ApplicationRunner;
@@ -65,19 +60,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
-import java.util.stream.Stream;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import java.util.stream.Stream;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.context.annotation.Bean;
 import com.se.team21.backend.B5909711.Entity.*;
 import com.se.team21.backend.B5909711.Repository.*;
 
@@ -106,7 +88,7 @@ public class BackendApplication {
 						   , JoinEventMemberRepository joinEventMemberRepository,
 						   StoreTypeRepository storeTypeRepository,EventStoreRepository eventStoreRepository,AddressRepository addressRepository,
 						   ProfileRepository profileRepository,TransferRepository transferrepository,SponsorStatusRepository sponsorStatusRepository,SponsorRegisRepository sponsorRegisRepository,
-						   BackendApplication backendApplication, GenderMediaRepository genderMediaRepository, KindSportMediaRepository kindSportMediaRepository,
+						    KindSportMediaRepository kindSportMediaRepository,
 						   KindMediaRepository kindMediaRepository,
 						   RegisterMediaRepository registerMediaRepository){
 		return args -> {
@@ -440,11 +422,7 @@ public class BackendApplication {
 				k.setKind_Media(kindActivityss);
 				kindMediaRepository.save(k);
 			});
-			Stream.of("ชาย","หญิง").forEach(genderss -> {
-				GenderMedia Gender5 = new GenderMedia();
-				Gender5.setNameGenderM(genderss);
-				genderMediaRepository.save(Gender5);
-			});
+
 
 			Stream.of("ปั่นจักรยาน","วิ่งมาราธอน").forEach(agess -> {
 				KindSportMedia sport = new KindSportMedia();
