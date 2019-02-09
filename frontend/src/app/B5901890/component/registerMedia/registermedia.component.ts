@@ -99,7 +99,7 @@ export class RegisterMComponent implements OnInit {
     else{
 
         this.save_func();
-        alert('บันทึกเรียบร้อย');
+
       }
   }
   save_func(){
@@ -108,7 +108,7 @@ export class RegisterMComponent implements OnInit {
     .subscribe(
       data => {
           console.log('PUT Request is successful', data);
-          this.refresh();
+          this.refresh();alert('บันทึกเรียบร้อย');
       },
       error => {
           console.log(this.view.NameInput);  //จากhtml
@@ -121,6 +121,7 @@ export class RegisterMComponent implements OnInit {
 
 
            console.log('Rrror', error);
+alert('Error');
      }
 );
     }
