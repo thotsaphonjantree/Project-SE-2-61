@@ -3,8 +3,10 @@ package com.se.team21.backend;
 import com.se.team21.backend.B5926329.Entity.Member;
 import com.se.team21.backend.B5926329.Repository.MemberRepository;
 import com.se.team21.backend.B5926329.Sprint2.Entity.ExpertLevel;
+import com.se.team21.backend.B5926329.Sprint2.Entity.GenderJoin;
 import com.se.team21.backend.B5926329.Sprint2.Entity.JoinEventMember;
 import com.se.team21.backend.B5926329.Sprint2.Repository.ExpertLevelRepository;
+import com.se.team21.backend.B5926329.Sprint2.Repository.GenderJoinRepository;
 import com.se.team21.backend.B5926329.Sprint2.Repository.JoinEventMemberRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,6 +46,9 @@ public class Sprint2B5926329Test {
 	@Autowired
 	private TestEntityManager entityManager;
 
+	@Autowired
+	private GenderJoinRepository genderJoinRepository;
+
 	private Validator validator;
 
 	@Before
@@ -62,6 +67,7 @@ public class Sprint2B5926329Test {
 		joinEventMember.setMembers(memberRepository.getOne(2L));
 		joinEventMember.setSportEvent(sportsEventRepository.getOne(1L));
 		joinEventMember.setExpertLevels(expertLevelRepository.getOne(1L));
+		joinEventMember.setGenders(genderJoinRepository.getOne(1L));
 
 		try {
 			entityManager.persist(joinEventMember);
@@ -70,7 +76,7 @@ public class Sprint2B5926329Test {
 		} catch(javax.validation.ConstraintViolationException e) {
 			fail("Should not pass to this line");
 		}
-		System.out.println("Test1 testJointEventSuccess ==============");
+		System.out.println("Test01 testJointEventSuccess ==============");
 		System.out.println("================= testJointEventSuccess");
 	}
 
@@ -87,6 +93,7 @@ public class Sprint2B5926329Test {
 		joinEventMember.setMembers(memberRepository.getOne(2L));
 		joinEventMember.setSportEvent(sportsEventRepository.getOne(1L));
 		joinEventMember.setExpertLevels(expertLevelRepository.getOne(1L));
+		joinEventMember.setGenders(genderJoinRepository.getOne(1L));
 		try {
 			entityManager.persist(joinEventMember);
 			entityManager.flush();
@@ -95,9 +102,9 @@ public class Sprint2B5926329Test {
 			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
 			assertEquals(violations.isEmpty(), false);
 			assertEquals(violations.size(), 1);
-			System.out.println("Test2 testTagNameNotBeNull ==============");
+			System.out.println("Test02 testTagNameNotBeNull ==============");
 			System.out.println(e);
-			System.out.println("================= Test2 testTagNameNotBeNull");
+			System.out.println("================= Test02 testTagNameNotBeNull");
 		}
 	}
 
@@ -110,6 +117,7 @@ public class Sprint2B5926329Test {
 		joinEventMember.setMembers(memberRepository.getOne(2L));
 		joinEventMember.setSportEvent(sportsEventRepository.getOne(1L));
 		joinEventMember.setExpertLevels(expertLevelRepository.getOne(1L));
+		joinEventMember.setGenders(genderJoinRepository.getOne(1L));
 		try {
 			entityManager.persist(joinEventMember);
 			entityManager.flush();
@@ -118,9 +126,9 @@ public class Sprint2B5926329Test {
 			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
 			assertEquals(violations.isEmpty(), false);
 			assertEquals(violations.size(), 1);
-			System.out.println("Test3 TelNumOver10 =============");
+			System.out.println("Test03 TelNumOver10 =============");
 			System.out.println(e);
-			System.out.println("============ Test3 TelNumOver10 ");
+			System.out.println("============ Test03 TelNumOver10 ");
 		}
 	}
 
@@ -133,6 +141,7 @@ public class Sprint2B5926329Test {
 		joinEventMember.setMembers(memberRepository.getOne(2L));
 		joinEventMember.setSportEvent(sportsEventRepository.getOne(1L));
 		joinEventMember.setExpertLevels(expertLevelRepository.getOne(1L));
+		joinEventMember.setGenders(genderJoinRepository.getOne(1L));
 		try {
 			entityManager.persist(joinEventMember);
 			entityManager.flush();
@@ -141,9 +150,9 @@ public class Sprint2B5926329Test {
 			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
 			assertEquals(violations.isEmpty(), false);
 			assertEquals(violations.size(), 1);
-			System.out.println("Test4 TelNumLess10 ==========");
+			System.out.println("Test04 TelNumLess10 ==========");
 			System.out.println(e);
-			System.out.println("==============Test4 TelNumLess10");
+			System.out.println("==============Test04 TelNumLess10");
 		}
 	}
 
@@ -156,6 +165,7 @@ public class Sprint2B5926329Test {
 		joinEventMember.setMembers(memberRepository.getOne(2L));
 		joinEventMember.setSportEvent(sportsEventRepository.getOne(1L));
 		joinEventMember.setExpertLevels(expertLevelRepository.getOne(1L));
+		joinEventMember.setGenders(genderJoinRepository.getOne(1L));
 		try {
 			entityManager.persist(joinEventMember);
 			entityManager.flush();
@@ -164,43 +174,37 @@ public class Sprint2B5926329Test {
 			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
 			assertEquals(violations.isEmpty(), false);
 			assertEquals(violations.size(), 1);
-			System.out.println("Test5 TelNumMustBeNumber ==============");
+			System.out.println("Test05 TelNumMustBeNumber ==============");
 			System.out.println(e);
-			System.out.println("================Test5 TelNumMustBeNumber");
+			System.out.println("================Test05 TelNumMustBeNumber");
 		}
 	}
 
 
 	@Test
-	public void testPersonalIdMustBeUnique() {
+	public void testPersonalIdMustBeNumber() {
 
-		JoinEventMember joinEventMember1 = new JoinEventMember();
-		joinEventMember1.setTagName("David");
-		joinEventMember1.setTelNum("0123456789");
-		joinEventMember1.setPersonalId("1349900828068");
-		joinEventMember1.setMembers(memberRepository.getOne(2L));
-		joinEventMember1.setSportEvent(sportsEventRepository.getOne(1L));
-		joinEventMember1.setExpertLevels(expertLevelRepository.getOne(1L));
-		entityManager.persist(joinEventMember1);
-		entityManager.flush();
-
-
-		JoinEventMember joinEventMember2 = new JoinEventMember();
-		joinEventMember2.setTagName("Micheal");
-		joinEventMember2.setTelNum("9876543210");
-		joinEventMember2.setPersonalId("1349900828068");
-		joinEventMember2.setMembers(memberRepository.getOne(1L));
-		joinEventMember2.setSportEvent(sportsEventRepository.getOne(2L));
-		joinEventMember2.setExpertLevels(expertLevelRepository.getOne(2L));
+		JoinEventMember joinEventMember = new JoinEventMember();
+		joinEventMember.setTagName("David");
+		joinEventMember.setTelNum("0123456789");
+		joinEventMember.setPersonalId("ABCDEFGHGFDSA");
+		joinEventMember.setMembers(memberRepository.getOne(2L));
+		joinEventMember.setSportEvent(sportsEventRepository.getOne(1L));
+		joinEventMember.setExpertLevels(expertLevelRepository.getOne(1L));
+		joinEventMember.setGenders(genderJoinRepository.getOne(1L));
 
 		try {
-			entityManager.persist(joinEventMember2);
+			entityManager.persist(joinEventMember);
 			entityManager.flush();
+			fail("Should not pass to this line");
 		}
-		catch(javax.persistence.PersistenceException e){
-			System.out.println("Test6 PersonalIdMustBeUnique ===========");
+		catch(javax.validation.ConstraintViolationException e){
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("Test06 PersonalIdMustBeNumber ===========");
 			System.out.println(e);
-			System.out.println("==============Test6 PersonalIdMustBeUnique");
+			System.out.println("==============Test06 PersonalIdMustBeNumber");
 		}
 
 
@@ -215,6 +219,7 @@ public class Sprint2B5926329Test {
 		joinEventMember.setMembers(memberRepository.getOne(2L));
 		joinEventMember.setSportEvent(null);
 		joinEventMember.setExpertLevels(expertLevelRepository.getOne(1L));
+		joinEventMember.setGenders(genderJoinRepository.getOne(1L));
 		try {
 			entityManager.persist(joinEventMember);
 			entityManager.flush();
@@ -223,9 +228,9 @@ public class Sprint2B5926329Test {
 			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
 			assertEquals(violations.isEmpty(), false);
 			assertEquals(violations.size(), 1);
-			System.out.println("Test7 sportId Not be Null ==============");
+			System.out.println("Test07 sportId Not be Null ==============");
 			System.out.println(e);
-			System.out.println("================= Test7 sportId Not be Null");
+			System.out.println("================= Test07 sportId Not be Null");
 		}
 	}
 
@@ -238,6 +243,7 @@ public class Sprint2B5926329Test {
 		joinEventMember.setMembers(null);
 		joinEventMember.setSportEvent(sportsEventRepository.getOne(1L));
 		joinEventMember.setExpertLevels(expertLevelRepository.getOne(1L));
+		joinEventMember.setGenders(genderJoinRepository.getOne(1L));
 		try {
 			entityManager.persist(joinEventMember);
 			entityManager.flush();
@@ -246,9 +252,9 @@ public class Sprint2B5926329Test {
 			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
 			assertEquals(violations.isEmpty(), false);
 			assertEquals(violations.size(), 1);
-			System.out.println("Test8 memberId Not be Null ==============");
+			System.out.println("Test08 memberId Not be Null ==============");
 			System.out.println(e);
-			System.out.println("================= Test8 memberId Not be Null");
+			System.out.println("================= Test08 memberId Not be Null");
 		}
 	}
 
@@ -260,6 +266,7 @@ public class Sprint2B5926329Test {
 		joinEventMember.setPersonalId("1349900828068");
 		joinEventMember.setMembers(memberRepository.getOne(2L));
 		joinEventMember.setSportEvent(sportsEventRepository.getOne(1L));
+		joinEventMember.setGenders(genderJoinRepository.getOne(1L));
 		joinEventMember.setExpertLevels(null);
 		try {
 			entityManager.persist(joinEventMember);
@@ -269,9 +276,9 @@ public class Sprint2B5926329Test {
 			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
 			assertEquals(violations.isEmpty(), false);
 			assertEquals(violations.size(), 1);
-			System.out.println("Test9 memberId Not be Null ==============");
+			System.out.println("Test09 memberId Not be Null ==============");
 			System.out.println(e);
-			System.out.println("================= Test9 memberId Not be Null");
+			System.out.println("================= Test09 memberId Not be Null");
 		}
 	}
 
@@ -286,6 +293,7 @@ public class Sprint2B5926329Test {
 		joinEventMember1.setMembers(memberRepository.getOne(2L));
 		joinEventMember1.setSportEvent(sportsEventRepository.getOne(1L));
 		joinEventMember1.setExpertLevels(expertLevelRepository.getOne(1L));
+		joinEventMember1.setGenders(genderJoinRepository.getOne(1L));
 		entityManager.persist(joinEventMember1);
 		entityManager.flush();
 
@@ -297,6 +305,7 @@ public class Sprint2B5926329Test {
 		joinEventMember2.setMembers(memberRepository.getOne(2L));
 		joinEventMember2.setSportEvent(sportsEventRepository.getOne(1L));
 		joinEventMember2.setExpertLevels(expertLevelRepository.getOne(1L));
+		joinEventMember2.setGenders(genderJoinRepository.getOne(1L));
 
 		try {
 			entityManager.persist(joinEventMember2);
@@ -349,6 +358,65 @@ public class Sprint2B5926329Test {
 		}
 	}
 
+	@Test
+	public void testGenderJoinSuccess() {
+
+		GenderJoin genderJoin = new GenderJoin();
+		genderJoin.setGenderName("Female");
+
+		try {
+			entityManager.persist(genderJoin);
+			entityManager.flush();
+
+		} catch(javax.validation.ConstraintViolationException e) {
+			fail("Should not pass to this line");
+		}
+		System.out.println("Test13 testGenderJoinSuccess ==============");
+		System.out.println("================= Test13 testGenderJoinSuccess");
+	}
+
+	@Test
+	public void testGenderJoinNotBeNull() {
+		ExpertLevel expertLevel = new ExpertLevel();
+		expertLevel.setExpertLevelName(null);
+
+		try {
+			entityManager.persist(expertLevel);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch(javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("Test14 testGenderJoinNotBeNull ==============");
+			System.out.println(e);
+			System.out.println("================= Test14 testGenderJoinNotBeNull");
+		}
+	}
+
+	@Test
+	public void testFKGenderJoinNotBeNull() {
+		JoinEventMember joinEventMember = new JoinEventMember();
+		joinEventMember.setTagName("David");
+		joinEventMember.setTelNum("0123456789");
+		joinEventMember.setPersonalId("1349900828068");
+		joinEventMember.setMembers(memberRepository.getOne(2L));
+		joinEventMember.setSportEvent(sportsEventRepository.getOne(1L));
+		joinEventMember.setExpertLevels(expertLevelRepository.getOne(1L));
+		joinEventMember.setGenders(null);
+		try {
+			entityManager.persist(joinEventMember);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch(javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("Test15 testFKGenderJoinNotBeNull ==============");
+			System.out.println(e);
+			System.out.println("================= Test15 testFKGenderJoinNotBeNull");
+		}
+	}
 
 }
 

@@ -26,7 +26,8 @@ public  class  AccountRecord{
     @SequenceGenerator(name="account_seq",sequenceName="account_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="account_seq")
     @Column(name="idaccount",unique = true, nullable = false)
-    private @NonNull Long idaccount;
+    @NonNull
+    private  Long idaccount;
     @Temporal(TemporalType.DATE)
     @NotNull
     private  Date Savedate;

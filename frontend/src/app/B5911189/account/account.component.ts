@@ -65,7 +65,7 @@ export class AccountComponent implements OnInit {
         alert('กรุณากรอกจำนวนเงิน');
       } else {
         this.SaveData();
-        alert('บันทึกเรียบร้อย');
+
       }
     }
       SaveData() {
@@ -74,6 +74,7 @@ export class AccountComponent implements OnInit {
           .subscribe(
             data => {
               console.log('PUT Request is successful', data);
+              alert('บันทึกเรียบร้อย');
             },
             error => {
               console.log(this.views.inputTime);
@@ -84,9 +85,12 @@ export class AccountComponent implements OnInit {
               console.log(this.views.amount);
               console.log(this.views.eventSelect);
               console.log('Error', error);
+              alert('บันทึกไม่สำเร็จ');
             }
           );
   }
+
+
 
 }
 
