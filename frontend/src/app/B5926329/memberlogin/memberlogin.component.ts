@@ -46,7 +46,7 @@ export class MemberloginComponent implements OnInit {
 
     if(this.checkround === 1){
       alert("Login Success");
-          this.router.navigate(['']);
+          this.router.navigate(['joinevent']);
         }
       else
       alert("Username/Password is Invalid");
