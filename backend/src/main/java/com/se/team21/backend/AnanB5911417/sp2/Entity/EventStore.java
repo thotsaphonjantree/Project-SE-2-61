@@ -26,4 +26,9 @@ public class EventStore {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "StaffForStoreId")
     private com.se.team21.backend.B5901890.Entity.RegisterStaff staffFStore;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "TypeforStoreID")
+    private StoreType setTypeStoreFStore;
+    
 }
