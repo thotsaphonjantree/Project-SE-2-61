@@ -29,7 +29,7 @@ public class AddressController {
     }
     
     @GetMapping("/address/{aid}")
-    public Optional<Address> showLocationById(@PathVariable Long aid) {
+    public Optional<Address> showAddressById(@PathVariable Long aid) {
         return addressRepository.findById(aid);
     }
 

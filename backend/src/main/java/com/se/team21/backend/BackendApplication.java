@@ -192,22 +192,19 @@ public class BackendApplication {
 
 
 			//set Profiles
-			Stream.of( "Thaweechai","Anan","Thotsaphon" ).forEach( firstname ->{
+			Stream.of( "Thotsaphon","Thaweechai" ).forEach( firstname ->{
 				Profile profile = new Profile();
 				if(firstname=="Thaweechai"){
 					profile.setFirstName(firstname);
 					profile.setLastName("Kanklang");
 					profile.setAddressname(addressRepository.getOne(3L));
-				}
-				if(firstname=="Anan"){
-					profile.setFirstName(firstname);
-					profile.setLastName("Noisai");
-					profile.setAddressname(addressRepository.getOne(2L));
+					profile.setName(memberRepository.getOne(2L));
 				}
 				if(firstname=="Thotsaphon"){
 					profile.setFirstName(firstname);
 					profile.setLastName("JanTree");
 					profile.setAddressname(addressRepository.getOne(1L));
+					profile.setName(memberRepository.getOne(1L));
 				}
 				profileRepository.save(profile); 
 				});
