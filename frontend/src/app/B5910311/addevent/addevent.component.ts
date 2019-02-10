@@ -21,7 +21,7 @@ my : any = {
   detail:'',
   price:''
 }
-
+text : String = ''
 
   constructor(private sporteventService: SporteventService,private httpClient:HttpClient) { }
 
@@ -39,16 +39,17 @@ my : any = {
   save(){
 
     if(this.my.eventname === '' || this.my.detail === '' || this.my.eventstaff === '' || this.my.price === '' || this.my.stype === '' || this.my.location === '')
-    alert('กรุณากรอกข้อมูล');
+    this.text = "กรุณากรอกข้อมูลให้ครบถ้วน"
     else {
       this.httpClient.post('http://localhost:8080/event/'+this.my.eventname+'/'+this.my.detail+'/'+this.my.stype+'/'+this.my.location+'/'+this.my.eventstaff+'/'+this.my.price,null).subscribe(
         data => {
-          alert('บันทึกสำเร็จ');
-          document.location.href = 'http://localhost:4200/allsportevent';
+          this.text = "บันทึกสำเร็จ"
+          // document.location.href = 'http://localhost:4200/allsportevent';
           console.log('POST Request is successful', data);
         },
         error => {
           console.log('Error', error);
+          this.text = "กรอกข้อมูลผิดพลาด"
         })
       }
 

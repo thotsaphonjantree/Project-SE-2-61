@@ -21,7 +21,7 @@ export class UpdateprofileComponent implements OnInit {
     lastname:null,
     address:null
   }
-
+  text : String = ''
   constructor(private sporteventService: SporteventService,private httpClient:HttpClient) { }
 
   ngOnInit() {
@@ -30,7 +30,7 @@ export class UpdateprofileComponent implements OnInit {
   }
   edit(){
     if(this.my.pid === '' || this.my.firstname === null || this.my.lastname === null || this.my.address === '' )
-    alert('กรุณากรอกข้อมูล');
+    this.text = "กรุณากรอกข้อมูลให้ครบถ้วน"
     else {
         this.httpClient.put('http://localhost:8080/updateprofile/'+this.my.pid+'/'+'/'+this.my.firstname+'/'+this.my.lastname+'/'+this.my.address ,this.my)
     
@@ -38,13 +38,14 @@ export class UpdateprofileComponent implements OnInit {
             data => {
               if ( data ) {
                 console.log('Success');
-                alert('บันทึกสำเร็จ');
-                document.location.href = 'http://localhost:4200/profiledetail'; 
+                this.text = "บันทึกสำเร็จ"
+                // document.location.href = 'http://localhost:4200/profiledetail'; 
               }
     
             },
             error =>{
             console.log('Error', error);
+            this.text = "กรอกข้อมูลผิดพลาด"
           }
           )
       }

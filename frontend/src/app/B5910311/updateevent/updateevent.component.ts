@@ -36,7 +36,7 @@ export class UpdateeventComponent implements OnInit {
       detail:null,
       price:null
     }
-    
+    text : String = ''
       constructor(private sporteventService: SporteventService,private httpClient:HttpClient,private router : Router,private route: ActivatedRoute) {
         this.route.params.subscribe( params => this.update = params.seid)
        }
@@ -57,7 +57,7 @@ export class UpdateeventComponent implements OnInit {
 
       edit(){
         if(this.view.seid === '' || this.view.eventname === null || this.view.detail === null || this.view.eventstaff === '' || this.view.price === null || this.view.stype === '' || this.view.location === '')
-        alert('กรุณากรอกข้อมูล');
+        this.text = "กรุณากรอกข้อมูลให้ครบถ้วน"
         else {
         this.httpClient.put('http://localhost:8080/updateevent/' +this.view.seid+'/'+ this.view.eventname + '/' + this.view.detail  +
          '/' + this.view.stype + '/' + this.view.location + '/' + this.view.eventstaff +'/'+ this.view.price,this.view)
@@ -66,12 +66,13 @@ export class UpdateeventComponent implements OnInit {
             data => {
               if ( data ) {
                 console.log('Success');
-                alert('บันทึกสำเร็จ');
-                document.location.href = 'http://localhost:4200/allsportevent'; 
+                this.text = "บันทึกสำเร็จ"
+                // document.location.href = 'http://localhost:4200/allsportevent'; 
               }
             },
             error => {
               console.log('Error', error);
+              this.text = "กรอกข้อมูลผิดพลาด"
             })
           }
       }
