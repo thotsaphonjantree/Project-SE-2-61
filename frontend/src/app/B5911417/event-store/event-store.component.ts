@@ -9,6 +9,7 @@ import { HttpClient} from '@angular/common/http';
 })
 export class EventStoreComponent implements OnInit {
 
+  text : String = ''
   storename: '';
   eventII: '';
   octime: '';
@@ -40,16 +41,17 @@ export class EventStoreComponent implements OnInit {
         this.octime === '' ||
         this.storetype === undefined ||
         this.storetel === '') {
-    alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+    this.text = "กรุณากรอกข้อมูลให้ครบถ้วน"
     } else {
         this.httpClient.post('http://localhost:8080/store/create/' + this.storename + '/' + this.eventII + '/'
          + this.octime + '/' + this.storetel + '/' + this.storetype + '/' + this.staffI, null).subscribe(
         data => {
             console.log('PUT Request is successful', data);
+            this.text = "บันทึกข้อมูลสำเร็จ"
         },
         error => {
             console.log('---Error----', error);
-            // window.location.reload();
+            this.text="กรุณากรอกข้อมูลให้ถูกต้อง"
         }
         );
       }

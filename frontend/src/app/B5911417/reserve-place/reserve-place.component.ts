@@ -20,6 +20,8 @@ export class ReservePlaceComponent implements OnInit {
   placeI: '';
   staffI: '';
 
+  text : String = ''
+
   constructor(private httpClient: HttpClient, private reservePlaceService: ReservePlaceService) {
 
 
@@ -44,16 +46,18 @@ export class ReservePlaceComponent implements OnInit {
         this.staffI === undefined ||
         this.Startdate === undefined ||
         this.Enddate === undefined) {
-    alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+    this.text = "กรุณากรอกข้อมูลให้ครบถ้วน"
     } else {
         this.httpClient.post('http://localhost:8080/reserve/create/' + this.eventI + '/' + this.placeI + '/'
          + this.staffI + '/' + this.Startdate + '/' + this.Enddate, null).subscribe(
         data => {
             console.log('PUT Request is successful', data);
+            this.text = "บันทึกข้อมูลสำเร็จ"
         },
         error => {
             console.log('---Error----', error);
              window.location.reload();
+             this.text = "กรอกข้อมูลให้ถูกต้อง"
         }
         );
       }
