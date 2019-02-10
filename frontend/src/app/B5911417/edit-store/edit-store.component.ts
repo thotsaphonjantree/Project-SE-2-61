@@ -19,6 +19,7 @@ export class EditStoreComponent implements OnInit {
     Estoretel: null,
   }
 
+  text : String = ''
   storeUI: Array<any>;
   // storeID: '';
   // EstoreName: '';
@@ -53,12 +54,12 @@ export class EditStoreComponent implements OnInit {
 
   edit() {
     if (this.my.storeID === undefined ||
-      this.my.EstoreName === undefined ||
+      this.my.EstoreName === null ||
       this.my.Eoctime === null ||
       this.my.EeventII === undefined ||
       this.my.Estoretype === undefined ||
-      this.my.Estoretel === undefined) {
-  alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+      this.my.Estoretel === null) {
+    this.text= "กรุณากรอกข้อมูลให้ครบถ้วน"
   } else {
     this.httpClient.put('http://localhost:8080/updateStore/' +  this.my.storeID + '/' + this.my.EstoreName + '/' + this.my.Eoctime  +
      '/' + this.my.EeventII + '/' + this.my.Estoretype + '/' + this.my.Estoretel , this.my)
@@ -67,11 +68,13 @@ export class EditStoreComponent implements OnInit {
         data => {
           if ( data ) {
             console.log('Success');
+            this.text = "บันทึกข้อมูลสำเร็จ"
           }
 
         },
         error => {
         console.log('Uncomplete', error);
+        this.text = "กรุณากรอกข้อมูลให้ถูกต้อง"
       }
       );
   }
