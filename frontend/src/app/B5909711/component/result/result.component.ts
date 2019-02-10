@@ -146,6 +146,7 @@ export class ResultComponent implements OnInit {
       .subscribe(
         data => {
           console.log('PUT Request is successfully', data);
+          alert('PUT Request is successfully');
           this.refresh();
         },
         error => {

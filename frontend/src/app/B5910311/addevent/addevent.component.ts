@@ -43,12 +43,12 @@ my : any = {
     else {
       this.httpClient.post('http://localhost:8080/event/'+this.my.eventname+'/'+this.my.detail+'/'+this.my.stype+'/'+this.my.location+'/'+this.my.eventstaff+'/'+this.my.price,null).subscribe(
         data => {
-            console.log('POST Request is successful', data);
+          alert('บันทึกสำเร็จ');
+          document.location.href = 'http://localhost:4200/allsportevent';
+          console.log('POST Request is successful', data);
         },
         error => {
-          alert('บันทึกสำเร็จ');
-          document.location.href = 'http://localhost:4200/allsportevent'; 
-            console.log('Error', error);
+          console.log('Error', error);
         })
       }
 
