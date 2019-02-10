@@ -29,21 +29,24 @@ export class UpdateprofileComponent implements OnInit {
     this.sporteventService.showAllProfile().subscribe(data => {this.profile = data;})
   }
   edit(){
-
+    if(this.my.pid === '' || this.my.firstname === null || this.my.lastname === null || this.my.address === '' )
+    alert('กรุณากรอกข้อมูล');
+    else {
         this.httpClient.put('http://localhost:8080/updateprofile/'+this.my.pid+'/'+'/'+this.my.firstname+'/'+this.my.lastname+'/'+this.my.address ,this.my)
     
           .subscribe(
             data => {
               if ( data ) {
                 console.log('Success');
+                alert('บันทึกสำเร็จ');
+                document.location.href = 'http://localhost:4200/profiledetail'; 
               }
     
             },
             error =>{
-              alert('บันทึกสำเร็จ');
-              document.location.href = 'http://localhost:4200/profiledetail';
-            console.log('Uncomplete', error);
+            console.log('Error', error);
           }
-          );
+          )
       }
+    }
 }
