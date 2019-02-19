@@ -13,8 +13,9 @@ export class ShowjoinComponent implements OnInit {
 
   joins:Array<any>;
 
+
   ngOnInit() {
-    this.data.getJoineventByMember(this.loginmemberService.getMemberLoginId()).subscribe(
+    this.data.getJoineventByMember(JSON.parse(localStorage.getItem('member')).memberId).subscribe(
       data => {this.joins = data})
   }
 

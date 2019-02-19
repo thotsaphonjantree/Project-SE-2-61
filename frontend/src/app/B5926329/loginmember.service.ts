@@ -7,8 +7,9 @@ import { Observable } from 'rxjs/Observable';
 })
 export class LoginmemberService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
+  authenticatedmember = false;
   setMemberLoginId(id){
     localStorage.setItem('key',id);
   }
@@ -16,4 +17,8 @@ export class LoginmemberService {
   getMemberLoginId(){
     return localStorage.getItem('key');
   }
+
+  MemberLogin(username: String, password: String): Observable<any> {
+    return this.http.post('//localhost:8080/memberlogin/auth/'+ username + '/' + password , {});
+ }
 }
