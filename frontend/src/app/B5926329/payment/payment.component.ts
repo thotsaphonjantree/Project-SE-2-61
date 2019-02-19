@@ -41,8 +41,7 @@ export class PaymentComponent implements OnInit {
       this.paycates = data;
       })
 
-      this.data.getMemberById(this.loginmemberService.getMemberLoginId()).subscribe(
-        data => { this.memberLogin = data})
+      this.memberLogin = JSON.parse(localStorage.getItem('member'));
 
         this.data.getJoineventByMember(this.loginmemberService.getMemberLoginId()).subscribe(
           data => {this.joins = data})

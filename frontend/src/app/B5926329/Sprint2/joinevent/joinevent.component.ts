@@ -43,9 +43,9 @@ text : String = ''
         this.genderJoins = data;
           })
 
+          this.memberLogin = JSON.parse(localStorage.getItem('member'));
 
-      this.data.getMemberById(this.loginmemberService.getMemberLoginId()).subscribe(
-        data => { this.memberLogin = data})
+
 
       this.data.getAllExpertLevel().subscribe(data => {
         this.expertlevels = data;

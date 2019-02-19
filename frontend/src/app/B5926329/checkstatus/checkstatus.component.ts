@@ -19,7 +19,7 @@ export class CheckstatusComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data.getPaymentByMember(this.loginmemberService.getMemberLoginId()).subscribe(
+    this.data.getPaymentByMember(JSON.parse(localStorage.getItem('member')).memberId).subscribe(
       data => {this.payments = data})
 
   }

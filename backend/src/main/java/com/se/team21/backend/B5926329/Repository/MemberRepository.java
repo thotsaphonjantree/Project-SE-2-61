@@ -10,5 +10,5 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RepositoryRestResource
 public interface MemberRepository extends JpaRepository<Member, Long>{
-    List<Member> findByUsernameAndPassword(String username,String password);
+    Member findByUsernameAndPassword(String username,String password);
 }

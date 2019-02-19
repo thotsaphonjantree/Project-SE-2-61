@@ -12,45 +12,38 @@ import { LoginmemberService } from '../loginmember.service';
 })
 export class MemberloginComponent implements OnInit {
 
-  members:Array<any>;
-  checkround:Number;
   text : String = ''
+
+  membernoti: boolean;
+
+
+  credentials = {username: '', password: ''};
 
   constructor(private paymentService:PaymentService,private router: Router,private loginmemberService: LoginmemberService) { }
 
   ngOnInit() {
-    this.paymentService.getMembers().subscribe(data => {
-      this.members = data;
-      })
+
+
   }
 
-  
-  loginUser(event){
-    event.preventDefault()
-    const target = event.target
-    const username = target.querySelector('#username').value
-    const password = target.querySelector('#password').value
-
-    for(let i=0 ; i< this.members.length; i++)
-    {
-        if (this.members[i].username === username && this.members[i].password === password)
-        {
-            this.checkround = 1;
-            console.log("User Found" , this.members[i]);
-            this.loginmemberService.setMemberLoginId(this.members[i].memberId);
-            break;
+  LoginSubmit() {
+    this.loginmemberService.MemberLogin(this.credentials.username.trim(), this.credentials.password.trim()).subscribe(datalogin => {
+        if ( datalogin['success'] ) {
+          this.loginmemberService.authenticatedmember = true;
+            localStorage.setItem('member', JSON.stringify(datalogin['member']));
+            this.router.navigate(['joinevent']);
+            this.membernoti = true;
+            this.text  = 'เข้าสู่ระบบสำเร็จ';
+        } else {
+          this.membernoti = false;
+          this.text = 'กรอกข้อมูลให้ถูกต้อง !!';
+          this.loginmemberService.authenticatedmember = false;
+          this.router.navigate(['/memberlogin']);
         }
-        else
-        this.checkround = 0;
-    }
-
-    if(this.checkround === 1){
-      alert("Login Success");
-          this.router.navigate(['joinevent']);
-        }
-      else
-      //alert("Username/Password is Invalid");
-      this.text = "กรอกข้อมูลให้ถูกต้อง !!"
+    }, error => {
+         this.membernoti = false;
+         this.text = 'กรอกข้อมูลให้ถูกต้อง !!';
+    });
   }
 
 
