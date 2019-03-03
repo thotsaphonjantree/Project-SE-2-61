@@ -94,6 +94,40 @@ public class ResultApplicationTest {
 	}
 
 	@Test
+	public void testDatenotNull() {
+		ResultEntity resultEntity = new ResultEntity();
+		resultEntity.setResultName("Mr.Narawich Saphimarn");
+		resultEntity.setResultAddress("SUT");
+		resultEntity.setResultDate(null);
+		resultEntity.setSportsEvent(sportsEventRepository.getOne(1L));
+		resultEntity.setSportsType(sportsTypeRepository.getOne(1L));
+		resultEntity.setProvinceEntity(provinceRepository.getOne(50L));
+		resultEntity.setRatingEntity(ratingRepository.getOne(1L));
+		resultEntity.setPersonTypeEntity(personTypeRepository.getOne(1L));
+
+		try {
+			entityManager.persist(resultEntity);
+			entityManager.flush();
+
+			fail("Should not pass to this line");
+		} catch(javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			System.out.println("####################################################################");
+			System.out.println("####################################################################");
+			System.out.println("####################################################################");
+			System.out.println("####################################################################");
+			System.out.println("Test Date null");
+			System.out.println("Error" + e.getMessage());
+			System.out.println("####################################################################");
+			System.out.println("####################################################################");
+			System.out.println("####################################################################");
+			System.out.println("####################################################################");
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+		}
+	}
+
+	@Test
 	public void testResultNameCannotBeNull() {
 		ResultEntity resultEntity = new ResultEntity();
 		resultEntity.setResultName(null);
