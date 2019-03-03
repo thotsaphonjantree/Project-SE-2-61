@@ -47,21 +47,25 @@ public class RelatedInformationEntity {
     //Many To One with SportsEvent
     @ManyToOne /*(fetch = FetchType.EAGER, targetEntity = AgencyTypeEntity.class)*/
     @JoinColumn(name = "seid")
+    @NotNull(message="sportId must not be null to be valid")
     private SportsEvent sportsEvent;
 
     //Many To One with AgencyType
     @ManyToOne /*(fetch = FetchType.EAGER, targetEntity = AgencyTypeEntity.class)*/
     @JoinColumn(name = "agencyID")
+    @NotNull(message="agencyId must not be null to be valid")
     private AgencyTypeEntity agencyTypeEntity;
 
     //Many To One with Country
     @ManyToOne /*(fetch = FetchType.EAGER, targetEntity = CountryEntity.class)*/
     @JoinColumn(name = "countryID")
+    @NotNull(message="countryId must not be null to be valid")
     private CountryEntity countryEntity;
 
     //Many To One with Province
     @ManyToOne /*(fetch = FetchType.EAGER, targetEntity = ProvinceEntity.class)*/
     @JoinColumn(name = "provinceID")
+    @NotNull(message="provinceId must not be null to be valid")
     private ProvinceEntity provinceEntity;
 
     public Long getRelatedinformationID() {

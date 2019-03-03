@@ -1,4 +1,5 @@
 package com.se.team21.backend;
+import com.se.team21.backend.B5909711.Repository.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,9 +22,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.se.team21.backend.B5909711.Entity.RelatedInformationEntity;
-import com.se.team21.backend.B5909711.Repository.RelatedInformationRepository;
 import com.se.team21.backend.B5909711.Entity.ResultEntity;
-import com.se.team21.backend.B5909711.Repository.ResultRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -34,10 +33,19 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 @DataJpaTest
 public class RelatedInformationApplicationTest {
     @Autowired
-    ResultRepository resultRepository;
+    RelatedInformationRepository relatedInformationRepository;
 
     @Autowired
-    RelatedInformationRepository relatedInformationRepository;
+    com.se.team21.backend.b5910311.repository.SportsEventRepository sportsEventRepository;
+
+    @Autowired
+    AgencyTypeRepository agencyTypeRepository;
+
+    @Autowired
+    CountryRepository countryRepository;
+
+    @Autowired
+    ProvinceRepository provinceRepository;
 
     @Autowired
     private TestEntityManager entityManager;
@@ -58,6 +66,10 @@ public class RelatedInformationApplicationTest {
         r.setRelatedinformationEmail("NarawichSaphimarn@gmail.com");
         r.setRelatedinformationPhone("0967627350");
         r.setRelatedinformationName("Narawich Saphimarn");
+        r.setSportsEvent(sportsEventRepository.getOne(1L));
+        r.setProvinceEntity(provinceRepository.getOne(50L));
+        r.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r.setCountryEntity(countryRepository.getOne(1L));
 
 
         try {
@@ -90,6 +102,10 @@ public class RelatedInformationApplicationTest {
         r.setRelatedinformationEmail("NarawichSaphimarn@gmail.com");
         r.setRelatedinformationPhone("0967627350");
         r.setRelatedinformationName(null);
+        r.setSportsEvent(sportsEventRepository.getOne(1L));
+        r.setProvinceEntity(provinceRepository.getOne(50L));
+        r.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r.setCountryEntity(countryRepository.getOne(1L));
 
 
         try {
@@ -122,6 +138,10 @@ public class RelatedInformationApplicationTest {
         r.setRelatedinformationEmail("NarawichSaphimarn@gmail.com");
         r.setRelatedinformationPhone("0967627350");
         r.setRelatedinformationName("Narawich Saphimarn");
+        r.setSportsEvent(sportsEventRepository.getOne(1L));
+        r.setProvinceEntity(provinceRepository.getOne(50L));
+        r.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r.setCountryEntity(countryRepository.getOne(1L));
         entityManager.persist(r);
         entityManager.flush();
 
@@ -131,6 +151,10 @@ public class RelatedInformationApplicationTest {
         r2.setRelatedinformationEmail("NarawichSaphimarn@gmail.com");
         r2.setRelatedinformationPhone("0967627350");
         r2.setRelatedinformationName("Narawich Saphimarn");
+        r2.setSportsEvent(sportsEventRepository.getOne(1L));
+        r2.setProvinceEntity(provinceRepository.getOne(50L));
+        r2.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r2.setCountryEntity(countryRepository.getOne(1L));
 
         try {
             entityManager.persist(r2);
@@ -162,6 +186,10 @@ public class RelatedInformationApplicationTest {
         r.setRelatedinformationEmail("NarawichSaphimarn@gmail.com");
         r.setRelatedinformationPhone("adaasdasdGBH------085456");
         r.setRelatedinformationName("Narawich Saphimarn");
+        r.setSportsEvent(sportsEventRepository.getOne(1L));
+        r.setProvinceEntity(provinceRepository.getOne(50L));
+        r.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r.setCountryEntity(countryRepository.getOne(1L));
 
 
         try {
@@ -194,6 +222,10 @@ public class RelatedInformationApplicationTest {
         r.setRelatedinformationEmail("NarawichSaphimarn@gmail.com");
         r.setRelatedinformationPhone("11");
         r.setRelatedinformationName("Narawich Saphimarn");
+        r.setSportsEvent(sportsEventRepository.getOne(1L));
+        r.setProvinceEntity(provinceRepository.getOne(50L));
+        r.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r.setCountryEntity(countryRepository.getOne(1L));
 
 
         try {
@@ -226,6 +258,10 @@ public class RelatedInformationApplicationTest {
         r.setRelatedinformationEmail("NarawichSaphimarn@gmail.com");
         r.setRelatedinformationPhone("0123456789012345678901234567895555");
         r.setRelatedinformationName("Narawich Saphimarn");
+        r.setSportsEvent(sportsEventRepository.getOne(1L));
+        r.setProvinceEntity(provinceRepository.getOne(50L));
+        r.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r.setCountryEntity(countryRepository.getOne(1L));
 
 
         try {
@@ -240,6 +276,330 @@ public class RelatedInformationApplicationTest {
             System.out.println("####################################################################");
             System.out.println("####################################################################");
             System.out.println("Test Max");
+            System.out.println("Error" + e.getMessage());
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testEmailCannotBeNull() {
+        RelatedInformationEntity r = new RelatedInformationEntity();
+        r.setRelatedinformationAddress("SUT");
+        r.setRelatedinformationDate(new Date(100,2,15));
+        r.setRelatedinformationEmail(null);
+        r.setRelatedinformationPhone("0967627350");
+        r.setRelatedinformationName("Narawich Saphimarn");
+        r.setSportsEvent(sportsEventRepository.getOne(1L));
+        r.setProvinceEntity(provinceRepository.getOne(50L));
+        r.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r.setCountryEntity(countryRepository.getOne(1L));
+
+
+        try {
+            entityManager.persist(r);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("Test Email null");
+            System.out.println("Error" + e.getMessage());
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testEmailnoSymbol() {
+        RelatedInformationEntity r = new RelatedInformationEntity();
+        r.setRelatedinformationAddress("SUT");
+        r.setRelatedinformationDate(new Date(100,2,15));
+        r.setRelatedinformationEmail("Narawich^^^>>><<<$$$@gmail.com");
+        r.setRelatedinformationPhone("0967627350");
+        r.setRelatedinformationName("Narawich Saphimarn");
+        r.setSportsEvent(sportsEventRepository.getOne(1L));
+        r.setProvinceEntity(provinceRepository.getOne(50L));
+        r.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r.setCountryEntity(countryRepository.getOne(1L));
+
+
+        try {
+            entityManager.persist(r);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("Test Email no Symbol");
+            System.out.println("Error" + e.getMessage());
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testDatenotNull() {
+        RelatedInformationEntity r = new RelatedInformationEntity();
+        r.setRelatedinformationAddress("SUT");
+        r.setRelatedinformationDate(null);
+        r.setRelatedinformationEmail("NarawichSaphimarn@gmail.com");
+        r.setRelatedinformationPhone("0967627350");
+        r.setRelatedinformationName("Narawich Saphimarn");
+        r.setSportsEvent(sportsEventRepository.getOne(1L));
+        r.setProvinceEntity(provinceRepository.getOne(50L));
+        r.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r.setCountryEntity(countryRepository.getOne(1L));
+
+
+        try {
+            entityManager.persist(r);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("Test Date not Null ");
+            System.out.println("Error" + e.getMessage());
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testAddressnotNULL() {
+        RelatedInformationEntity r = new RelatedInformationEntity();
+        r.setRelatedinformationAddress(null);
+        r.setRelatedinformationDate(new Date(100,2,15));
+        r.setRelatedinformationEmail("NarawichSaphimarn@gmail.com");
+        r.setRelatedinformationPhone("0967627350");
+        r.setRelatedinformationName("Narawich Saphimarn");
+        r.setSportsEvent(sportsEventRepository.getOne(1L));
+        r.setProvinceEntity(provinceRepository.getOne(50L));
+        r.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r.setCountryEntity(countryRepository.getOne(1L));
+
+
+        try {
+            entityManager.persist(r);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("Test Address not NULL");
+            System.out.println("Error" + e.getMessage());
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testAddressNosymbol() {
+        RelatedInformationEntity r = new RelatedInformationEntity();
+        r.setRelatedinformationAddress("ต.ในเมื่อง SUT ถ.มหาวิทยาลัย >><><>> ^^^^^");
+        r.setRelatedinformationDate(new Date(100,2,15));
+        r.setRelatedinformationEmail("NarawichSaphimarn@gmail.com");
+        r.setRelatedinformationPhone("0967627350");
+        r.setRelatedinformationName("Narawich Saphimarn");
+        r.setSportsEvent(sportsEventRepository.getOne(1L));
+        r.setProvinceEntity(provinceRepository.getOne(50L));
+        r.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r.setCountryEntity(countryRepository.getOne(1L));
+
+
+        try {
+            entityManager.persist(r);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("Test Address No symbol");
+            System.out.println("Error" + e.getMessage());
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testsportNotnull() {
+        RelatedInformationEntity r = new RelatedInformationEntity();
+        r.setRelatedinformationAddress("SUT");
+        r.setRelatedinformationDate(new Date(100,2,15));
+        r.setRelatedinformationEmail("NarawichSaphimarn@gmail.com");
+        r.setRelatedinformationPhone("0967627350");
+        r.setRelatedinformationName("Narawich Saphimarn");
+        r.setSportsEvent(null);
+        r.setProvinceEntity(provinceRepository.getOne(50L));
+        r.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r.setCountryEntity(countryRepository.getOne(1L));
+
+
+        try {
+            entityManager.persist(r);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("Test sport not null");
+            System.out.println("Error" + e.getMessage());
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testprovinceNotNULL() {
+        RelatedInformationEntity r = new RelatedInformationEntity();
+        r.setRelatedinformationAddress("SUT");
+        r.setRelatedinformationDate(new Date(100,2,15));
+        r.setRelatedinformationEmail("NarawichSaphimarn@gmail.com");
+        r.setRelatedinformationPhone("0967627350");
+        r.setRelatedinformationName("Narawich Saphimarn");
+        r.setSportsEvent(sportsEventRepository.getOne(1L));
+        r.setProvinceEntity(null);
+        r.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r.setCountryEntity(countryRepository.getOne(1L));
+
+
+        try {
+            entityManager.persist(r);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("Test province not null");
+            System.out.println("Error" + e.getMessage());
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testagencyNotNULL() {
+        RelatedInformationEntity r = new RelatedInformationEntity();
+        r.setRelatedinformationAddress("SUT");
+        r.setRelatedinformationDate(new Date(100,2,15));
+        r.setRelatedinformationEmail("NarawichSaphimarn@gmail.com");
+        r.setRelatedinformationPhone("0967627350");
+        r.setRelatedinformationName("Narawich Saphimarn");
+        r.setSportsEvent(sportsEventRepository.getOne(1L));
+        r.setProvinceEntity(provinceRepository.getOne(50L));
+        r.setAgencyTypeEntity(null);
+        r.setCountryEntity(countryRepository.getOne(1L));
+
+
+        try {
+            entityManager.persist(r);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("Test agency not null");
+            System.out.println("Error" + e.getMessage());
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testCountryNotNULL() {
+        RelatedInformationEntity r = new RelatedInformationEntity();
+        r.setRelatedinformationAddress("SUT");
+        r.setRelatedinformationDate(new Date(100,2,15));
+        r.setRelatedinformationEmail("NarawichSaphimarn@gmail.com");
+        r.setRelatedinformationPhone("0967627350");
+        r.setRelatedinformationName("Narawich Saphimarn");
+        r.setSportsEvent(sportsEventRepository.getOne(1L));
+        r.setProvinceEntity(provinceRepository.getOne(50L));
+        r.setAgencyTypeEntity(agencyTypeRepository.getOne(1L));
+        r.setCountryEntity(null);
+
+
+        try {
+            entityManager.persist(r);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("####################################################################");
+            System.out.println("Test country not null");
             System.out.println("Error" + e.getMessage());
             System.out.println("####################################################################");
             System.out.println("####################################################################");

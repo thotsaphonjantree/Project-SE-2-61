@@ -38,31 +38,31 @@ public class ResultEntity {
     //Many To One with SportsEvent
     @ManyToOne /*(fetch = FetchType.EAGER, targetEntity = AgencyTypeEntity.class)*/
     @JoinColumn(name = "seid")
-    @NotNull(message="SportId must not be null to be valid")
+    @NotNull(message="sportsEventId must not be null to be valid")
     private SportsEvent sportsEvent;
 
     //Many To One with Province
     @ManyToOne /*(fetch = FetchType.EAGER, targetEntity = ProvinceEntity.class)*/
     @JoinColumn(name = "provinceID")
-    @NotNull(message="SportId must not be null to be valid")
+    @NotNull(message="provinceId must not be null to be valid")
     private ProvinceEntity provinceEntity;
 
     //Many To One with SportsType
     @ManyToOne /*(fetch = FetchType.EAGER, targetEntity = ProvinceEntity.class)*/
     @JoinColumn(name = "stid")
-    @NotNull(message="SportId must not be null to be valid")
+    @NotNull(message="sportsTypeId must not be null to be valid")
     private SportsType sportsType;
 
     //Many To One with Rating
     @OneToOne /*(fetch = FetchType.EAGER, targetEntity = AgencyTypeEntity.class)*/
     @JoinColumn(name = "rid")
-    @NotNull(message="SportId must not be null to be valid")
+    @NotNull(message="ratingId must not be null to be valid")
     private RatingEntity ratingEntity;
 
     //Many To One with PersonType
     @OneToOne /*(fetch = FetchType.EAGER, targetEntity = AgencyTypeEntity.class)*/
     @JoinColumn(name = "personTypeID")
-    @NotNull(message="SportId must not be null to be valid")
+    @NotNull(message="personTypeId must not be null to be valid")
     private PersonTypeEntity personTypeEntity;
 
     public Long getResultID() {
