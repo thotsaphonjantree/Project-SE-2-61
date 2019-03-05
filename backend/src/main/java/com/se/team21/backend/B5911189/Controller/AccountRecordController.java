@@ -35,7 +35,7 @@ public class AccountRecordController {
     public AccountRecord accountrecord(@PathVariable Date Time,
                                        @PathVariable String Title, @PathVariable String Income,
                                        @PathVariable String Bank, @PathVariable String fromto,
-                                       @PathVariable String Amount, @PathVariable String SportsEvent){
+                                       @PathVariable Double Amount, @PathVariable String SportsEvent){
 
         AccountRecord a = new AccountRecord();
 

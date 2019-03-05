@@ -19,7 +19,7 @@ export interface AccountTable {
   FromTo: {
     nameFromTo: string;
   };
-  amount: string;
+  amount: number;
 }
 @Component({
   selector: 'app-table',

@@ -47,13 +47,13 @@ public class TestSprint2B5911189 {
     @Test
     public void testSuccess() {
 
-            SponsorRegis sponsor = new SponsorRegis();
-            sponsor.setNameSponsorRegis("ยงศิลป์ ช่อจำปา");
-            sponsor.setSponsorStatus(sponsorStatusRepository.findBynameStatus("ร้านค้า"));
-            sponsor.setAddress("352 หมู่ 6");
-            sponsor.setTransfer(transferRepository.findBynameTransfer("เงินสด"));
-            sponsor.setAmount("54321");
-            sponsor.setPhonenumber("0852519442");
+        SponsorRegis sponsor = new SponsorRegis();
+        sponsor.setNameSponsorRegis("ยงศิลป์ ช่อจำปา");
+        sponsor.setSponsorStatus(sponsorStatusRepository.findBynameStatus("ร้านค้า"));
+        sponsor.setAddress("352 หมู่ 6");
+        sponsor.setTransfer(transferRepository.findBynameTransfer("เงินสด"));
+        sponsor.setAmount(54321D);
+        sponsor.setPhonenumber("0852519442");
 
 
         try {
@@ -75,7 +75,7 @@ public class TestSprint2B5911189 {
         sponsor.setSponsorStatus(sponsorStatusRepository.findBynameStatus("ร้านค้า"));
         sponsor.setAddress("352 หมู่ 6");
         sponsor.setTransfer(transferRepository.findBynameTransfer("เงินสด"));
-        sponsor.setAmount("54321");
+        sponsor.setAmount(54321D);
         sponsor.setPhonenumber("0852519442");
 
 
@@ -107,7 +107,7 @@ public class TestSprint2B5911189 {
         sponsor.setSponsorStatus(sponsorStatusRepository.findBynameStatus(null));
         sponsor.setAddress("352 หมู่ 6");
         sponsor.setTransfer(transferRepository.findBynameTransfer("เงินสด"));
-        sponsor.setAmount("54321");
+        sponsor.setAmount(54321D);
         sponsor.setPhonenumber("0852519442");
 
 
@@ -138,7 +138,7 @@ public class TestSprint2B5911189 {
         sponsor.setSponsorStatus(sponsorStatusRepository.findBynameStatus("ร้านค้า"));
         sponsor.setAddress(null);
         sponsor.setTransfer(transferRepository.findBynameTransfer("เงินสด"));
-        sponsor.setAmount("54321");
+        sponsor.setAmount(54321D);
         sponsor.setPhonenumber("0852519442");
 
 
@@ -170,7 +170,7 @@ public class TestSprint2B5911189 {
         sponsor.setSponsorStatus(sponsorStatusRepository.findBynameStatus("ร้านค้า"));
         sponsor.setAddress("352 หมู่ 6");
         sponsor.setTransfer(transferRepository.findBynameTransfer(null));
-        sponsor.setAmount("54321");
+        sponsor.setAmount(54321D);
         sponsor.setPhonenumber("0852519442");
 
 
@@ -232,7 +232,7 @@ public class TestSprint2B5911189 {
         sponsor.setSponsorStatus(sponsorStatusRepository.findBynameStatus("ร้านค้า"));
         sponsor.setAddress("352 หมู่ 6");
         sponsor.setTransfer(transferRepository.findBynameTransfer("เงินสด"));
-        sponsor.setAmount("54321");
+        sponsor.setAmount(54321D);
         sponsor.setPhonenumber(null);
 
 
@@ -263,7 +263,7 @@ public class TestSprint2B5911189 {
         sponsor.setSponsorStatus(sponsorStatusRepository.findBynameStatus("ร้านค้า"));
         sponsor.setAddress("352 หมู่ 6");
         sponsor.setTransfer(transferRepository.findBynameTransfer("เงินสด"));
-        sponsor.setAmount("54321");
+        sponsor.setAmount(54321D);
         sponsor.setPhonenumber("ABC1234567");
 
 
@@ -294,7 +294,7 @@ public class TestSprint2B5911189 {
         sponsor.setSponsorStatus(sponsorStatusRepository.findBynameStatus("ร้านค้า"));
         sponsor.setAddress("352 หมู่ 6");
         sponsor.setTransfer(transferRepository.findBynameTransfer("เงินสด"));
-        sponsor.setAmount("54321");
+        sponsor.setAmount(54321D);
         sponsor.setPhonenumber("01234567");
 
 
@@ -325,8 +325,8 @@ public class TestSprint2B5911189 {
         sponsor.setSponsorStatus(sponsorStatusRepository.findBynameStatus("ร้านค้า"));
         sponsor.setAddress("352 หมู่ 6");
         sponsor.setTransfer(transferRepository.findBynameTransfer("เงินสด"));
-        sponsor.setAmount("54321");
-        sponsor.setPhonenumber("0123456789111");
+        sponsor.setAmount(54321D);
+        sponsor.setPhonenumber("0123456789011");
 
 
         try {
@@ -349,14 +349,14 @@ public class TestSprint2B5911189 {
         }
     }
     @Test
-    public void testAmountLess2() {
+    public void testAmountNotPositive() {
 
         SponsorRegis sponsor = new SponsorRegis();
         sponsor.setNameSponsorRegis("ยงศิลป์ ช่อจำปา");
         sponsor.setSponsorStatus(sponsorStatusRepository.findBynameStatus("ร้านค้า"));
         sponsor.setAddress("352 หมู่ 6");
         sponsor.setTransfer(transferRepository.findBynameTransfer("เงินสด"));
-        sponsor.setAmount("1");
+        sponsor.setAmount(-500D);
         sponsor.setPhonenumber("0123456789");
 
 
@@ -371,45 +371,15 @@ public class TestSprint2B5911189 {
             System.out.println("==========================================================");
             System.out.println("==========================================================");
             System.out.println("==========================================================");
-            System.out.println("Test10 AmountLess2 ==============");
+            System.out.println("Test10 AmountNotPositive ==============");
             System.out.println(e);
-            System.out.println("================= Test10 AmountLess2");
+            System.out.println("================= Test10 AmountNotPositive");
             System.out.println("==========================================================");
             System.out.println("==========================================================");
             System.out.println("==========================================================");
         }
     }
-    @Test
-    public void testAmountOver10() {
 
-        SponsorRegis sponsor = new SponsorRegis();
-        sponsor.setNameSponsorRegis("ยงศิลป์ ช่อจำปา");
-        sponsor.setSponsorStatus(sponsorStatusRepository.findBynameStatus("ร้านค้า"));
-        sponsor.setAddress("352 หมู่ 6");
-        sponsor.setTransfer(transferRepository.findBynameTransfer("เงินสด"));
-        sponsor.setAmount("10000000001");
-        sponsor.setPhonenumber("0123456789");
-
-
-        try {
-            entityManager.persist(sponsor);
-            entityManager.flush();
-            fail("Should not pass to this line");
-        } catch(javax.validation.ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-            System.out.println("==========================================================");
-            System.out.println("==========================================================");
-            System.out.println("==========================================================");
-            System.out.println("Test11 AmountOver10 ==============");
-            System.out.println(e);
-            System.out.println("================= Test11 AmountOver10");
-            System.out.println("==========================================================");
-            System.out.println("==========================================================");
-            System.out.println("==========================================================");
-        }
-    }
     @Test
     public void testNameSponsorRegisNotEqul() {
 
@@ -418,7 +388,7 @@ public class TestSprint2B5911189 {
         sponsor.setSponsorStatus(sponsorStatusRepository.findBynameStatus("ร้านค้า"));
         sponsor.setAddress("352 หมู่ 6");
         sponsor.setTransfer(transferRepository.findBynameTransfer("เงินสด"));
-        sponsor.setAmount("10051");
+        sponsor.setAmount(10051D);
         sponsor.setPhonenumber("0123456789");
         entityManager.persist(sponsor);
         entityManager.flush();
@@ -428,7 +398,7 @@ public class TestSprint2B5911189 {
         sponsor2.setSponsorStatus(sponsorStatusRepository.findBynameStatus("ห้างหุ้นส่วนจำกัด"));
         sponsor2.setAddress("352 หมู่ 9");
         sponsor2.setTransfer(transferRepository.findBynameTransfer("เช็คเงินสด"));
-        sponsor2.setAmount("1000");
+        sponsor2.setAmount(1000D);
         sponsor2.setPhonenumber("0135456789");
 
         try {
@@ -439,9 +409,9 @@ public class TestSprint2B5911189 {
             System.out.println("==========================================================");
             System.out.println("==========================================================");
             System.out.println("==========================================================");
-            System.out.println("Test10 Unique ===========");
+            System.out.println("Test11 Unique ===========");
             System.out.println(e.getStackTrace());
-            System.out.println("==============Test10 Unique");
+            System.out.println("==============Test11 Unique");
             System.out.println("==========================================================");
             System.out.println("==========================================================");
             System.out.println("==========================================================");

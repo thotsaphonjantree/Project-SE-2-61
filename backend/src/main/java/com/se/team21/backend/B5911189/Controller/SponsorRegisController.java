@@ -30,7 +30,7 @@ public class SponsorRegisController {
     }
 
     @GetMapping(path = "/SponsorRegis/{nameSponsorRegis}/{nameStatus}/{Address}/{nameTransfer}/{Amount}/{Phonenumber}")
-    public SponsorRegis sponsorregis(  @PathVariable String nameSponsorRegis,@PathVariable String nameStatus,@PathVariable String Address,@PathVariable String nameTransfer,@PathVariable String Amount,@PathVariable String Phonenumber )
+    public SponsorRegis sponsorregis(  @PathVariable String nameSponsorRegis,@PathVariable String nameStatus,@PathVariable String Address,@PathVariable String nameTransfer,@PathVariable Double Amount,@PathVariable String Phonenumber )
     {
 
     SponsorRegis s = new SponsorRegis();
