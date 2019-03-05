@@ -12,6 +12,8 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import javax.validation.constraints.Positive;
+
 
 @Entity
 @Data
@@ -31,13 +33,15 @@ public  class  AccountRecord{
     @Temporal(TemporalType.DATE)
     @NotNull
     private  Date Savedate;
-    @Column(unique = true)
-    private @NonNull String Title;
 
     @NotNull
-    @Size(max = 10, min = 2)
-    @Pattern(regexp = "[0-9]*")
-    private String Amount;
+    @Column(unique = true)
+    @Size(max = 20, min = 2)
+    @Pattern(regexp = "^([ก-๙]|[0-9]|[ ./*\\-])+")
+    private @NonNull String Title;
+    @NotNull
+    @Positive
+    private Double Amount;
 
 
     @ManyToOne(fetch = FetchType.EAGER,targetEntity = Banks.class)
@@ -75,8 +79,8 @@ public  class  AccountRecord{
 
 
 
-    public void setAmount(String Amount) { this.Amount = Amount;}
-    public String getAmount() {return Amount;}
+    public void setAmount(Double Amount) { this.Amount = Amount;}
+    public Double getAmount() {return Amount;}
 
     public void setBanks(Banks banks) { this.Banks = banks;}
     public Banks getBanks() {return Banks;}

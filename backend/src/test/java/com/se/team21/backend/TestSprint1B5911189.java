@@ -56,7 +56,7 @@ public class TestSprint1B5911189 {
         accountRecord.setFromto(fromToRepository.findBynameFromTo("บุคคลทั่วไป"));
         accountRecord.setSportsEvent(sportsEventRepository.findByEventname("Bike For Mom"));
         accountRecord.setTitle("รับเงิน");
-        accountRecord.setAmount("50000");
+        accountRecord.setAmount(50000D);
 
         try {
             entityManager.persist(accountRecord);
@@ -77,7 +77,7 @@ public class TestSprint1B5911189 {
         accountRecord.setFromto(fromToRepository.findBynameFromTo("บุคคลทั่วไป"));
         accountRecord.setSportsEvent(sportsEventRepository.findByEventname("Bike For Mom"));
         accountRecord.setTitle("รับเงิน");
-        accountRecord.setAmount("12345");
+        accountRecord.setAmount(12345D);
 
 
         try {
@@ -99,38 +99,38 @@ public class TestSprint1B5911189 {
             System.out.println("==========================================================");
         }
     }
-@Test
-public void testIncomeNotBeNull() {
+    @Test
+    public void testIncomeNotBeNull() {
 
-    AccountRecord accountRecord = new AccountRecord();
-    accountRecord.setSavedate(new Date(1990, 2, 1));
-    accountRecord.setIncomeExpenses(incomeExpensesRepository.findByIncomeExpenses(null));
-    accountRecord.setBanks(bankRepository.findBynameBank("ธนาคารกรุงเทพ"));
-    accountRecord.setFromto(fromToRepository.findBynameFromTo("บุคคลทั่วไป"));
-    accountRecord.setSportsEvent(sportsEventRepository.findByEventname("Bike For Mom"));
-    accountRecord.setTitle("รับเงิน");
-    accountRecord.setAmount("54321");
+        AccountRecord accountRecord = new AccountRecord();
+        accountRecord.setSavedate(new Date(1990, 2, 1));
+        accountRecord.setIncomeExpenses(incomeExpensesRepository.findByIncomeExpenses(null));
+        accountRecord.setBanks(bankRepository.findBynameBank("ธนาคารกรุงเทพ"));
+        accountRecord.setFromto(fromToRepository.findBynameFromTo("บุคคลทั่วไป"));
+        accountRecord.setSportsEvent(sportsEventRepository.findByEventname("Bike For Mom"));
+        accountRecord.setTitle("รับเงิน");
+        accountRecord.setAmount(54321D);
 
 
-    try {
-        entityManager.persist(accountRecord);
-        entityManager.flush();
-        fail("Should not pass to this line");
-    } catch(javax.validation.ConstraintViolationException e) {
-        Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-        assertEquals(violations.isEmpty(), false);
-        assertEquals(violations.size(), 1);
-        System.out.println("==========================================================");
-        System.out.println("==========================================================");
-        System.out.println("==========================================================");
-        System.out.println("Test2 IncomeExpenses Not be Null ==============");
-        System.out.println(e);
-        System.out.println("================= Test2 IncomeExpenses Not be Null");
-        System.out.println("==========================================================");
-        System.out.println("==========================================================");
-        System.out.println("==========================================================");
+        try {
+            entityManager.persist(accountRecord);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================================================");
+            System.out.println("==========================================================");
+            System.out.println("==========================================================");
+            System.out.println("Test2 IncomeExpenses Not be Null ==============");
+            System.out.println(e);
+            System.out.println("================= Test2 IncomeExpenses Not be Null");
+            System.out.println("==========================================================");
+            System.out.println("==========================================================");
+            System.out.println("==========================================================");
+        }
     }
-}
     @Test
     public void testBankNotBeNull() {
 
@@ -141,7 +141,7 @@ public void testIncomeNotBeNull() {
         accountRecord.setFromto(fromToRepository.findBynameFromTo("บุคคลทั่วไป"));
         accountRecord.setSportsEvent(sportsEventRepository.findByEventname("Bike For Mom"));
         accountRecord.setTitle("รับเงิน");
-        accountRecord.setAmount("54321");
+        accountRecord.setAmount(54321D);
 
 
         try {
@@ -174,7 +174,7 @@ public void testIncomeNotBeNull() {
         accountRecord.setFromto(fromToRepository.findBynameFromTo(null));
         accountRecord.setSportsEvent(sportsEventRepository.findByEventname("Bike For Mom"));
         accountRecord.setTitle("รับเงิน");
-        accountRecord.setAmount("54321");
+        accountRecord.setAmount(54321D);
 
 
         try {
@@ -207,7 +207,7 @@ public void testIncomeNotBeNull() {
         accountRecord.setFromto(fromToRepository.findBynameFromTo("บุคคลทั่วไป"));
         accountRecord.setSportsEvent(sportsEventRepository.findByEventname(null));
         accountRecord.setTitle("รับเงิน");
-        accountRecord.setAmount("54321");
+        accountRecord.setAmount(54321D);
 
 
         try {
@@ -267,7 +267,7 @@ public void testIncomeNotBeNull() {
     }
 
     @Test
-    public void testAmountOverThan10() {
+    public void testTitleOverThan20() {
 
         AccountRecord accountRecord = new AccountRecord();
         accountRecord.setSavedate(new Date(1990, 2, 1));
@@ -275,8 +275,8 @@ public void testIncomeNotBeNull() {
         accountRecord.setBanks(bankRepository.findBynameBank("ธนาคารกรุงเทพ"));
         accountRecord.setFromto(fromToRepository.findBynameFromTo("บุคคลทั่วไป"));
         accountRecord.setSportsEvent(sportsEventRepository.findByEventname("Bike For Mom"));
-        accountRecord.setTitle("รับเงิน");
-        accountRecord.setAmount("1234567890112");
+        accountRecord.setTitle("รับเงินจาก ฟหกด่าสฟหกด่าสฟหกดา่สว");
+        accountRecord.setAmount(1234567890D);
 
         try {
             entityManager.persist(accountRecord);
@@ -289,9 +289,9 @@ public void testIncomeNotBeNull() {
             System.out.println("==========================================================");
             System.out.println("==========================================================");
             System.out.println("==========================================================");
-            System.out.println("Test7 Amount Over8 =============");
+            System.out.println("Test7 Title Over8 =============");
             System.out.println(e);
-            System.out.println("============ Test7 Amount Over8 ");
+            System.out.println("============ Test7 Title Over8 ");
             System.out.println("==========================================================");
             System.out.println("==========================================================");
             System.out.println("==========================================================");
@@ -299,7 +299,7 @@ public void testIncomeNotBeNull() {
     }
 
     @Test
-    public void testAmountLess2() {
+    public void testTitleLess2() {
 
         AccountRecord accountRecord = new AccountRecord();
         accountRecord.setSavedate(new Date(1990, 2, 1));
@@ -307,8 +307,8 @@ public void testIncomeNotBeNull() {
         accountRecord.setBanks(bankRepository.findBynameBank("ธนาคารกรุงเทพ"));
         accountRecord.setFromto(fromToRepository.findBynameFromTo("บุคคลทั่วไป"));
         accountRecord.setSportsEvent(sportsEventRepository.findByEventname("Bike For Mom"));
-        accountRecord.setTitle("รับเงิน");
-        accountRecord.setAmount("1");
+        accountRecord.setTitle("ร");
+        accountRecord.setAmount(1D);
 
         try {
             entityManager.persist(accountRecord);
@@ -321,9 +321,9 @@ public void testIncomeNotBeNull() {
             System.out.println("==========================================================");
             System.out.println("==========================================================");
             System.out.println("==========================================================");
-            System.out.println("Test8 Amount less2 ############");
+            System.out.println("Test8 Title less2 ############");
             System.out.println(e);
-            System.out.println("###########Test8 Amount less2 ");
+            System.out.println("###########Test8 Title less2 ");
             System.out.println("==========================================================");
             System.out.println("==========================================================");
             System.out.println("==========================================================");
@@ -331,7 +331,7 @@ public void testIncomeNotBeNull() {
     }
 
     @Test
-    public void testAmountNotNumber() {
+    public void testAmountNotPositive() {
 
         AccountRecord accountRecord = new AccountRecord();
         accountRecord.setSavedate(new Date(1990, 2, 1));
@@ -340,7 +340,7 @@ public void testIncomeNotBeNull() {
         accountRecord.setFromto(fromToRepository.findBynameFromTo("บุคคลทั่วไป"));
         accountRecord.setSportsEvent(sportsEventRepository.findByEventname("Bike For Mom"));
         accountRecord.setTitle("รับเงิน");
-        accountRecord.setAmount("ABC");
+        accountRecord.setAmount(-100D);
 
         try {
             entityManager.persist(accountRecord);
@@ -353,9 +353,9 @@ public void testIncomeNotBeNull() {
             System.out.println("==========================================================");
             System.out.println("==========================================================");
             System.out.println("==========================================================");
-            System.out.println("Test9 Amount NotNumber =============");
+            System.out.println("Test9 Amount NotPositive =============");
             System.out.println(e);
-            System.out.println("============ Test9 Amount NotNumber");
+            System.out.println("============ Test9 Amount NotPositive");
             System.out.println("==========================================================");
             System.out.println("==========================================================");
             System.out.println("==========================================================");
@@ -367,8 +367,8 @@ public void testIncomeNotBeNull() {
 
         AccountRecord accountRecord1 = new AccountRecord();
         accountRecord1.setSavedate(new Date(1990, 2, 5));
-        accountRecord1.setTitle("รับเงินนาย A");
-        accountRecord1.setAmount("50000");
+        accountRecord1.setTitle("รับเงินนาย ก");
+        accountRecord1.setAmount(50000D);
         accountRecord1.setIncomeExpenses(incomeExpensesRepository.findByIncomeExpenses("รายรับ"));
         accountRecord1.setBanks(bankRepository.findBynameBank("ธนาคารกรุงเทพ"));
         accountRecord1.setFromto(fromToRepository.findBynameFromTo("บุคคลทั่วไป"));
@@ -379,8 +379,8 @@ public void testIncomeNotBeNull() {
 
         AccountRecord accountRecord2 = new AccountRecord();
         accountRecord2.setSavedate(new Date(1990, 2, 1));
-        accountRecord2.setTitle("รับเงินนาย A");
-        accountRecord2.setAmount("10000");
+        accountRecord2.setTitle("รับเงินนาย ก");
+        accountRecord2.setAmount(10000D);
         accountRecord2.setIncomeExpenses(incomeExpensesRepository.findByIncomeExpenses("รายรับ"));
         accountRecord2.setSportsEvent(sportsEventRepository.findByEventname("Bike For Mom"));
         accountRecord2.setFromto(fromToRepository.findBynameFromTo("บุคคลทั่วไป"));
@@ -403,6 +403,70 @@ public void testIncomeNotBeNull() {
         }
 
 
+    }
+
+    @Test
+    public void testTitleNotHaveENG() {
+
+        AccountRecord accountRecord = new AccountRecord();
+        accountRecord.setSavedate(new Date(1990, 2, 1));
+        accountRecord.setIncomeExpenses(incomeExpensesRepository.findByIncomeExpenses("รายรับ"));
+        accountRecord.setBanks(bankRepository.findBynameBank("ธนาคารกรุงเทพ"));
+        accountRecord.setFromto(fromToRepository.findBynameFromTo("บุคคลทั่วไป"));
+        accountRecord.setSportsEvent(sportsEventRepository.findByEventname("Bike For Mom"));
+        accountRecord.setTitle("รับเงิน ABC");
+        accountRecord.setAmount(5000D);
+
+        try {
+            entityManager.persist(accountRecord);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================================================");
+            System.out.println("==========================================================");
+            System.out.println("==========================================================");
+            System.out.println("Test11 TitleNotHaveENG =============");
+            System.out.println(e);
+            System.out.println("============ Test11 TitleNotHaveENG");
+            System.out.println("==========================================================");
+            System.out.println("==========================================================");
+            System.out.println("==========================================================");
+        }
+    }
+
+    @Test
+    public void testTitleBeNotNull() {
+
+        AccountRecord accountRecord = new AccountRecord();
+        accountRecord.setSavedate(new Date(1990, 2, 1));
+        accountRecord.setIncomeExpenses(incomeExpensesRepository.findByIncomeExpenses("รายรับ"));
+        accountRecord.setBanks(bankRepository.findBynameBank("ธนาคารกรุงเทพ"));
+        accountRecord.setFromto(fromToRepository.findBynameFromTo("บุคคลทั่วไป"));
+        accountRecord.setSportsEvent(sportsEventRepository.findByEventname("Bike For Mom"));
+        accountRecord.setTitle(null);
+        accountRecord.setAmount(1234567890D);
+
+        try {
+            entityManager.persist(accountRecord);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println("==========================================================");
+            System.out.println("==========================================================");
+            System.out.println("==========================================================");
+            System.out.println("Test12 Title BeNotNull =============");
+            System.out.println(e);
+            System.out.println("============ Test12 Title BeNotNull ");
+            System.out.println("==========================================================");
+            System.out.println("==========================================================");
+            System.out.println("==========================================================");
+        }
     }
 
 

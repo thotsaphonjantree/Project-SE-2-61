@@ -11,6 +11,7 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import javax.validation.constraints.Positive;
 
 @Entity
 @Data
@@ -30,10 +31,11 @@ public  class  SponsorRegis{
     @NotNull
     @Column(unique = true)
     private  String nameSponsorRegis;
+
     @NotNull
-    @Size(max = 10, min = 2)
-    @Pattern(regexp = "[0-9]*")
-    private  String Amount;
+    @Positive
+    private Double Amount;
+
     @NotNull
     private  String Address;
     @NotNull
@@ -63,8 +65,8 @@ public  class  SponsorRegis{
     public String getNameSponsorRegis() { return nameSponsorRegis ;}
 
 
-    public void setAmount(String Amount) { this.Amount = Amount;}
-    public String getAmount() {return Amount;}
+    public void setAmount(Double Amount) { this.Amount = Amount;}
+    public Double getAmount() {return Amount;}
 
     public void setAddress(String Address) { this.Address = Address;}
     public String getAddress() {return Address;}
