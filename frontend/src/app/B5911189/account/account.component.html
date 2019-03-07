@@ -46,7 +46,7 @@
 
         <label  class = "Texts">: จาก :</label>
         <mat-form-field class="example-full-width2">
-          <mat-select placeholder="ภายใน/ภายนอก"  name = "type" [(ngModel)]="views.fromSelect" >
+          <mat-select placeholder="รับเงินจาก"  name = "type" [(ngModel)]="views.fromSelect" >
             <mat-option *ngFor="let watchs of recordType" [value]="watchs.nameFromTo">
               {{watchs.nameFromTo}}
             </mat-option>
